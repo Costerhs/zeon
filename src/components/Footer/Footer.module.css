@@ -1,0 +1,76 @@
+.boss{
+    
+    height: 235px;
+    background-color: rgba(29, 29, 27, 1);
+    color: white;
+    margin: 0 auto;
+}
+
+.item{
+    display: flex;
+}
+.block{
+    margin-top: 50px;
+    margin-right: 250px;
+    line-height: .7;
+    text-align: left;
+    font-weight: 100;
+}
+.blockS{
+    margin-top: 50px;
+    margin-right: 25px;
+    line-height: .7;
+    text-align: left;
+    font-weight: 100;
+}
+.forLogo{
+    margin: auto 0;
+}
+.logo{
+    width: 243px;
+    height: 105px;
+    padding-left: 60px;
+    padding-right: 120px;
+}
+.none{
+    text-decoration: none;
+    color: white;
+}
+
+.icon{
+   position: relative;
+   top: 3px;
+}
+
+.tel{
+   margin-right: 4px;
+    
+}
+.info{
+    text-align: left;
+    margin: auto 0;
+    margin-left: 25px;
+    padding-bottom: 10px;
+    color: 
+    rgba(185, 185, 185, 1);
+}
+.adre{
+    text-decoration: none;
+    color: white;
+}
+
+.blockHid{
+    margin-top: 50px;
+   
+    line-height: .1;
+    text-align: left;
+    font-weight: 100;
+    border: 1px solid gray;
+    border-radius: 10px;
+}
+
+.flex{
+    display: flex;
+    flex-direction: row;
+    margin-right: 250px;
+}

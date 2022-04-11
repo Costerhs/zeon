@@ -1,0 +1,29 @@
+.boss{
+    margin: 0 auto;
+    display: flex;
+
+}
+.face,.img{
+    padding: 5px;
+}
+.imgs{
+    height: 844px;
+    display:  flex;
+}
+.twoImg{
+    display: flex;
+    flex-direction: column;
+}
+.face{
+    margin: auto 0;
+    
+}
+.text{
+    width: 365px;
+    height: 637px;
+    
+   padding-left: 40px;
+   padding-top: 20px;
+    text-align: left;
+    margin: auto auto;
+}

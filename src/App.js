@@ -9,7 +9,15 @@ import Collection from './components/Collection/Collection';
 import News from './components/News/News';
 import Footer from './components/Footer/Footer';
 import Help from './components/Help/Help';
+import { useDispatch } from 'react-redux';
+import { setCart, setPro } from './redux/reducers/cartReducer';
+import { useEffect } from 'react';
+import Search from './components/Search/Search';
 const App = () => {
+  let dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(setCart());
+  }, []);
   return (
     <div className="boss">
       <Header />
@@ -21,6 +29,7 @@ const App = () => {
         <Route path="/collection" element={<Collection />} />
         <Route path="/news" element={<News />} />
         <Route path="/help" element={<Help />} />
+        <Route path="/search" element={<Search />} />
       </Routes>
       <Footer />
     </div>

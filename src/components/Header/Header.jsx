@@ -1,13 +1,18 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { Navigate, NavLink, useNavigate } from 'react-router-dom';
 import hed from './Header.module.css';
 
 import logo from './logo.png';
 import heart from './img/heart.png';
 import shop from './img/shoppingRed.png';
 import lupa from './img/lupa.png';
+import { useDispatch } from 'react-redux';
+import { setResult } from '../../redux/reducers/cartReducer';
 const Header = () => {
+  let navigate = useNavigate();
+  let dispatch = useDispatch();
   let teleph = useRef(null);
+  let serk = useRef();
   let [forTel, setForTel] = useState(false);
   const handleClick = (e) => {
     const path = e.path || (e.composedPath && e.composedPath());
@@ -18,6 +23,14 @@ const Header = () => {
   useEffect(() => {
     document.body.addEventListener('click', handleClick);
   }, []);
+  //для поиска\
+
+  const setForResult = (event) => {
+    if (event.keyCode === 13) {
+      dispatch(setResult(serk.current.value));
+      return navigate('/search');
+    }
+  };
   return (
     <div className={hed.boss}>
       <div className={hed.up}>
@@ -62,7 +75,13 @@ const Header = () => {
           </NavLink>
         </div>
         <div className={hed.inp}>
-          <input type="search" className={hed.input} placeholder="Поиск" />
+          <input
+            type="search"
+            ref={serk}
+            className={hed.input}
+            placeholder="Поиск"
+            onKeyDown={setForResult}
+          />
           <img src={lupa} alt="nice" className={hed.lup} />
         </div>
         <div className={hed.plus}>

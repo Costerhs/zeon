@@ -1,11 +1,14 @@
 import axios from 'axios';
+import produce from 'immer';
 
 const SET_PRODUCT = 'SET_PRODUCT';
 const SET_RESULT = 'SET_RESULT';
+const FETCH_HEART = 'FETCH_HEART';
 
 let intialize = {
-  product: {},
+  product: [],
   concurrence: '',
+  activeRedH: false,
 };
 const cartReducer = (state = intialize, action) => {
   switch (action.type) {
@@ -14,6 +17,20 @@ const cartReducer = (state = intialize, action) => {
 
     case SET_RESULT:
       return { ...state, concurrence: action.text };
+
+    case FETCH_HEART:
+      return produce(state, (draft) => {
+        draft.product.map((el) => {
+          if (el.id === action.id) {
+            el.heart = !el.heart;
+          }
+        });
+        if (draft.product.some((el) => el.heart === true) === true) {
+          draft.activeRedH = true;
+        } else {
+          draft.activeRedH = false;
+        }
+      });
     default:
       return state;
   }
@@ -21,6 +38,7 @@ const cartReducer = (state = intialize, action) => {
 
 export const setPro = (data) => ({ type: SET_PRODUCT, data });
 export const setResult = (text) => ({ type: SET_RESULT, text });
+export const fetchHearts = (id) => ({ type: FETCH_HEART, id });
 
 export const setCart = () => (dispatch) => {
   axios

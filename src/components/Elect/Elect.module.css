@@ -1,7 +1,7 @@
-.boss{
-    text-align: left;
-    
-    }
+/* .boss{
+    display:  flex;
+    flex-wrap: wrap;
+} */
 
 .wrap{
     width: 1500px;
@@ -11,13 +11,4 @@
 
     margin-left: 150px;
     margin: 0 auto;
-}
-
-.zagol{
-    margin-left: 180px;
-}
-
-.none{
-    text-decoration: none;
-    color: black;
 }

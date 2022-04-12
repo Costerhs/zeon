@@ -4,6 +4,8 @@
     background-color: rgba(29, 29, 27, 1);
     color: white;
     margin: 0 auto;
+    background-size: 100%;
+    margin-top: 70px;
 }
 
 .item{
@@ -25,6 +27,8 @@
 }
 .forLogo{
     margin: auto 0;
+        padding-right: 200px;
+    
 }
 .logo{
     width: 243px;

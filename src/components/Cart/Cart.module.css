@@ -1,0 +1,79 @@
+/* 286
+437 */
+.boss{
+
+    width: 370px;
+    height: 700px;
+    margin: 2px;
+    text-align: left;
+    
+}
+
+
+.img{
+    width: 365px;
+    margin-bottom: -14px;
+    position: relative;
+    z-index: 0;
+
+}
+.boss{
+    transition: transform 400ms ease-out;
+}
+.boss:hover{
+    transform: scale(1.02);
+}
+
+/*описание*/
+.h2,.price,.size{
+    margin-left: 10px;
+    font-weight: normal;
+}
+.char{
+  background-color: white;
+  width: 365px;
+}
+.h2{
+    font-family: 'Montserrat';
+    font-style: normal;
+    color: #393939;;
+    padding-top: 7px;
+}
+
+.price{
+font-weight: 600;
+}
+
+.heart{
+    position: relative;
+    left: 320px;
+    top: 40px;
+    z-index: 2;
+
+}
+
+
+.none{
+    text-decoration: none;
+    color: black;
+}
+.three{
+    position: absolute;
+    margin-top: 27px;
+    z-index: 2;
+}
+
+.imgThree{
+width: 70px;
+}
+.procent{
+    font-size: 20px;
+    color:white;
+    transform: rotate(-40deg);
+    margin-top: -73px;
+}
+
+.oldPrice{
+    text-decoration:line-through;
+    color: gray;
+}

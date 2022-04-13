@@ -3,7 +3,7 @@
 .boss{
 
     width: 370px;
-    height: 700px;
+    height: 730px;
     margin: 2px;
     text-align: left;
     
@@ -77,3 +77,49 @@ width: 70px;
     text-decoration:line-through;
     color: gray;
 }
+.price,.oldPrice,.size{
+    margin-top:-10px ;
+}
+.colorGroup{
+    display:  flex;
+    margin-top: -10px;
+    margin-left: 10px;
+}
+.color{
+    width: 15px;
+
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+.coloru{
+    width: 14px;
+
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.colorActive{
+    width: 20px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+
+    
+
+    border: 1px solid gray;
+    border-radius: 100px;
+
+}
+
+.colorItem{
+}
+/* 
+.opac{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border: 1px solid gray;
+    border-radius: 100px;
+    
+    
+    margin-left: 2px;
+} */

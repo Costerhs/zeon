@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import Cart from '../Cart/Cart';
+import Similar from '../Similar/Similar';
 import elc from './Elect.module.css';
 function Elect() {
   let obj = useSelector((state) => state.cart.product);
@@ -12,6 +13,7 @@ function Elect() {
           .map((el) => {
             return (
               <Cart
+                data={el}
                 heart={el.heart}
                 key={el.id}
                 id={el.id}
@@ -23,6 +25,9 @@ function Elect() {
               />
             );
           })}
+      </div>
+      <div className={elc.sim}>
+        <Similar />
       </div>
     </div>
   );

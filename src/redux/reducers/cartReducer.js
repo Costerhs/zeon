@@ -1,22 +1,25 @@
 import axios from 'axios';
 import produce from 'immer';
+import { range, shuffle } from 'lodash';
 
 const SET_PRODUCT = 'SET_PRODUCT';
 const SET_RESULT = 'SET_RESULT';
 const FETCH_HEART = 'FETCH_HEART';
+const SET_RANDOM = 'SET_RANDOM';
 
 let intialize = {
   product: [],
   concurrence: '',
   activeRedH: false,
+  forColor: [1, 2, 3, 4, 5, 6, 7, 8],
+  random: [],
 };
+
+let f = shuffle(range(5)).slice(0, 8);
 const cartReducer = (state = intialize, action) => {
   switch (action.type) {
     case SET_PRODUCT:
       return { ...state, product: action.data };
-
-    case SET_RESULT:
-      return { ...state, concurrence: action.text };
 
     case FETCH_HEART:
       return produce(state, (draft) => {
@@ -25,18 +28,27 @@ const cartReducer = (state = intialize, action) => {
             el.heart = !el.heart;
           }
         });
-        if (draft.product.some((el) => el.heart === true) === true) {
+        let b = draft.product.some((el) => el.heart === true);
+        if (b === true) {
           draft.activeRedH = true;
         } else {
           draft.activeRedH = false;
         }
       });
+
+    case SET_RANDOM:
+      return {
+        ...state,
+        random: shuffle(range(5)).slice(0, 8),
+      };
     default:
       return state;
   }
 };
 
 export const setPro = (data) => ({ type: SET_PRODUCT, data });
+export const setRandom = () => ({ type: SET_RANDOM });
+
 export const setResult = (text) => ({ type: SET_RESULT, text });
 export const fetchHearts = (id) => ({ type: FETCH_HEART, id });
 

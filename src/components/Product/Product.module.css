@@ -1,0 +1,140 @@
+.boss{
+    /* border: 1px solid red; */
+    width: 1700px;
+    margin: 0 auto;
+    font-family: 'Montserrat';
+}
+.cont,.articul,.color,.cont_images_bigImg{
+    display: flex;
+}
+/*фотки*/
+.cont_images{
+    margin-top: 10px;
+    width: 1000px;
+    /* border: 1px solid black; */
+}
+.cont_images_bigImg{
+
+    flex-wrap: wrap;
+}
+.bigImg_item{
+    width: 480px;
+    margin: 5px ;
+}
+.smallImg_item{
+    width: 240px;
+    margin: 5px;
+}
+
+
+/*описание*/
+/* .forSquare{
+    background-color: white;
+    border: 1px solid red;
+} */
+.forSquare{
+    
+
+    width: 600px;
+    height: 634px;
+
+    text-align: left;
+
+    margin-left: 30px;
+    margin-top: 16px;
+    
+
+    background-color: white;
+    
+}
+.square{
+    margin-left: 20px;
+}
+
+.h,.price{
+    font-weight: 500;
+}
+.articul{
+    margin-top: -14px;
+}
+.price{
+    margin-top: 0px;
+}
+.desc{
+    font-weight: 500;
+}
+.description{
+    width: 560px;
+
+    
+}
+.text{
+    color:  #6A6A6A;
+    line-height: 170%;
+    margin-top: -17px;
+    
+}
+.pAr{
+    margin-right: 5px;
+    font-weight: 800;
+}
+
+.line{
+    margin-top: -17px;
+
+    display: flex;
+    flex-wrap: wrap;
+}
+.item{
+    margin-right: 40px;
+    display: flex;
+}
+.itemP{
+    margin-left: 15px;
+    margin-top: 20px;
+
+    font-size: 18px;
+}
+
+.addCart{
+    background: #1D1D1B;;
+    color: white;
+
+    width: 500px;
+    height: 50px;
+
+    font-size: 19px;
+
+    border: 0px;
+}
+.addCart:hover{
+    background-color: white;
+    color: #1D1D1B;
+    border: 1px solid #1D1D1B;;
+}
+.btnImg{
+    position: absolute;
+    margin-left: -30px;
+    width: 22px;
+}
+.btnp{
+   
+    margin-top: -15px;
+}
+.toggleElect{
+    height: 50px;
+    width: 50px;
+
+    color: white;
+
+    border: 0px;
+
+    background: #1D1D1B;;
+
+    margin-left: 10px;
+    
+}
+
+.buttons{
+    display:  flex;
+}

@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import Cart from '../Cart/Cart';
 import sear from './Search.module.css';
 function Search() {
-  let result = useSelector((state) => state.cart.concurrence);
+  let result = useSelector((state) => state.head.concurrence);
   let pros = useSelector((state) => state.cart.product);
 
   return (
@@ -23,6 +23,7 @@ function Search() {
           .map((el) => {
             return (
               <Cart
+                data={el}
                 heart={el.heart}
                 key={el.id}
                 id={el.id}
@@ -31,6 +32,7 @@ function Search() {
                 size={el.size}
                 img={el.image}
                 oldPrice={el.oldPrice}
+                color={el.color}
               />
             );
           })}

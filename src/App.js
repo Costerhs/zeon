@@ -13,6 +13,8 @@ import { setCart } from './redux/reducers/cartReducer';
 import { useEffect } from 'react';
 import Search from './components/Search/Search';
 import Basket from './components/Basket/Basket';
+import Product from './components/Product/Product';
+import Similar from './components/Similar/Similar';
 
 const App = () => {
   let dispatch = useDispatch();
@@ -31,6 +33,8 @@ const App = () => {
         <Route path="/news" element={<News />} />
         <Route path="/help" element={<Help />} />
         <Route path="/search" element={<Search />} />
+        <Route path="/product" element={<Product />} />
+        <Route path="/similar" element={<Similar />} />
       </Routes>
       <Footer />
     </div>

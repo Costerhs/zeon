@@ -1,0 +1,14 @@
+.boss{
+    text-align: left;
+}
+
+.cont{
+    display: flex;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+.cart{
+  
+    margin-right: 50px;
+}

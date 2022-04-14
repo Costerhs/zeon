@@ -1,9 +1,10 @@
-import React from 'react';
-import { useDispatch } from 'react-redux';
-import { fetchHearts } from '../../../redux/reducers/cartReducer';
+import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { addProduct, fetchHearts } from '../../../redux/reducers/cartReducer';
 import { fetchActualHeart } from '../../../redux/reducers/productReducer';
 import prod from './../Product.module.css';
-
+import classNames from 'classnames';
+import { useNavigate } from 'react-router-dom';
 // name={actualItem.name}
 // art={actualItem.articul}
 // color={actualItem.color}
@@ -12,11 +13,32 @@ import prod from './../Product.module.css';
 // size={actualItem.size}
 // lineNum={5}
 // structure={actualItem.structure}
-function Characteristic({ id, heart, name, price, color, desc, art, size, lineNum, structure }) {
+function Characteristic({
+  fullObj,
+  id,
+  heart,
+  name,
+  price,
+  color,
+  desc,
+  art,
+  size,
+  lineNum,
+  structure,
+}) {
+  let navigate = useNavigate();
+  // let flag = useSelector((state) => state.cart.product[id].cart);
+  // console.log(flag);
+  let colorArr = useSelector((state) => state.cart.colores);
+
   let dispatch = useDispatch();
   const toggleHeart = () => {
     dispatch(fetchActualHeart());
-    dispatch(fetchHearts(id));
+    let r = heart === true ? false : true;
+    dispatch(fetchHearts(id, r));
+  };
+  const addToProduct = () => {
+    dispatch(addProduct(fullObj));
   };
 
   return (
@@ -30,7 +52,22 @@ function Characteristic({ id, heart, name, price, color, desc, art, size, lineNu
         </div>
         <div className={prod.articul}>
           <p className={prod.pAr}>Цвет:</p>
-          <p>{color}</p>
+          <div className={prod.colorGroup}>
+            {colorArr.map((el, index) => {
+              let ind = index + 1 == color;
+
+              let style = {
+                background: el,
+                border: ind ? '2px solid' + el : null,
+                marginTop: ind ? '-3px' : null,
+              };
+              return (
+                <div className={prod.colorItem}>
+                  <div className={classNames(prod.opac)} style={style}></div>
+                </div>
+              );
+            })}
+          </div>
         </div>
         <h1 className={prod.price}>{price}р</h1>
         <div className={prod.description}>
@@ -57,7 +94,7 @@ function Characteristic({ id, heart, name, price, color, desc, art, size, lineNu
         </div>
         {/**square_line */}
         <div className={prod.buttons}>
-          <button className={prod.addCart}>
+          <button className={prod.addCart} onClick={addToProduct}>
             {' '}
             <img src="img/cartWhite.png" alt="nice" className={prod.btnImg} />
             <span className={prod.btnp}> Добавить в корзину</span>
@@ -74,3 +111,26 @@ function Characteristic({ id, heart, name, price, color, desc, art, size, lineNu
 }
 
 export default Characteristic;
+/*{!flag ? (
+            <button className={prod.addCart} onClick={addToProduct}>
+              {' '}
+              <img src="img/cartWhite.png" alt="nice" className={prod.btnImg} />
+              <span className={prod.btnp}> Добавить в корзину</span>
+            </button>
+          ) : (
+            <button
+              className={prod.addCart}
+              onClick={() => {
+                setFlag((el) => !el);
+                return navigate('/cart');
+              }}>
+              {' '}
+              <img src="img/cartWhite.png" alt="nice" className={prod.btnImg} />
+              <span className={prod.btnp}> Перейти в корзину</span>
+            </button>
+          )}*/
+/*<button className={prod.addCart} onClick={addToProduct}>
+            {' '}
+            <img src="img/cartWhite.png" alt="nice" className={prod.btnImg} />
+            <span className={prod.btnp}> Добавить в корзину</span>
+          </button>*/

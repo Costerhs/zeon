@@ -22,6 +22,7 @@ function Elect() {
                 size={el.size}
                 img={el.image}
                 oldPrice={el.oldPrice}
+                color={el.color}
               />
             );
           })}

@@ -9,6 +9,7 @@ import shop from './img/shoppingRed.png';
 import lupa from './img/lupa.png';
 import { useDispatch, useSelector } from 'react-redux';
 import { setResult } from '../../redux/reducers/headerReducer';
+import { setResultProd } from '../../redux/reducers/cartReducer';
 const Header = () => {
   let navigate = useNavigate();
   let dispatch = useDispatch();
@@ -30,13 +31,13 @@ const Header = () => {
   //для поиска\
 
   const setForResult = (event) => {
-    // if (event.keyCode === 13) {
-    //   dispatch(setResult(serk.current.value));
-    //   serk.current.value = '';
-    //   return navigate('/search');
-    // }
-    dispatch(setResult(serk.current.value));
-    return navigate('/search');
+    if (event.keyCode === 13) {
+      dispatch(setResultProd(serk.current.value));
+      serk.current.value = '';
+      return navigate('/search');
+    }
+    // dispatch(setResult(serk.current.value));
+    // return navigate('/search');
   };
   return (
     <div>

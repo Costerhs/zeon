@@ -9,17 +9,19 @@ import { toggleId } from '../../redux/reducers/productReducer';
   /* <NavLink to={'/product/' + el.id} className={sear.none}></NavLink> */
 }
 function Cart({ name, heart, data, price, size, color, img, id, oldPrice }) {
-  let colorArr = useSelector((state) => state.cart.forColor);
+  let colorArr = useSelector((state) => state.cart.colores);
 
   let dispatch = useDispatch();
   const activeHeart = () => {
-    dispatch(fetchHearts(id));
+    let r = heart === true ? false : true;
+    dispatch(fetchHearts(id, r));
   };
 
   let percent = Math.round(price / (oldPrice / 100));
   let setIdForProduct = () => {
     dispatch(toggleId(data));
     dispatch(setRandom());
+    window.scroll(0, 0);
   };
   return (
     <div>
@@ -53,30 +55,19 @@ function Cart({ name, heart, data, price, size, color, img, id, oldPrice }) {
           </NavLink>
           <div className={cart.colorGroup}>
             {colorArr.map((el, index) => {
-              let colors = index === 0 || index === 2 ? cart.coloru : cart.color;
+              let ind = index + 1 == color;
 
+              let style = {
+                background: el,
+                border: ind ? '2px solid' + el : null,
+                marginTop: ind ? '-3px' : null,
+              };
               return (
                 <div className={cart.colorItem}>
-                  <div className={cart.opac}></div>
-                  <img
-                    key={el.id}
-                    src={'img/color/' + el + '.png'}
-                    className={el == color ? cart.colorActive : colors}
-                    alt=""
-                    // className={cart.colorActive}
-                  />
+                  <div className={classNames(cart.opac)} style={style}></div>
                 </div>
               );
             })}
-            {/* <img src="img/color/color1.png" className={cart.color} alt="" />
-            <img src="img/color/color2.png" className={cart.coloru} alt="" />
-            <img src="img/color/color3.png" className={cart.color} alt="" />
-            <img src="img/color/color4.png" className={cart.color} alt="" />
-            <img src="img/color/color5.png" className={cart.color} alt="" />
-            <img src="img/color/color6.png" className={cart.color} alt="" />
-            <img src="img/color/color7.png" className={cart.color} alt="" />
-            <img src="img/color/color8.png" className={cart.coloru} alt="" /> */}
-            {/* <div style={background}></div> */}
           </div>
         </div>
       </div>
@@ -85,3 +76,18 @@ function Cart({ name, heart, data, price, size, color, img, id, oldPrice }) {
 }
 
 export default Cart;
+
+/*{colorArr.map((el, index) => {
+  let colors = index === 0 || index === 2 ? cart.coloru : cart.color;
+
+  return (
+    <div className={cart.colorItem}>
+      <div className={cart.opac} style={{ background: 'red' }}></div>
+       <img
+        key={el.id}
+        src={'img/color/' + el + '.png'}
+        className={el == color ? cart.colorActive : colors}
+        alt=""
+         className={cart.colorActive}
+      /> 
+    </div>*/

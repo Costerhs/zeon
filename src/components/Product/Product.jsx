@@ -9,7 +9,7 @@ import Images from './Auxiliary/Images';
 import prod from './Product.module.css';
 const Product = () => {
   let actualItem = useSelector((el) => el.product.actualItem);
-  let pros = useSelector((state) => state.cart.product);
+  let [flag, setFlag] = useState(false);
   return (
     <div className={prod.boss}>
       <div className={prod.cont}>
@@ -17,6 +17,11 @@ const Product = () => {
         <Images img={actualItem.image} status={actualItem.status} id={actualItem.id} />
         {/* images */}
         <Characteristic
+          setFlag={() => {
+            setFlag((el) => !el);
+          }}
+          flag={flag}
+          fullObj={actualItem}
           heart={actualItem.heart}
           id={actualItem.id}
           name={actualItem.name}

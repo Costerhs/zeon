@@ -85,6 +85,22 @@ width: 70px;
     margin-top: -10px;
     margin-left: 10px;
 }
+.colorItem{
+    height: 40px;
+}
+
+.opac{
+    width: 20px;
+    height: 20px;
+
+    margin-right: 10px;
+
+   
+    border-radius: 100%;
+
+    /* background-color: red; */
+    
+}
 .color{
     width: 15px;
 
@@ -108,10 +124,10 @@ width: 70px;
     border: 1px solid gray;
     border-radius: 100px;
 
+
 }
 
-.colorItem{
-}
+
 /* 
 .opac{
     position: absolute;

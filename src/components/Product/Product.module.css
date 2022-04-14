@@ -138,3 +138,30 @@
 .buttons{
     display:  flex;
 }
+
+
+
+
+
+/*color*/
+.colorGroup{
+    display:  flex;
+    margin-top: 18px;
+    margin-left: 10px;
+}
+.colorItem{
+    height: 40px;
+}
+
+.opac{
+    width: 14px;
+    height: 14px;
+
+    margin-right: 10px;
+
+   
+    border-radius: 100%;
+
+    /* background-color: red; */
+    
+}

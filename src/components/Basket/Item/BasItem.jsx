@@ -1,20 +1,23 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { plusProduct, removeProduct } from '../../../redux/reducers/cartReducer';
+import { minussProduct, plusProduct, removeProduct } from '../../../redux/reducers/cartReducer';
 import bas from '../Basket.module.css';
-function BasItem({ el }) {
+function BasItem({ el, actId, totalCount }) {
   let dispatch = useDispatch();
-  let act = useSelector((state) => state.cart.basket[el.id].totalCount);
+  let colores = useSelector((state) => state.cart.colores)[Number(el.color) - 1];
 
   const plusing = () => {
-    dispatch(plusProduct(el.id));
+    dispatch(plusProduct(actId, totalCount));
   };
   const remove = () => {
-    dispatch(removeProduct(el.id));
+    dispatch(removeProduct(actId, el.id));
+  };
+  const minuss = () => {
+    dispatch(minussProduct(actId, totalCount, el.id));
   };
   return (
     <div className={bas.item}>
-      <img src={'img/' + el.image + '.png'} alt="nice" className={bas.img} />
+      <img src={el.image} alt="nice" className={bas.img} />
       <div>
         <p className={bas.h}>{el.name}</p>
         <p className={bas.h2}>Размер: {el.size}</p>
@@ -22,16 +25,23 @@ function BasItem({ el }) {
           <div className={bas.contP}>
             <p className={bas.p}>Цвет:</p>
           </div>
-          <div className={bas.contCircle}>
+          {/** */}
+
+          <div className={bas.contCircle} style={{ border: '1px solid' + colores }}>
             {' '}
-            <div className={bas.circle}></div>
+            <div className={bas.circle} style={{ backgroundColor: colores }}></div>
+            {/** */}
           </div>
         </div>{' '}
         {/*colores*/}
-        <h1 className={bas.price}>{el.price} р</h1>
+        <h1 className={bas.price}>
+          {el.price} р {el.oldPrice && <span className={bas.oldPrice}>{el.oldPrice}</span>}
+        </h1>
         <div className={bas.contBtn}>
-          <button className={bas.btn}>-</button>
-          <p className={bas.count}>{act}</p>
+          <button className={bas.btn} onClick={minuss}>
+            -
+          </button>
+          <p className={bas.count}>{totalCount}</p>
           <button className={bas.btn} onClick={plusing}>
             +
           </button>

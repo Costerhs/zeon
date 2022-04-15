@@ -165,3 +165,8 @@
     /* background-color: red; */
     
 }
+
+.nones{
+    text-decoration: line-through;
+    color: gray;
+}

@@ -1,6 +1,11 @@
 import React from 'react';
+import { Navigate, useNavigate } from 'react-router-dom';
 import bas from '../Basket.module.css';
-function Total({ price, allProduct, line }) {
+function Total({ sumPrice, allProductCount, oldPrice, line }) {
+  let navi = useNavigate();
+  const navigateCheck = () => {
+    return navi('/check');
+  };
   return (
     <div className={bas.itog}>
       <div className={bas.contDesc}>
@@ -11,22 +16,22 @@ function Total({ price, allProduct, line }) {
         </div>
         <div className={bas.desc}>
           <p className={bas.left}>Количество товаров:</p>
-          <p className={bas.right}>{allProduct} шт</p>
+          <p className={bas.right}>{allProductCount} шт</p>
         </div>
         <div className={bas.desc}>
           <p className={bas.left}>Стоимость:</p>
-          <p className={bas.right}>{price} рублей</p>
+          <p className={bas.right}>{oldPrice} рублей</p>
         </div>
         <div className={bas.desc}>
           <p className={bas.left}>Скидка:</p>
-          <p className={bas.right}>125 рублей</p>
+          <p className={bas.right}>{oldPrice - sumPrice} рублей</p>
         </div>
         <div className={bas.dotted}></div>
         <div className={bas.desc}>
           <p className={bas.left}>Итого к оплате:</p>
-          <p className={bas.right}>6 700 рублей</p>
+          <p className={bas.right}>{sumPrice}рублей</p>
         </div>
-        <div className={bas.contEnd}>
+        <div className={bas.contEnd} onClick={navigateCheck}>
           <button className={bas.end}>Оформить заказ</button>
         </div>
       </div>

@@ -1,13 +1,11 @@
 import cart from './Cart.module.css';
-import React, { useState } from 'react';
+import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchHearts, setRandom } from '../../redux/reducers/cartReducer';
+import { fetchHearts, setRandom, toggleActual } from '../../redux/reducers/cartReducer';
 import classNames from 'classnames';
 import { toggleId } from '../../redux/reducers/productReducer';
-{
-  /* <NavLink to={'/product/' + el.id} className={sear.none}></NavLink> */
-}
+
 function Cart({ name, heart, data, price, size, color, img, id, oldPrice }) {
   let colorArr = useSelector((state) => state.cart.colores);
 
@@ -15,11 +13,13 @@ function Cart({ name, heart, data, price, size, color, img, id, oldPrice }) {
   const activeHeart = () => {
     let r = heart === true ? false : true;
     dispatch(fetchHearts(id, r));
+    console.log(oldPrice - price);
   };
 
-  let percent = Math.round(price / (oldPrice / 100));
+  let percent = Math.round((oldPrice - price) / (oldPrice / 100));
   let setIdForProduct = () => {
     dispatch(toggleId(data));
+    dispatch(toggleActual(id));
     dispatch(setRandom());
     window.scroll(0, 0);
   };
@@ -41,7 +41,7 @@ function Cart({ name, heart, data, price, size, color, img, id, oldPrice }) {
             className={cart.heart}
             onClick={activeHeart}
           />
-          <img src={'img/' + img + '.png'} alt="nice" className={classNames(cart.img, cart.refa)} />
+          <img src={img} alt="nice" className={classNames(cart.img, cart.refa)} />
           {/* <img src={'img/hit1.png'} alt="nice" className={classNames(cart.img, cart.refa)} /> */}
         </div>
         <div className={cart.char}>
@@ -76,18 +76,3 @@ function Cart({ name, heart, data, price, size, color, img, id, oldPrice }) {
 }
 
 export default Cart;
-
-/*{colorArr.map((el, index) => {
-  let colors = index === 0 || index === 2 ? cart.coloru : cart.color;
-
-  return (
-    <div className={cart.colorItem}>
-      <div className={cart.opac} style={{ background: 'red' }}></div>
-       <img
-        key={el.id}
-        src={'img/color/' + el + '.png'}
-        className={el == color ? cart.colorActive : colors}
-        alt=""
-         className={cart.colorActive}
-      /> 
-    </div>*/

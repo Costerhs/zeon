@@ -48,12 +48,12 @@
     display: flex;
 }
 .contCircle{
-    border: 1px solid burlywood;
+ 
     width: 14px;
     height: 14px;
 }
 .circle{
-    background-color: burlywood;
+
 
     width: 10px;
     height: 10px;
@@ -154,3 +154,7 @@
     font-size: 19px;
 }
 
+.oldPrice{
+    color: gray;
+    text-decoration:line-through;
+}

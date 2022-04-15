@@ -15,6 +15,7 @@ import Search from './components/Search/Search';
 import Basket from './components/Basket/Basket';
 import Product from './components/Product/Product';
 import Similar from './components/Similar/Similar';
+import Checkout from './components/Checkout/Checkout';
 
 const App = () => {
   let dispatch = useDispatch();
@@ -35,6 +36,7 @@ const App = () => {
         <Route path="/search" element={<Search />} />
         <Route path="/product" element={<Product />} />
         <Route path="/similar" element={<Similar />} />
+        <Route path="/check" element={<Checkout />} />
       </Routes>
       <Footer />
     </div>

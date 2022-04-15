@@ -103,21 +103,3 @@ const Footer = () => {
 };
 
 export default Footer;
-// {id:1,price:1222,status:'hit',color:'red',name:'platye',flag:false}
-// 1
-/* <h4>Контакты</h4>
-
-          <p>
-            {' '}
-            <img src={ring} alt="nice" className={foot.icon} /> +996 500 123 456
-          </p>
-
-          <p>
-            {' '}
-            <img src={ring} alt="nice" className={foot.icon} /> +996 500 123 456
-          </p>
-
-          <a href="https://www.google.com/intl/ru/gmail/about/" className={foot.adre}>
-            {' '}
-            <img src={mess} alt="nice" className={foot.mess} /> mail@gmail.com
-          </a>*/

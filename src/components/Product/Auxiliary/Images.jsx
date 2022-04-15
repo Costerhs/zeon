@@ -6,7 +6,7 @@ function Images({ img, status }) {
   return (
     <div className={prod.cont_images}>
       <div className={prod.cont_images_bidImg}>
-        <img src={'img/' + img + '.png'} alt="nice" className={prod.bigImg_item} />
+        <img src={img} alt="nice" className={prod.bigImg_item} />
         {/* <img src="img/new2.png" alt="nice" className={prod.bigImg_item} />
         <img src="img/new3.png" alt="nice" className={prod.bigImg_item} />
         <img src="img/new4.png" alt="nice" className={prod.bigImg_item} /> */}
@@ -16,14 +16,7 @@ function Images({ img, status }) {
           })
           .map((el, index) => {
             if (index <= 2) {
-              return (
-                <img
-                  key={index}
-                  src={'img/' + el.image + '.png'}
-                  alt="nice"
-                  className={prod.bigImg_item}
-                />
-              );
+              return <img key={index} src={el.image} alt="nice" className={prod.bigImg_item} />;
             }
           })}
       </div>
@@ -34,14 +27,7 @@ function Images({ img, status }) {
           })
           .map((el, index) => {
             if (index <= 3) {
-              return (
-                <img
-                  key={index}
-                  src={'img/' + el.image + '.png'}
-                  alt="nice"
-                  className={prod.smallImg_item}
-                />
-              );
+              return <img key={index} src={el.image} alt="nice" className={prod.smallImg_item} />;
             }
           })}
       </div>

@@ -1,18 +1,20 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Navigate, NavLink, useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import hed from './Header.module.css';
+
+import { useDispatch, useSelector } from 'react-redux';
+import { setResultProd } from '../../redux/reducers/cartReducer';
 
 import logo from './logo.png';
 import heart from './img/heart.png';
 import heartRed from './img/heartRed.png';
 import shop from './img/shoppingRed.png';
 import lupa from './img/lupa.png';
-import { useDispatch, useSelector } from 'react-redux';
-import { setResult } from '../../redux/reducers/headerReducer';
-import { setResultProd } from '../../redux/reducers/cartReducer';
+
 const Header = () => {
   let navigate = useNavigate();
   let dispatch = useDispatch();
+  const setData = () => {};
   let serk = useRef();
   let active = useSelector((el) => el.cart.activeRedH);
   //для тел
@@ -102,7 +104,7 @@ const Header = () => {
               </NavLink>
             </div>
             {/*//////////////////////////////////////////////////////////////////// */}
-            <div className={hed.cart}>
+            <div className={hed.cart} onClick={setData}>
               <NavLink className={hed.none} to={'/cart'}>
                 <img src={shop} alt="nice" className={hed.shop} />
                 <p className={hed.cart_p}>Корзина</p>

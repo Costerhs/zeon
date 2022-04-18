@@ -5,31 +5,39 @@ import Similar from '../Similar/Similar';
 import elc from './Elect.module.css';
 function Elect() {
   let obj = useSelector((state) => state.cart.product);
+  let hearts =
+    obj.some((el) => el.heart === true) === true ? (
+      obj
+        .filter((el) => el.heart === true)
+        .map((el) => {
+          return (
+            <Cart
+              data={el}
+              heart={el.heart}
+              key={el.id}
+              id={el.id}
+              name={el.name}
+              price={el.price}
+              size={el.size}
+              img={el.image}
+              oldPrice={el.oldPrice}
+              color={el.color}
+            />
+          );
+        })
+    ) : (
+      <>
+        <h1>Пока в избранном ничего нет</h1>
+        <Similar />
+      </>
+    );
+
   return (
     <div className={elc.boss}>
-      <div className={elc.wrap}>
-        {obj
-          .filter((el) => el.heart === true)
-          .map((el) => {
-            return (
-              <Cart
-                data={el}
-                heart={el.heart}
-                key={el.id}
-                id={el.id}
-                name={el.name}
-                price={el.price}
-                size={el.size}
-                img={el.image}
-                oldPrice={el.oldPrice}
-                color={el.color}
-              />
-            );
-          })}
-      </div>
-      <div className={elc.sim}>
+      <div className={elc.wrap}>{hearts}</div>
+      {/* <div className={elc.sim}>
         <Similar />
-      </div>
+      </div> */}
     </div>
   );
 }

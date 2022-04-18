@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addProduct, fetchHearts, setCart } from '../../../redux/reducers/cartReducer';
 import { fetchActualHeart } from '../../../redux/reducers/productReducer';
 import prod from './../Product.module.css';
-import classNames from 'classnames';
+
 import { useNavigate } from 'react-router-dom';
 import Color from './Color';
 
@@ -23,8 +23,6 @@ function Characteristic({
   oldPrice,
 }) {
   let navigate = useNavigate();
-  // let flag = useSelector((state) => state.cart.product[id].cart);
-  // console.log(flag);
   let colorArr = useSelector((state) => state.cart.colores);
 
   let dispatch = useDispatch();

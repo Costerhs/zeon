@@ -13,17 +13,25 @@ const Product = () => {
   // }, []);
   let ids = useSelector((el) => el.cart.actualCart);
   let actualItems = useSelector((el) => el.cart.product).filter((el) => el.id == ids);
+  let status = '';
 
   return (
     <div className={prod.boss}>
       {' '}
-      {actualItems.map((actualItem) => {
+      {actualItems.map((actualItem, index) => {
+        status = actualItem.status;
         return (
           <div className={prod.cont}>
             {' '}
-            <Images img={actualItem.image} status={actualItem.status} id={actualItem.id} />
+            <Images
+              img={actualItem.image}
+              key={actualItem.id + index}
+              status={actualItem.status}
+              id={actualItem.id}
+            />
             {/* images */}
             <Characteristic
+              key={index + actualItem.id}
               cart={actualItem.cart}
               fullObj={actualItem}
               heart={actualItem.heart}
@@ -41,7 +49,7 @@ const Product = () => {
           </div>
         );
       })}
-      <Similar />
+      <Similar stat={status} pro />
     </div>
   );
 };

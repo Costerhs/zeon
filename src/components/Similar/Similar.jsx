@@ -1,9 +1,9 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Cart from './../Cart/Cart';
 import sim from './Similar.module.css';
 
-function Similar() {
+function Similar({ pro, stat }) {
   let product = useSelector((state) => state.cart.product);
   let random = useSelector((state) => state.cart.random);
   let news = product
@@ -14,7 +14,7 @@ function Similar() {
     .filter((el, index) => index === random[1] || index === random[4] || index === random[2]);
   //   let plyazh = product.filter((el) => el.status === 'plyazh').filter((el, index) => index === f[2]);
 
-  let orr = [news, hit];
+  let orr = pro ? product.filter((el) => el.status === stat).slice(0, 5) : [news, hit];
 
   return (
     <div className={sim.boss}>
@@ -22,13 +22,14 @@ function Similar() {
       <div className={sim.cont}>
         {orr
           .flatMap((el) => el)
-          .map((el) => {
+          .map((el, index) => {
             return (
               <div className={sim.cart}>
                 <Cart
+                  similar={true}
                   data={el}
                   heart={el.heart}
-                  key={el.id}
+                  key={el.id + el.index}
                   id={el.id}
                   name={el.name}
                   price={el.price}

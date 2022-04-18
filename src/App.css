@@ -9,3 +9,18 @@
   Montserrat;
 }
 
+.btn_up{
+  position: fixed;
+  left: 2600px;
+}
+
+
+.pad{
+  margin-top: -34px;
+  
+}
+
+.forHover{
+margin-top: -15px;
+margin-bottom: 2px;
+}

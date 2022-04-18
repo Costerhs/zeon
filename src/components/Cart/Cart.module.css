@@ -10,6 +10,9 @@ height: 100%; */
     
     
 }
+.size,.price,.h2{
+text-align: left;
+}
 .bossSim{
     width: 100%;
     height: 100%;
@@ -147,6 +150,8 @@ width: 70px;
     margin-top: -15px;
     margin-bottom: 2px;
 }
+
+
 /* 
 .opac{
     position: absolute;

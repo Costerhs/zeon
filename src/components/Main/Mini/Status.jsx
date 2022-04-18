@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import React, { useState } from 'react';
 import Cart from '../../Cart/Cart';
 import main from '../Main.module.css';
@@ -6,7 +7,7 @@ function Status({ num, stat, headtext }) {
 
   return (
     <div className={main.hit_container}>
-      <h1>{headtext}</h1>
+      <h1 className={main.mid}>{headtext}</h1>
       <div className={main.hit_cart}>
         {stat.slice(0, count).map((el) => {
           return (
@@ -25,13 +26,15 @@ function Status({ num, stat, headtext }) {
           );
         })}
       </div>
-      <button
-        onClick={() => {
-          setCount((el) => (el += num));
-        }}
-        className={main.btn}>
-        Еще
-      </button>
+      <div className={main.mid}>
+        <button
+          onClick={() => {
+            setCount((el) => (el += num));
+          }}
+          className={classNames(main.btn)}>
+          Еще
+        </button>
+      </div>
     </div>
   );
 }

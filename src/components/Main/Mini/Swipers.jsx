@@ -28,6 +28,7 @@ function Swipers() {
         modules={[Pagination, Autoplay]}
         autoplay={{
           delay: 3000,
+          disableOnInteraction: false,
         }}
         // effect="fade"
         spaceBetween={50}

@@ -14,9 +14,13 @@ import lupa from './img/lupa.png';
 const Header = () => {
   let navigate = useNavigate();
   let dispatch = useDispatch();
+  let set = new Set();
   const setData = () => {};
   let serk = useRef();
   let active = useSelector((el) => el.cart.activeRedH);
+  let hint = useSelector((state) => state.cart.product);
+  hint.map((el) => set.add(el.name));
+
   //для тел
   let teleph = useRef(null);
 
@@ -38,8 +42,6 @@ const Header = () => {
       serk.current.value = '';
       return navigate('/search');
     }
-    // dispatch(setResult(serk.current.value));
-    // return navigate('/search');
   };
   return (
     <div>

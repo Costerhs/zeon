@@ -31,7 +31,7 @@ function Main() {
           {arr
             .flatMap((el) => el)
             .map((el) => {
-              return <Card key={el.id} name={el.name} img={el.image} />;
+              return <Card status={el.status} key={el.id} name={el.name} img={el.image} />;
             })}
         </div>
       </div>

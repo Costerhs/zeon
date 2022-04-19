@@ -1,10 +1,14 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import { Navigate, useNavigate } from 'react-router-dom';
+import { toggleForm } from '../../../redux/reducers/cartReducer';
 import bas from '../Basket.module.css';
 function Total({ sumPrice, allProductCount, oldPrice, line }) {
-  let navi = useNavigate();
+  // let navi = useNavigate();
+  let dispatch = useDispatch();
   const navigateCheck = () => {
-    return navi('/check');
+    dispatch(toggleForm(true));
+    // return navi('/check');
   };
   return (
     <div className={bas.itog}>

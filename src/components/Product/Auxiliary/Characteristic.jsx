@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addProduct, fetchHearts, setCart } from '../../../redux/reducers/cartReducer';
+import { addProduct, fetchHearts, setCart, setProduct } from '../../../redux/reducers/cartReducer';
 import { fetchActualHeart } from '../../../redux/reducers/productReducer';
 import prod from './../Product.module.css';
 
@@ -33,7 +33,6 @@ function Characteristic({
   };
   const addToProduct = () => {
     dispatch(addProduct(id));
-    dispatch(setCart());
   };
 
   return (

@@ -14,16 +14,23 @@ import './style.css';
 import 'swiper/css/scrollbar';
 import { SwiperSlide, Swiper } from 'swiper/react';
 import { Autoplay, Pagination, Scrollbar } from 'swiper';
+import { result } from 'lodash';
 
-function Cart({ name, heart, data, similar, price, size, color, img, id, oldPrice }) {
+function Cart({ name, heart, result, data, similar, price, size, color, img, id, oldPrice }) {
   let colorArr = useSelector((state) => state.cart.colores);
+  let image = useSelector((state) => state.cart.images);
+
   const slides = [];
   let fost = Array.isArray(img);
   let dispatch = useDispatch();
   //для активации сердечка
   const activeHeart = () => {
     let r = heart === true ? false : true;
-    dispatch(fetchHearts(id, r));
+    if (result != null) {
+      dispatch(fetchHearts(id, r, result));
+    } else {
+      dispatch(fetchHearts(id, r));
+    }
   };
   //процент и для детальной страницы
   let percent = Math.round((oldPrice - price) / (oldPrice / 100));
@@ -38,7 +45,7 @@ function Cart({ name, heart, data, similar, price, size, color, img, id, oldPric
       {/* скидка */}
       {oldPrice != null ? (
         <div className={cart.three}>
-          <img src="img/three.png" alt="nice" className={cart.imgThree} />
+          <img src={image[0].three} alt="nice" className={cart.imgThree} />
           <p className={cart.procent}>{percent}%</p>
         </div>
       ) : null}{' '}
@@ -50,8 +57,8 @@ function Cart({ name, heart, data, similar, price, size, color, img, id, oldPric
         {/* фото и сердечко */}
         <div className={classNames(cart.img, cart.blockImg)}>
           <img
-            src={heart === false ? 'img/hearts.png' : 'img/activeHearts.png'}
-            alt=""
+            src={heart === false ? image[0].heart : image[0].activeHeart}
+            alt="heart"
             className={fost === true ? cart.heartHover : cart.heart}
             onClick={activeHeart}
           />
@@ -64,10 +71,7 @@ function Cart({ name, heart, data, similar, price, size, color, img, id, oldPric
                 id="main"
                 tag="section"
                 wrapperTag="ul"
-                scrollbar={{
-                  hide: false,
-                  draggable: true,
-                }}
+                scrollbar={{ hide: false, draggable: true }}
                 style={{ listStyleType: 'none' }}>
                 {img.map((el, index) => {
                   slides.push(

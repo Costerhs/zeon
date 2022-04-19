@@ -1,14 +1,20 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import main from '../Main.module.css';
-function Card({ img, name }) {
+function Card({ img, status }) {
   return (
     <div className={main.collection_container}>
       <div className={main.collection_item}>
-        <img src={img} alt="" />
-        <p>{name}</p>
+        <div className={main.imgRes} style={{ backgroundImage: `url(${img})` }}>
+          {/* <img src={img} alt="nice" className={main.imges} /> */}
+        </div>
+        <p>{status.toUpperCase()}</p>
         <div className={main.btn_cont}>
-          <NavLink to={'/collection'}>
+          <NavLink
+            onClick={() => {
+              window.scroll(0, 0);
+            }}
+            to={'/collection/' + status}>
             <button className={main.cl_btn}>Смотреть все</button>
           </NavLink>
         </div>

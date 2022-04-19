@@ -1,10 +1,11 @@
+import axios from 'axios';
 import produce from 'immer';
 import { range, shuffle } from 'lodash';
 import { cartReaction, productApi } from '../../assets/img/api/api';
 
+const SET_IMAGE = 'SET_IMAGE';
 const SET_PRODUCT = 'SET_PRODUCT';
 const SET_RESULT = 'SET_RESULT';
-const PLUS_PRODUCT = 'PLUS_PRODUCT';
 const FETCH_HEART = 'FETCH_HEART';
 const SET_RANDOM = 'SET_RANDOM';
 const REMOVE_PRODUCT = 'REMOVE_PRODUCT';
@@ -12,8 +13,10 @@ const ADD_PRODUCT = 'ADD_PRODUCT';
 const TOGGLE_CART = 'TOGGLE_CART';
 const SET_BASKET = 'SET_BASKET';
 const SET_ACTUAL_CART = 'SET_ACTUAL_CART';
+const TOGGLE_FORM = 'TOGGLE_FORM';
 
 let intialize = {
+  formes: false,
   totalPrice: null,
   product: [],
   concurrence: '',
@@ -26,7 +29,6 @@ let intialize = {
   colores: ['#73A39D', '#84CC4C', '#B5A8A1', '#AB844A', '#6977F0', '#e9e8e8', '#141414', '#FF0000'],
 };
 
-let f = shuffle(range(5)).slice(0, 8);
 const cartReducer = (state = intialize, action) => {
   switch (action.type) {
     case SET_PRODUCT:
@@ -66,46 +68,69 @@ const cartReducer = (state = intialize, action) => {
       return {
         ...state,
         result: action.prod,
+        concurrence: action.text,
       };
+
+    case SET_IMAGE:
+      return { ...state, images: action.data };
+
+    case TOGGLE_FORM:
+      return { ...state, formes: action.stat };
     default:
       return state;
   }
 };
+export const setImg = (data) => ({ type: SET_IMAGE, data });
 export const setActualCart = (num) => ({ type: SET_ACTUAL_CART, num });
 export const setPro = (data) => ({ type: SET_PRODUCT, data });
 export const setRandom = () => ({ type: SET_RANDOM });
 export const addProducts = (obj) => ({ type: ADD_PRODUCT, obj });
-export const setResult = (prod) => ({ type: SET_RESULT, prod });
+export const setResult = (prod, text) => ({ type: SET_RESULT, prod, text });
 export const fetchHeart = () => ({ type: FETCH_HEART });
 export const removeProducts = (id) => ({ type: REMOVE_PRODUCT, id });
 export const setBasket = (data) => ({ type: SET_BASKET, data });
+export const toggleForm = (stat) => ({ type: TOGGLE_FORM, stat });
 
-export const fetchHearts = (id, r) => async (dispatch) => {
+export const fetchHearts = (id, r, result) => async (dispatch) => {
   await cartReaction.putHeart(id, r);
-  dispatch(setCart());
+  dispatch(setProduct());
+  if (result != null) {
+    dispatch(setResultProd(result));
+  }
 };
-
+export const setProduct = () => async (dispatch) => {
+  let data = await cartReaction.getProduct();
+  dispatch(setPro(data));
+  dispatch(fetchHeart());
+};
 export const setBasketData = () => async (dispatch) => {
   let data = await cartReaction.getBasket();
   dispatch(setBasket(data));
 };
 
 export const setCart = () => async (dispatch) => {
-  let data = await cartReaction.getProduct();
-  dispatch(setPro(data));
+  let image = await axios.get('https://6254f77f89f28cf72b633678.mockapi.io/test').then((el) => {
+    return el.data;
+  });
+  dispatch(setProduct());
   dispatch(setBasketData());
   dispatch(fetchHeart());
+  dispatch(setImg(image));
 };
-export const setResultProd = (text) => (dispatch) => {
-  // axios
-  //   .get('https://6254f77f89f28cf72b633678.mockapi.io/product?search=' + text)
-  //   .then((el) => dispatch(setResult(el.data)));
+export const setResultProd = (text) => async (dispatch) => {
+  let data = await axios
+    .get('https://6254f77f89f28cf72b633678.mockapi.io/product?search=' + text)
+    .then((el) => el.data);
+  console.log(data);
+  dispatch(setResult(data, text));
 };
+//dispatch(setResult(el.data))
 export const addProduct = (id) => async (dispatch) => {
   cartReaction.putCartsFetch(id);
 
   let elem = await cartReaction.getCartId(id);
   await cartReaction.setShoppingData(elem);
+  dispatch(setProduct());
 };
 export const plusProduct = (id, totalCount) => async (dispatch) => {
   await cartReaction.plusCart(id, totalCount);

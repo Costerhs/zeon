@@ -50,7 +50,7 @@
    
 }
 .collection_item{
-   
+   text-align: center;
     width: 365px;
     margin-right: 8px;
 }
@@ -138,4 +138,15 @@
 }
 .midas{
     margin:  0 auto;
+}
+
+.imgRes{
+   background-size: 100%;
+    height: 405px;
+    
+}
+
+.imges{
+    border: 1px solid green;
+    width: 3px;
 }

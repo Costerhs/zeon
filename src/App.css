@@ -33,7 +33,7 @@ margin-bottom: 2px;
 }
 .fon{
   position: absolute;
-  z-index: 0;
+  z-index: 1;
 background-color: rgb(95, 89, 89);
 width: 1900px;
 height: 100%;
@@ -177,3 +177,243 @@ transition: background 2s;
   color: white;
   border: 0px;
 }
+
+
+
+
+
+/* .helps{
+  width: 1368px;
+  background: rgb(224, 209, 209);
+
+ height: 2000px;
+ margin: 0 auto;
+}
+
+
+.App {
+  text-align: center;
+  background: rgb(207, 0, 0);
+  height: 1000px;
+  
+  margin: 0 auto;
+} */
+
+.cont{
+  text-align: left;
+  width: 1168px;
+ 
+  margin: 0 auto;
+  margin-top: 20px;
+
+  display: flex;
+}
+
+.img{
+  width: 500px;
+}
+.text{
+  margin-left: 24px;
+}
+
+.items{
+  width: 644px;
+  height: 45px;
+
+  background-color: white;
+
+  overflow: hidden;
+  margin-top: 20px;
+  transition: height 2s;
+}
+.chan{
+  height: 196px;
+  transition: height 2s;
+}
+
+.itemes{
+  margin-left: 20px;
+  padding-top:1px ;
+  
+}
+.hes{
+  font-size: 16px;
+  font-weight: normal;
+}
+
+.pes{
+  font-size: 14px;
+}
+.strel{
+position: relative;
+top: -145px;
+left: 600px;
+transition: transform .4s;
+}
+
+.rost{
+  transform: rotate(180deg);
+  transition: transform .2s;
+ }
+
+
+
+ /*okoshko*/
+ 
+.plav{
+ 
+  
+  text-align: right;
+
+  position: fixed;
+  right: 50px;
+  top: 86%; 
+  z-index: 100;
+}
+.uper{
+  margin-bottom: 29px;
+}
+.cont_tele{
+  display: flex;
+  
+  
+}
+.tel_element{
+  margin-right: 6px;
+}
+.tel_element:last-child{
+  margin-right: 23px;
+}
+.tel_elements{
+  margin-left: 23px;
+}
+.iks{
+  margin-top:10px ;
+  margin-right: 2px;
+}
+
+/*tel*/
+
+.container_tel{
+  text-align: center;
+  width: 436px;
+  height: auto;
+  background-color: white;
+  border: 1px solid black;
+
+  margin: 0 auto;
+}
+
+.item_h1{
+  font-size: 20px;
+  margin-bottom: 6px;
+}
+.tel_itemes{
+  width: 360px;
+  height: 80px;
+}
+
+
+.tel_p{
+  font-size: 18px;
+ margin-top: 6px;
+}
+.tel_p:last-child{
+  margin-right: 143px;
+  margin-top: -18px;
+}
+
+.raspol{
+   margin-top: 0px;
+  margin-left: 30px; 
+}
+
+.tel_form{
+margin-left: 38px;
+}
+
+.tel_cont{
+  width: 277px;
+  height: 44px;
+}
+.tel_cont:first-child{
+  margin-bottom: 10px;
+  margin-top: 12px;
+}
+
+.tel_cont:last-child{
+  margin-bottom: 12px;
+}
+
+.tel_inp{
+  height: 100%;
+  width: 100%;
+
+
+
+  padding-left: 43px;
+}
+.people{
+  background: #fff url("https://i.ibb.co/167fmYg/Group-1251.png") 15px 15px no-repeat;
+}
+
+.ring{
+  background: #fff url("https://i.ibb.co/rd6R43G/Vector-20.png") 15px 10px no-repeat;
+
+} 
+
+.tel_btn{
+  width: 328px;
+  height: 44px;
+
+  margin-left: 38px;
+  margin-bottom: 32px;
+
+
+}
+.submit_tel{
+  width: 100%;
+  height: 100%;
+
+  border: 0px;
+
+  background: black;
+  color: white;
+
+  font-size: 16px;
+
+  transition: background 2s;
+}
+
+.submit_tel:disabled{
+  background: rgb(85, 92, 92);
+  transition: background 2s;
+}
+
+
+.img_inp{
+  position: absolute;
+
+}
+
+.minuss{
+ margin-bottom: -10px;
+ margin-left: 400px;
+}
+
+/* .formes_cont{
+  position: fixed;
+  z-index: 10;
+
+  top: 100px;
+  left: 0px;
+  right: 0px;
+} */
+.tele_cont{
+  position: fixed;
+  z-index: 10;
+
+  top: 300px;
+  left: 0px;
+  right: 0px;
+} 

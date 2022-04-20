@@ -1,6 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addProduct, fetchHearts, setCart, setProduct } from '../../../redux/reducers/cartReducer';
+import {
+  addProduct,
+  fetchHearts,
+  setCart,
+  setProduct,
+  toggleBasketStat,
+} from '../../../redux/reducers/cartReducer';
 import { fetchActualHeart } from '../../../redux/reducers/productReducer';
 import prod from './../Product.module.css';
 
@@ -14,6 +20,7 @@ function Characteristic({
   heart,
   name,
   price,
+  scan,
   color,
   desc,
   art,
@@ -22,10 +29,22 @@ function Characteristic({
   structure,
   oldPrice,
 }) {
+  let dispatch = useDispatch();
+
+  let bask = useSelector((state) => state.cart.basFetch);
+  let res = scan.some((el) => {
+    return el.elem.color == color;
+  });
+  if (res === true) {
+    dispatch(toggleBasketStat(res));
+  } else {
+    dispatch(toggleBasketStat(res));
+  }
+
+  // console.log(scan[0].elem.id);
   let navigate = useNavigate();
   let colorArr = useSelector((state) => state.cart.colores);
 
-  let dispatch = useDispatch();
   const toggleHeart = () => {
     dispatch(fetchActualHeart());
     let r = heart === true ? false : true;
@@ -86,7 +105,7 @@ function Characteristic({
         </div>
         {/**square_line */}
         <div className={prod.buttons}>
-          {cart === false ? (
+          {bask === false ? (
             <button className={prod.addCart} onClick={addToProduct}>
               {' '}
               <img src="img/cartWhite.png" alt="nice" className={prod.btnImg} />
@@ -103,6 +122,7 @@ function Characteristic({
               <span className={prod.btnp}> Перейти в корзину</span>
             </button>
           )}
+
           <button className={prod.toggleElect} onClick={toggleHeart}>
             {' '}
             <img src={heart === true ? 'img/activeHearts.png' : 'img/whiteHeart.png'} alt="ce" />
@@ -115,3 +135,20 @@ function Characteristic({
 }
 
 export default Characteristic;
+/* {cart === false ? (
+            <button className={prod.addCart} onClick={addToProduct}>
+              {' '}
+              <img src="img/cartWhite.png" alt="nice" className={prod.btnImg} />
+              <span className={prod.btnp}> Добавить в корзину</span>
+            </button>
+          ) : (
+            <button
+              className={prod.addCart}
+              onClick={() => {
+                navigate('/cart');
+              }}>
+              {' '}
+              <img src="img/cartWhite.png" alt="nice" className={prod.btnImg} />
+              <span className={prod.btnp}> Перейти в корзину</span>
+            </button>
+          )}*/

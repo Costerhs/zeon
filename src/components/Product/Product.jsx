@@ -11,9 +11,16 @@ const Product = () => {
   // useEffect(() => {
   //   dispatch(setCart());
   // }, []);
+  let basket = useSelector((state) => state.cart.basket);
   let ids = useSelector((el) => el.cart.actualCart);
   let actualItems = useSelector((el) => el.cart.product).filter((el) => el.id == ids);
   let status = '';
+  let scan =
+    basket != null
+      ? basket.filter((el) => {
+          return el.elem.id == ids;
+        })
+      : null;
 
   return (
     <div className={prod.boss}>
@@ -31,6 +38,7 @@ const Product = () => {
             />
             {/* images */}
             <Characteristic
+              scan={scan}
               key={index + actualItem.id}
               cart={actualItem.cart}
               fullObj={actualItem}

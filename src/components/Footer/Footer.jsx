@@ -45,7 +45,7 @@ const Footer = () => {
                 {' '}
                 <img src={ring} alt="nice" className={foot.icon} /> +996 500 123 456
               </p>
-              <a href="https://www.google.com/intl/ru/gmail/about/" className={foot.adre}>
+              <a href="mailto:mail@gmail.com" className={foot.adre}>
                 {' '}
                 <img src={mess} alt="nice" className={foot.mess} /> mail@gmail.com
               </a>{' '}

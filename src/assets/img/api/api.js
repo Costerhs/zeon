@@ -43,6 +43,9 @@ export const cartReaction = {
   // await axios.put('https://6254f77f89f28cf72b633678.mockapi.io/shopping/' + id, {
   //   totalCount: totalCount + 1,
   // });
+  searchData(text) {
+    return instance.get('produ');
+  },
 };
 
 export const productApi = {
@@ -51,5 +54,11 @@ export const productApi = {
   },
   getActualData() {
     return instance.get('actual/1').then((el) => el.data.actualId);
+  },
+};
+
+export const testApi = {
+  getTestObj() {
+    return instance.get('test').then((el) => el.data);
   },
 };

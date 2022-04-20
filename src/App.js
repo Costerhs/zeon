@@ -14,9 +14,11 @@ import { useEffect, useState } from 'react';
 import Search from './components/Search/Search';
 import Basket from './components/Basket/Basket';
 import Product from './components/Product/Product';
-import Similar from './components/Similar/Similar';
 import Checkout from './components/Checkout/Checkout';
 import Form from './Form.jsx/Form';
+import PublicOfer from './components/PublicOfer/PublicOfer';
+import Windower from './components/Windower/Windower';
+import Telephones from './components/Mini/Telephones';
 
 const App = () => {
   let flag = useSelector((state) => state.cart.formes);
@@ -38,7 +40,7 @@ const App = () => {
           <Route path="/elect" element={<Elect />} />
           <Route path="/" element={<Main />} />
           <Route path="/desc" element={<Description />} />
-          <Route path="/collection*" element={<Collection />} />
+          <Route path="/collection/*" element={<Collection />} />
           <Route exact path="/news" element={<News />} />
           <Route path="/help" element={<Help />} />
           <Route path="/search" element={<Search />} />
@@ -46,12 +48,13 @@ const App = () => {
           {/* <Route path="/similar" element={<Similar />} /> */}
           <Route path="/check" element={<Checkout />} />
           <Route path="/main" element={<Main />} />
+          <Route path="/public" element={<PublicOfer />} />
         </Routes>
         <Footer />
         {/* <div className="test">
           <div className="fon"></div>
         </div> */}
-        {flag === true ? (
+        {flag === 1 ? (
           <>
             {' '}
             <div className="fon"></div>
@@ -60,6 +63,17 @@ const App = () => {
             </div>{' '}
           </>
         ) : null}
+        {flag === 2 ? (
+          <>
+            {' '}
+            <div className="fon"></div>
+            <div className="tele_cont">
+              <Telephones />
+            </div>{' '}
+          </>
+        ) : (
+          <Windower />
+        )}
       </div>
     </>
   );

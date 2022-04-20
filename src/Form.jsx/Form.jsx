@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
+import Galochka from '../components/Mini/Galochka';
 import { toggleForm } from '../redux/reducers/cartReducer';
 function Form() {
   let navi = useNavigate();
   let [fetch, setFetch] = useState(false);
   const dispatch = useDispatch();
   let toggle = () => {
-    dispatch(toggleForm(false));
+    dispatch(toggleForm(0));
     return navi('/main');
   };
   const {
@@ -119,7 +120,10 @@ function Form() {
             <input type="checkbox" className="checks" />
             <p className="ofera">
               {' '}
-              Согласен с условиями <a className="ofer_a">публичной оферы</a>{' '}
+              Согласен с условиями{' '}
+              <NavLink to={'/public'} onClick={toggle} className="ofer_a">
+                публичной оферы
+              </NavLink>{' '}
             </p>
           </div>
           <div className="btnDiv">
@@ -136,19 +140,7 @@ function Form() {
           </div>
         </form>
       ) : (
-        <div className="galochka">
-          <div className="cont_icon">
-            {' '}
-            <img className="icon" src="https://i.ibb.co/JnsL98C/Vector-16.png" />
-          </div>
-          <h1 className="icon_h1"> Спасибо!</h1>
-          <p className="icon_p">Ваша заявка была принята ожидайте,скоро Вам перезвонят</p>
-          <div className="btn_cont">
-            <button className="icon_btn" onClick={toggle}>
-              Продолжить покупку
-            </button>
-          </div>
-        </div>
+        <Galochka toggle={toggle} />
       )}
     </>
   );

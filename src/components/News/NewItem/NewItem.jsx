@@ -1,12 +1,8 @@
 import React from 'react';
 import newe from './../News.module.css';
 
-import fon1 from './../img/fon1.png';
-import fon2 from './../img/fon2.png';
-import fon3 from './../img/fon3.png';
-import fon4 from './../img/fon4.png';
-import fon5 from './../img/fon5.png';
 const NewItem = ({ image, h, text }) => {
+  console.log(image);
   return (
     <div className={newe.item}>
       <div className={newe.img}>

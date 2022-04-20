@@ -2,9 +2,14 @@
     margin: 0 auto;
     display: flex;
 
+    width: 1168px;
+    height: 844px;
 }
 .face,.img{
     padding: 5px;
+}
+.img:first-child{
+    margin-bottom: 24px;
 }
 .imgs{
     height: 844px;
@@ -13,17 +18,34 @@
 .twoImg{
     display: flex;
     flex-direction: column;
+    width: 327px;
+    height: 844px;
+    margin-right: 24px;
 }
 .face{
     margin: auto 0;
-    
+    margin-right: 25px;
 }
 .text{
-    width: 365px;
+    width: 465px;
     height: 637px;
-    
+    font-size: 15px;
+
+    line-height: 24px;
+/* 
    padding-left: 40px;
-   padding-top: 20px;
+   padding-top: 20px; */
+   margin: 103px 0px;
     text-align: left;
     margin: auto auto;
+
+    background-color: white;
+}
+
+.text p{
+    margin: auto 24px
+}
+.text h2{
+    font-size: 24px;
+    margin-left: 24px;
 }

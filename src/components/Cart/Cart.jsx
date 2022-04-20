@@ -14,7 +14,7 @@ import './style.css';
 import 'swiper/css/scrollbar';
 import { SwiperSlide, Swiper } from 'swiper/react';
 import { Autoplay, Pagination, Scrollbar } from 'swiper';
-import { result } from 'lodash';
+import { delay, result } from 'lodash';
 
 function Cart({ name, heart, result, data, similar, price, size, color, img, id, oldPrice }) {
   let colorArr = useSelector((state) => state.cart.colores);
@@ -68,6 +68,10 @@ function Cart({ name, heart, result, data, similar, price, size, color, img, id,
               <Swiper
                 modules={[Pagination, Autoplay, Scrollbar]}
                 spaceBetween={0}
+                autoplay={{
+                  delay: 2000,
+                  disableOnInteraction: false,
+                }}
                 id="main"
                 tag="section"
                 wrapperTag="ul"

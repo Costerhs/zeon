@@ -7,7 +7,7 @@ function Total({ sumPrice, allProductCount, oldPrice, line }) {
   // let navi = useNavigate();
   let dispatch = useDispatch();
   const navigateCheck = () => {
-    dispatch(toggleForm(true));
+    dispatch(toggleForm(1));
     // return navi('/check');
   };
   return (
@@ -20,7 +20,7 @@ function Total({ sumPrice, allProductCount, oldPrice, line }) {
         </div>
         <div className={bas.desc}>
           <p className={bas.left}>Количество товаров:</p>
-          <p className={bas.right}>{allProductCount} шт</p>
+          <p className={bas.right}>{allProductCount * 5} шт</p>
         </div>
         <div className={bas.desc}>
           <p className={bas.left}>Стоимость:</p>

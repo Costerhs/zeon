@@ -1,7 +1,7 @@
 import axios from 'axios';
 import produce from 'immer';
 import { range, shuffle } from 'lodash';
-import { cartReaction, productApi } from '../../assets/img/api/api';
+import { cartReaction, productApi, testApi } from '../../assets/img/api/api';
 
 const SET_IMAGE = 'SET_IMAGE';
 const SET_PRODUCT = 'SET_PRODUCT';
@@ -14,9 +14,10 @@ const TOGGLE_CART = 'TOGGLE_CART';
 const SET_BASKET = 'SET_BASKET';
 const SET_ACTUAL_CART = 'SET_ACTUAL_CART';
 const TOGGLE_FORM = 'TOGGLE_FORM';
+const TOGGLE_BASKET = 'TOGGLE_BASKET';
 
 let intialize = {
-  formes: false,
+  formes: 0,
   totalPrice: null,
   product: [],
   concurrence: '',
@@ -26,6 +27,8 @@ let intialize = {
   random: [],
   result: [],
   actualCart: 2,
+  images: [],
+  basFetch: false,
   colores: ['#73A39D', '#84CC4C', '#B5A8A1', '#AB844A', '#6977F0', '#e9e8e8', '#141414', '#FF0000'],
 };
 
@@ -76,10 +79,14 @@ const cartReducer = (state = intialize, action) => {
 
     case TOGGLE_FORM:
       return { ...state, formes: action.stat };
+
+    case TOGGLE_BASKET:
+      return { ...state, basFetch: action.stat };
     default:
       return state;
   }
 };
+export const toggleBasketStat = (stat) => ({ type: TOGGLE_BASKET, stat });
 export const setImg = (data) => ({ type: SET_IMAGE, data });
 export const setActualCart = (num) => ({ type: SET_ACTUAL_CART, num });
 export const setPro = (data) => ({ type: SET_PRODUCT, data });
@@ -107,15 +114,15 @@ export const setBasketData = () => async (dispatch) => {
   let data = await cartReaction.getBasket();
   dispatch(setBasket(data));
 };
-
+export const setImages = () => async (dispatch) => {
+  let image = await testApi.getTestObj();
+  dispatch(setImg(image));
+};
 export const setCart = () => async (dispatch) => {
-  let image = await axios.get('https://6254f77f89f28cf72b633678.mockapi.io/test').then((el) => {
-    return el.data;
-  });
+  dispatch(setImages());
   dispatch(setProduct());
   dispatch(setBasketData());
   dispatch(fetchHeart());
-  dispatch(setImg(image));
 };
 export const setResultProd = (text) => async (dispatch) => {
   let data = await axios
@@ -131,6 +138,7 @@ export const addProduct = (id) => async (dispatch) => {
   let elem = await cartReaction.getCartId(id);
   await cartReaction.setShoppingData(elem);
   dispatch(setProduct());
+  // dispatch(setBasket());
 };
 export const plusProduct = (id, totalCount) => async (dispatch) => {
   await cartReaction.plusCart(id, totalCount);

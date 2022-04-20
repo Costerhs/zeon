@@ -1,20 +1,19 @@
 import React from 'react';
 import des from './Description.module.css';
 
-import shlyap from './img/shlyap.png';
-import hand from './img/hand.png';
-import face from './img/face.png';
+import { useSelector } from 'react-redux';
 
 const Description = () => {
+  let img = useSelector((state) => state.cart.images);
   return (
     <div className={des.boss}>
       <div className={des.imgs}>
         <div className={des.twoImg}>
-          <img src={hand} alt="nice" className={des.img} />
-          <img src={shlyap} alt="nice" className={des.img} />
+          <img src={img[0].description[1]} alt="nice" className={des.img} />
+          <img src={img[0].description[2]} alt="nice" className={des.img} />
         </div>
         <div className={des.face}>
-          <img src={face} alt="nice" />
+          <img src={img[0].description[0]} alt="nice" />
         </div>
       </div>
       <div className={des.text}>

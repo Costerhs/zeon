@@ -23,6 +23,7 @@ function Collection() {
             .map((el) => {
               return (
                 <Cart
+                  isColl
                   nesting
                   data={el}
                   heart={el.heart}

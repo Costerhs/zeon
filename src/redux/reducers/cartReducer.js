@@ -2,6 +2,7 @@ import axios from 'axios';
 import produce from 'immer';
 import { range, shuffle } from 'lodash';
 import { cartReaction, productApi, testApi } from '../../assets/img/api/api';
+import { toggleId } from './productReducer';
 
 const SET_IMAGE = 'SET_IMAGE';
 const SET_PRODUCT = 'SET_PRODUCT';
@@ -15,6 +16,8 @@ const SET_BASKET = 'SET_BASKET';
 const SET_ACTUAL_CART = 'SET_ACTUAL_CART';
 const TOGGLE_FORM = 'TOGGLE_FORM';
 const TOGGLE_BASKET = 'TOGGLE_BASKET';
+const TOGGLE_IMG_BAS = 'TOGGLE_IMG_BAS';
+const ADD_USER = 'ADD_USER';
 
 let intialize = {
   formes: 0,
@@ -29,6 +32,7 @@ let intialize = {
   actualCart: 2,
   images: [],
   basFetch: false,
+  activeBasketImg: false,
   colores: ['#73A39D', '#84CC4C', '#B5A8A1', '#AB844A', '#6977F0', '#e9e8e8', '#141414', '#FF0000'],
 };
 
@@ -64,8 +68,8 @@ const cartReducer = (state = intialize, action) => {
           });
         }),
       );
-    case SET_ACTUAL_CART:
-      return { ...state, actualCart: action.num };
+    // case SET_ACTUAL_CART:
+    //   return { ...state, actualCart: action.num };
 
     case SET_RESULT:
       return {
@@ -82,13 +86,26 @@ const cartReducer = (state = intialize, action) => {
 
     case TOGGLE_BASKET:
       return { ...state, basFetch: action.stat };
+
+    case TOGGLE_IMG_BAS:
+      return produce(state, (draft) => {
+        let b = draft.basket.length > 0;
+        if (b === true) {
+          draft.activeBasketImg = true;
+        } else {
+          draft.activeBasketImg = false;
+        }
+      });
+
     default:
       return state;
   }
 };
+
+export const activeBasImg = () => ({ type: TOGGLE_IMG_BAS });
 export const toggleBasketStat = (stat) => ({ type: TOGGLE_BASKET, stat });
 export const setImg = (data) => ({ type: SET_IMAGE, data });
-export const setActualCart = (num) => ({ type: SET_ACTUAL_CART, num });
+// export const setActualCart = (num) => ({ type: SET_ACTUAL_CART, num });
 export const setPro = (data) => ({ type: SET_PRODUCT, data });
 export const setRandom = () => ({ type: SET_RANDOM });
 export const addProducts = (obj) => ({ type: ADD_PRODUCT, obj });
@@ -113,6 +130,7 @@ export const setProduct = () => async (dispatch) => {
 export const setBasketData = () => async (dispatch) => {
   let data = await cartReaction.getBasket();
   dispatch(setBasket(data));
+  dispatch(activeBasImg());
 };
 export const setImages = () => async (dispatch) => {
   let image = await testApi.getTestObj();
@@ -128,7 +146,7 @@ export const setResultProd = (text) => async (dispatch) => {
   let data = await axios
     .get('https://6254f77f89f28cf72b633678.mockapi.io/product?search=' + text)
     .then((el) => el.data);
-  console.log(data);
+
   dispatch(setResult(data, text));
 };
 //dispatch(setResult(el.data))
@@ -138,7 +156,8 @@ export const addProduct = (id) => async (dispatch) => {
   let elem = await cartReaction.getCartId(id);
   await cartReaction.setShoppingData(elem);
   dispatch(setProduct());
-  // dispatch(setBasket());
+
+  dispatch(setBasketData());
 };
 export const plusProduct = (id, totalCount) => async (dispatch) => {
   await cartReaction.plusCart(id, totalCount);
@@ -164,10 +183,13 @@ export const changeColor = (id, newColor) => async (dispatch) => {
   dispatch(setCart());
 };
 
-export const toggleActual = (trueId) => async (dispatch) => {
-  await productApi.setActualID(trueId);
-  let data = await productApi.getActualData();
-  dispatch(setActualCart(data));
+export const addUser = (values, bask) => (dispatch) => {
+  axios.post('https://6254f77f89f28cf72b633678.mockapi.io/actual', { iser: values, data: bask });
 };
+// export const toggleActual = (trueId) => async (dispatch) => {
+//   await productApi.setActualID(trueId);
+//   let data = await productApi.getActualData();
+//   dispatch(setActualCart(data));
+// };
 
 export default cartReducer;

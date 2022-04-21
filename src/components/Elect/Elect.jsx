@@ -34,6 +34,11 @@ function Elect() {
 
   return (
     <div className={elc.boss}>
+      <div className={elc.desc}>
+        {' '}
+        <h1>Избранное</h1>
+        <p className={elc.count}>Товаров в избранном:{hearts.length} </p>
+      </div>
       <div className={elc.wrap}>{hearts}</div>
       {/* <div className={elc.sim}>
         <Similar />

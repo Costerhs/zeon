@@ -10,7 +10,7 @@ import {
 import { fetchActualHeart } from '../../../redux/reducers/productReducer';
 import prod from './../Product.module.css';
 
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import Color from './Color';
 
 function Characteristic({
@@ -30,7 +30,7 @@ function Characteristic({
   oldPrice,
 }) {
   let dispatch = useDispatch();
-
+  let loation = useLocation();
   let bask = useSelector((state) => state.cart.basFetch);
   let res = scan.some((el) => {
     return el.elem.color == color;
@@ -41,12 +41,10 @@ function Characteristic({
     dispatch(toggleBasketStat(res));
   }
 
-  // console.log(scan[0].elem.id);
   let navigate = useNavigate();
   let colorArr = useSelector((state) => state.cart.colores);
 
   const toggleHeart = () => {
-    dispatch(fetchActualHeart());
     let r = heart === true ? false : true;
     dispatch(fetchHearts(id, r));
   };
@@ -108,24 +106,39 @@ function Characteristic({
           {bask === false ? (
             <button className={prod.addCart} onClick={addToProduct}>
               {' '}
-              <img src="img/cartWhite.png" alt="nice" className={prod.btnImg} />
+              <img
+                src="https://i.ibb.co/s9RCJpG/cart-White.png"
+                alt="nice"
+                className={prod.btnImg}
+              />
               <span className={prod.btnp}> Добавить в корзину</span>
             </button>
           ) : (
             <button
               className={prod.addCart}
               onClick={() => {
-                navigate('/cart');
+                navigate(loation.pathname + '/cart');
               }}>
               {' '}
-              <img src="img/cartWhite.png" alt="nice" className={prod.btnImg} />
+              <img
+                src="https://i.ibb.co/s9RCJpG/cart-White.png"
+                alt="nice"
+                className={prod.btnImg}
+              />
               <span className={prod.btnp}> Перейти в корзину</span>
             </button>
           )}
 
           <button className={prod.toggleElect} onClick={toggleHeart}>
             {' '}
-            <img src={heart === true ? 'img/activeHearts.png' : 'img/whiteHeart.png'} alt="ce" />
+            <img
+              src={
+                heart === true
+                  ? 'https://i.ibb.co/9ygwc5g/active-Hearts.png'
+                  : 'https://i.ibb.co/QfhJLwZ/hearts.png'
+              }
+              alt="ce"
+            />
           </button>
         </div>
       </div>

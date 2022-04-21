@@ -4,7 +4,7 @@ const TOGGLE_ACTUAL_ID = 'TOGGLE_ACTUAL_ID';
 const TOGGLE_ACTUAL = 'TOGGLE_ACTUAL';
 
 let intialize = {
-  actualItem: [],
+  actualItem: 2,
 };
 const productReducer = (state = intialize, action) => {
   switch (action.type) {

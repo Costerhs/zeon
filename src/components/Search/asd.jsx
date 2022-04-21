@@ -6,14 +6,12 @@ import Cart from '../Cart/Cart';
 const Product = () => {
   let match = useMatch('/product/:name');
   let named = match.params.name;
-  console.log(named);
   let pros = useSelector((state) => state.cart.product);
   return (
     <div>
       {pros
         .filter((el) => el.id === named)
         .map((el) => {
-          console.log(el.image);
           return (
             <Cart
               heart={el.heart}

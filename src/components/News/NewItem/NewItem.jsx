@@ -2,7 +2,6 @@ import React from 'react';
 import newe from './../News.module.css';
 
 const NewItem = ({ image, h, text }) => {
-  console.log(image);
   return (
     <div className={newe.item}>
       <div className={newe.img}>

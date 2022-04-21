@@ -5,9 +5,6 @@ import sear from './Search.module.css';
 import Similar from '../Similar/Similar';
 
 function Search() {
-  // let result = useSelector((state) => state.cart.result);
-  // let pros = useSelector((state) => state.cart.product);
-  // console.log(result);
   let res = useSelector((state) => state.cart.result);
   let resultText = useSelector((state) => state.cart.concurrence);
   return (

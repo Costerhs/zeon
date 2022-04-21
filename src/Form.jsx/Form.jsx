@@ -1,26 +1,36 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useNavigate } from 'react-router-dom';
 import Galochka from '../components/Mini/Galochka';
-import { toggleForm } from '../redux/reducers/cartReducer';
+import { addUser, toggleForm } from '../redux/reducers/cartReducer';
 function Form() {
   let navi = useNavigate();
   let [fetch, setFetch] = useState(false);
   const dispatch = useDispatch();
+  let bask = useSelector((state) => state.cart.basket);
   let toggle = () => {
     dispatch(toggleForm(0));
     return navi('/main');
   };
+
+  const order = () => {
+    const values = getValues();
+
+    dispatch(addUser(values, bask));
+    setFetch(true);
+  };
+
   const {
     register,
+    getValues,
     handleSubmit,
     formState: { errors, isValid },
     reset,
   } = useForm({ mode: 'onChange' });
-  let { a } = useForm;
+
   const onSubmit = (data) => {
-    console.log(data);
+    console.log('yes');
   };
 
   const style = { color: 'red' };
@@ -84,6 +94,10 @@ function Form() {
               type="number"
               {...register('tel', {
                 required: 'Поле обязательна к заполнению',
+                minLength: {
+                  value: 9,
+                  message: 'Должно быть больше 9 цифр',
+                },
               })}
               placeholder="700101010"
             />
@@ -131,9 +145,7 @@ function Form() {
             <input
               type="submit"
               disabled={!isValid}
-              onClick={() => {
-                setFetch(true);
-              }}
+              onClick={order}
               className="submit"
               value={'Заказать'}
             />

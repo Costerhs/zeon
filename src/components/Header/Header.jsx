@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import hed from './Header.module.css';
 
 import { useDispatch, useSelector } from 'react-redux';
@@ -8,17 +8,46 @@ import { setResultProd } from '../../redux/reducers/cartReducer';
 import logo from './logo.png';
 import heart from './img/heart.png';
 import heartRed from './img/heartRed.png';
-import shop from './img/shoppingRed.png';
 import lupa from './img/lupa.png';
 
 const Header = () => {
+  let loca = useLocation();
+  const navi = useNavigate();
+
+  let obj = useSelector((state) => state.head.history);
+  let res = loca.pathname === '/' ? null : loca.pathname.split('/');
+  let result = [];
+
+  if (Array.isArray(res)) {
+    for (let elem of res) {
+      for (let key in obj) {
+        if (elem === key) {
+          result.push({ name: obj[elem], navigate: key });
+        }
+      }
+    }
+  }
+
+  const navis = (dat) => {
+    let kol = res;
+    let numIn = res.indexOf(dat) + 1;
+    let all = res.length - numIn;
+    for (let i = 0; i < all; i++) {
+      kol.pop();
+    }
+    return navi(kol.join('/'));
+  };
+
+  /////////////////////////////////////
   let navigate = useNavigate();
   let dispatch = useDispatch();
+
   let set = new Set();
   const setData = () => {};
   let serk = useRef();
   let active = useSelector((el) => el.cart.activeRedH);
   let hint = useSelector((state) => state.cart.product);
+  let activeOrPassive = useSelector((state) => state.cart.activeBasketImg);
   hint.map((el) => set.add(el.name));
 
   //для тел
@@ -108,13 +137,30 @@ const Header = () => {
             {/*//////////////////////////////////////////////////////////////////// */}
             <div className={hed.cart} onClick={setData}>
               <NavLink className={hed.none} to={'/cart'}>
-                <img src={shop} alt="nice" className={hed.shop} />
+                <img
+                  src={
+                    activeOrPassive
+                      ? 'https://i.ibb.co/Qr4MSYq/shopping-Red.png'
+                      : 'https://i.ibb.co/XF2gwwG/shopping-bag-1-1.png'
+                  }
+                  alt="nice"
+                  className={hed.shop}
+                />
                 <p className={hed.cart_p}>Корзина</p>
               </NavLink>
             </div>
           </div>
         </div>
         <hr size="1" />
+        <div className={hed.cot}>
+          {result.map((el) => {
+            return (
+              <div onClick={navis.bind(this, el.navigate)} className={hed.bread}>
+                {el.name} <span className={hed.spn}>/</span>
+              </div>
+            );
+          })}
+        </div>
       </div>
     </div>
   );

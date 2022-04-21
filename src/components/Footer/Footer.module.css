@@ -1,5 +1,6 @@
+
 .boss{
-    
+    width: auto;
     height: 235px;
     background-color: rgba(29, 29, 27, 1);
     color: white;
@@ -7,6 +8,7 @@
     background-size: 100%;
     margin-top: 70px;
 }
+
 
 .item{
     display: flex;

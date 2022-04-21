@@ -9,7 +9,7 @@ function Help() {
   //   dispatch(setImages());
   // }, []);
   let fors = useSelector((state) => state.cart.images);
-  console.log(fors);
+
   return (
     <div className="helsp">
       <div className="cont">

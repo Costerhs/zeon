@@ -48,7 +48,7 @@ function BasItem({ el, actId, totalCount }) {
         </div>
       </div>
       <div className={bas.x} onClick={remove}>
-        <img src="img/x.png" alt="nice" className={bas.xImg} />
+        <img src="https://i.ibb.co/Y79YpST/x.png" alt="nice" className={bas.xImg} />
       </div>{' '}
     </div>
   );

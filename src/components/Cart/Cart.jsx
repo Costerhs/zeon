@@ -1,9 +1,9 @@
 import cart from './Cart.module.css';
 import React from 'react';
 
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchHearts, setRandom, toggleActual } from '../../redux/reducers/cartReducer';
+import { fetchHearts, setRandom } from '../../redux/reducers/cartReducer';
 import classNames from 'classnames';
 import { toggleId } from '../../redux/reducers/productReducer';
 
@@ -16,10 +16,23 @@ import { SwiperSlide, Swiper } from 'swiper/react';
 import { Autoplay, Pagination, Scrollbar } from 'swiper';
 import { delay, result } from 'lodash';
 
-function Cart({ name, heart, result, data, similar, price, size, color, img, id, oldPrice }) {
+function Cart({
+  isColl,
+  name,
+  heart,
+  result,
+  data,
+  similar,
+  price,
+  size,
+  color,
+  img,
+  id,
+  oldPrice,
+}) {
   let colorArr = useSelector((state) => state.cart.colores);
   let image = useSelector((state) => state.cart.images);
-
+  let location = useLocation();
   const slides = [];
   let fost = Array.isArray(img);
   let dispatch = useDispatch();
@@ -35,11 +48,20 @@ function Cart({ name, heart, result, data, similar, price, size, color, img, id,
   //процент и для детальной страницы
   let percent = Math.round((oldPrice - price) / (oldPrice / 100));
   let setIdForProduct = () => {
-    dispatch(toggleId(data));
-    dispatch(toggleActual(id));
+    dispatch(toggleId(id));
     dispatch(setRandom());
     window.scroll(0, 0);
   };
+
+  let lastLocation;
+  if (location.pathname === '/') {
+    lastLocation = '/product';
+  } else if (location.pathname.indexOf('product') >= 0) {
+    lastLocation = location.pathname;
+  } else {
+    lastLocation = location.pathname + '/product';
+  }
+
   return (
     <div>
       {/* скидка */}
@@ -102,7 +124,7 @@ function Cart({ name, heart, result, data, similar, price, size, color, img, id,
             pad: fost,
           })}>
           {/* нащвание размер цена и тд */}
-          <NavLink to={'/product'} className={cart.none} onClick={setIdForProduct}>
+          <NavLink to={lastLocation} className={cart.none} onClick={setIdForProduct}>
             <h2 className={cart.h2}>{name}</h2>
             <h2 className={cart.price}>
               {price} р <span className={cart.oldPrice}>{oldPrice}</span>
@@ -132,3 +154,4 @@ function Cart({ name, heart, result, data, similar, price, size, color, img, id,
 }
 
 export default Cart;
+/* to={location.pathname === '/' ? '/product' : location.pathname + '/product'}*/

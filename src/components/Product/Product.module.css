@@ -107,11 +107,11 @@
 
     border: 0px;
 }
-.addCart:hover{
+/* .addCart:hover{
     background-color: white;
     color: #1D1D1B;
     border: 1px solid #1D1D1B;;
-}
+} */
 .btnImg{
     position: absolute;
     margin-left: -30px;

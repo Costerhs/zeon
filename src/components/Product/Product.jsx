@@ -7,18 +7,16 @@ import Characteristic from './Auxiliary/Characteristic';
 import Images from './Auxiliary/Images';
 
 const Product = () => {
-  let dispatch = useDispatch();
-  // useEffect(() => {
-  //   dispatch(setCart());
-  // }, []);
+  // let dispatch = useDispatch();
+
+  let ress = useSelector((state) => state.product.actualItem);
   let basket = useSelector((state) => state.cart.basket);
-  let ids = useSelector((el) => el.cart.actualCart);
-  let actualItems = useSelector((el) => el.cart.product).filter((el) => el.id == ids);
+  let actualItems = useSelector((el) => el.cart.product).filter((el) => el.id == ress);
   let status = '';
   let scan =
     basket != null
       ? basket.filter((el) => {
-          return el.elem.id == ids;
+          return el.elem.id == ress;
         })
       : null;
 

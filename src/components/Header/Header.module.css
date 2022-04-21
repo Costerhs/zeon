@@ -81,3 +81,24 @@ margin-right: 4px;
    
     border: .1px solid rgb(126, 124, 124);
 }
+
+
+.cot{
+    display: flex;
+    font-size: 20px;
+
+    margin-left: 30px;
+}
+
+.spn{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.bread{
+    font-weight: 700;
+}
+.bread:last-child{
+    color: gray;
+
+}

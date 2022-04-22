@@ -1,0 +1,45 @@
+
+.pagination{
+    display: flex;
+    flex-direction: row;
+
+    float: right;
+    margin-right:50px;
+  }
+  .uper,.downer,.number,.toch,.n{
+    
+    width: 44px;
+    height: 44px;
+    background-color: white;
+   
+  
+    
+  }
+  .uper{
+    margin-right: 12px;
+  }
+  .number,.toch,.n{
+    margin-right: 10px;
+  }
+  .pagi_str{
+    font-size: 20px;
+    margin-left:16px;
+    margin-top: 8px;
+  }
+  
+  .uper{
+    background: #ffff url(https://i.ibb.co/bJLdMKb/Vector-21.png) 15px no-repeat;
+  }
+  .downer{
+    background: #ffff url(https://i.ibb.co/9WmBFm8/Vector-22.png) 15px no-repeat;
+  }
+  
+  
+  
+  .numbers{
+    background-color: black;
+    color: white;
+    width: 44px;
+    height: 44px;
+    margin-right: 10px;
+  }

@@ -28,3 +28,27 @@
     margin-top: 20px;
     line-height: 1.5;
 }
+
+@media (max-width:1366px){
+    .boss{
+        width: 1168px;
+    }
+    .item{
+        height: 258px;
+        
+    }
+    .imag{
+        width: 226px;
+        margin: 16px;
+    }
+}
+
+/* .item{
+    background-color: white;
+    display:  flex;
+
+    padding: 10px;
+
+    margin-top: 20px;
+    margin-left: 80px;
+}*/

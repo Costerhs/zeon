@@ -5,7 +5,7 @@ const NewItem = ({ image, h, text }) => {
   return (
     <div className={newe.item}>
       <div className={newe.img}>
-        <img src={image} alt="nice" />
+        <img src={image} alt="nice" className={newe.imag} />
       </div>
       <div className={newe.char}>
         <div className={newe.h}>{h}</div>

@@ -1,13 +1,27 @@
 .boss{
-    background-color:  rgba(255, 255, 255, 1);
-    height: 153px;
+    /* height: 153px; */
 /* width: 100%; */
+display:inline-block;
+
   font-size: 17px;
   margin: 0 auto;
   padding-bottom: 50px;
 }
+.tel{
+    margin-left: 1168px;
+}
+
+.cent{
+    margin: 0 auto;
+    background-color:  rgba(255, 255, 255, 1);
+
+}
 .up,.navi,.tel,.down,.plus{
     display: flex;
+}
+.up{
+
+    width: 100%;
 }
 .up,.down{
     margin-left: 99px;
@@ -22,9 +36,7 @@
 margin-right: 24px;
 }
 
-.tel{
-    margin-left: 1168px;
-}
+
 
 /*нижний*/
 
@@ -102,3 +114,33 @@ margin-right: 4px;
     color: gray;
 
 }
+
+@media (max-width:1368px){
+    .boss{
+
+      
+    }
+    .tel{
+        margin-left: 680px;
+    }
+    .input{
+        width: 662px;
+        height: 44px;
+        padding-left: 20px;
+    }
+    .elect{
+        margin-left: 35px;
+        
+    }
+    .cart{
+        margin-left: 42px;
+    }
+}
+
+/*.input{
+    width: 1200px;
+    height:44px;
+    background-color: rgb(240, 237, 237);
+    border: 0px;
+    font-size: 20px;
+}*/

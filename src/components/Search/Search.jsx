@@ -1,12 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import Cart from '../Cart/Cart';
 import sear from './Search.module.css';
 import Similar from '../Similar/Similar';
+import PagionationSearch from './PagionationSearch';
+import Pagination from '../Mini/Pagination';
 
 function Search() {
   let res = useSelector((state) => state.cart.result);
   let resultText = useSelector((state) => state.cart.concurrence);
+  let pagin = Math.round(useSelector((state) => state.cart.paginationCount) / 12 + 0.4);
+
+  let [pagi, setPagi] = useState(1);
+  let [touch, setTouch] = useState(4);
+  let forze = (num) => {
+    setPagi((el) => (el = num));
+  };
   return (
     <div className={sear.boss}>
       <div className={sear.zagol}>
@@ -25,7 +34,7 @@ function Search() {
         )}
       </div>
       <div className={sear.wrap}>
-        {res.map((el) => {
+        {res.slice(0, 12 * pagi).map((el) => {
           return (
             <Cart
               result={resultText}
@@ -43,6 +52,14 @@ function Search() {
           );
         })}
       </div>
+      <Pagination
+        forze={forze}
+        pagi={pagi}
+        setPagi={setPagi}
+        pagin={pagin}
+        setTouch={setTouch}
+        touch={touch}
+      />
     </div>
   );
 }

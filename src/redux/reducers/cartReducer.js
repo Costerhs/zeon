@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { Action } from 'history';
 import produce from 'immer';
 import { range, shuffle } from 'lodash';
 import { cartReaction, productApi, testApi } from '../../assets/img/api/api';
@@ -18,6 +19,7 @@ const TOGGLE_FORM = 'TOGGLE_FORM';
 const TOGGLE_BASKET = 'TOGGLE_BASKET';
 const TOGGLE_IMG_BAS = 'TOGGLE_IMG_BAS';
 const ADD_USER = 'ADD_USER';
+const SET_PAGINATION_COUNT = 'SET_PAGINATION_COUNT';
 
 let intialize = {
   formes: 0,
@@ -29,6 +31,7 @@ let intialize = {
   basket: [],
   random: [],
   result: [],
+  paginationCount: null,
   actualCart: 2,
   images: [],
   basFetch: false,
@@ -97,11 +100,14 @@ const cartReducer = (state = intialize, action) => {
         }
       });
 
+    case SET_PAGINATION_COUNT:
+      return { ...state, paginationCount: action.num };
     default:
       return state;
   }
 };
 
+export const setPagi = (num) => ({ type: SET_PAGINATION_COUNT, num });
 export const activeBasImg = () => ({ type: TOGGLE_IMG_BAS });
 export const toggleBasketStat = (stat) => ({ type: TOGGLE_BASKET, stat });
 export const setImg = (data) => ({ type: SET_IMAGE, data });
@@ -146,7 +152,7 @@ export const setResultProd = (text) => async (dispatch) => {
   let data = await axios
     .get('https://6254f77f89f28cf72b633678.mockapi.io/product?search=' + text)
     .then((el) => el.data);
-
+  dispatch(setPagi(data.length));
   dispatch(setResult(data, text));
 };
 //dispatch(setResult(el.data))
@@ -193,3 +199,18 @@ export const addUser = (values, bask) => (dispatch) => {
 // };
 
 export default cartReducer;
+/*export const setResultProd =
+  (text, num = 1) =>
+  async (dispatch) => {
+    let data = await axios
+      .get(
+        'https://6254f77f89f28cf72b633678.mockapi.io/product?search=' +
+          text +
+          '&page=' +
+          num +
+          '&limit=12',
+      )
+      .then((el) => el.data);
+
+    dispatch(setResult(data, text));
+  };*/

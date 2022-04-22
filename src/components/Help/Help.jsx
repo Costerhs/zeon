@@ -1,13 +1,8 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { setImages } from '../../redux/reducers/cartReducer';
+import React from 'react';
+import { useSelector } from 'react-redux';
 import HelpItem from './HelpItem';
 
 function Help() {
-  // let dispatch = useDispatch();
-  // useEffect(() => {
-  //   dispatch(setImages());
-  // }, []);
   let fors = useSelector((state) => state.cart.images);
 
   return (
@@ -37,13 +32,3 @@ function Help() {
 }
 
 export default Help;
-/*fors[0].help.map((el) => {
-                return (
-                  <HelpItem
-                    hes={el}
-                    text={
-                      ' Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquet laoreet a, neque, gravida urna libero iaculis lacus. Pellentesque pellentesque massa ornare sit pellentesque elit        nulla. Id est tellus maecenas ornare velit. Ut cras ut rhoncus fermentum pharetra a        sit.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquet laoreet a, neque          gravida urna libero iaculis lacus. Pellentesque pellentesque massa ornare sit pellentesque         elit nulla. Id est tellus maecenas ornare velit.'
-                    }
-                  />
-                );
-              })*/

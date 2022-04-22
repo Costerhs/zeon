@@ -5,7 +5,6 @@ import hed from './Header.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { setResultProd } from '../../redux/reducers/cartReducer';
 
-import logo from './logo.png';
 import heart from './img/heart.png';
 import heartRed from './img/heartRed.png';
 import lupa from './img/lupa.png';
@@ -13,6 +12,11 @@ import lupa from './img/lupa.png';
 const Header = () => {
   let loca = useLocation();
   const navi = useNavigate();
+  let active = useSelector((el) => el.cart.activeRedH);
+  let hint = useSelector((state) => state.cart.product);
+  let activeOrPassive = useSelector((state) => state.cart.activeBasketImg);
+  let logo = useSelector((state) => state.cart.images[0]?.headers.logo);
+  let numbers = useSelector((state) => state.cart.images[0]?.headers.tel);
 
   let obj = useSelector((state) => state.head.history);
   let res = loca.pathname === '/' ? null : loca.pathname.split('/');
@@ -45,9 +49,6 @@ const Header = () => {
   let set = new Set();
   const setData = () => {};
   let serk = useRef();
-  let active = useSelector((el) => el.cart.activeRedH);
-  let hint = useSelector((state) => state.cart.product);
-  let activeOrPassive = useSelector((state) => state.cart.activeBasketImg);
   hint.map((el) => set.add(el.name));
 
   //для тел
@@ -73,7 +74,7 @@ const Header = () => {
     }
   };
   return (
-    <div>
+    <div className={hed.cent}>
       {' '}
       <div className={hed.boss}>
         <div className={hed.up}>
@@ -98,9 +99,9 @@ const Header = () => {
             {forTel && (
               <div className={hed.hid}>
                 <p>Телефоны</p>
-                <p>+996 500 00 12 45</p>
-                <p>+996 500 23 95 45</p>
-                <p>+996 500 00 63 45</p>
+                {numbers.map((el) => {
+                  return <p>{el}</p>;
+                })}
               </div>
             )}
             <p>Тел:</p>
@@ -115,6 +116,7 @@ const Header = () => {
           <div className={hed.logo}>
             <NavLink to={'/'}>
               <img src={logo} alt="nice" />
+              {/*///////////// */}
             </NavLink>
           </div>
           <div className={hed.inp}>

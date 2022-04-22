@@ -9,7 +9,7 @@ import Minidesc from './Mini/Minidesc';
 
 function Main() {
   const pros = useSelector((state) => state.cart.product);
-  const hit = pros.filter((el) => el.status === 'hit');
+  const hit = pros.filter((el) => el.status === 'hits');
   const news = pros.filter((el) => el.status === 'new');
   const neon = pros.filter((el) => el.status === 'neon');
   let arr = [hit.slice(0, 1), hit.slice(2, 3), news.slice(0, 1), neon.slice(0, 1)];
@@ -25,6 +25,7 @@ function Main() {
         {' '}
         <Status stat={news} num={4} headtext={'Новинки'} />
       </div>
+      {/* //////// */}
       <div className={main.collection}>
         <h1 className={main.mid}>Коллекции</h1>
         <div className={main.flexes}>
@@ -35,6 +36,7 @@ function Main() {
             })}
         </div>
       </div>
+      {/*  /////////////*/}
       <div className={main.end}>
         <div className={main.mid}>
           <h1>Наши преимущества</h1>

@@ -94,6 +94,7 @@ function Cart({
                   delay: 2000,
                   disableOnInteraction: false,
                 }}
+                className={cart.swips}
                 id="main"
                 tag="section"
                 wrapperTag="ul"
@@ -103,7 +104,7 @@ function Cart({
                   slides.push(
                     <SwiperSlide key={`slide-${index}`} tag="li">
                       <img
-                        className={(cart.img, cart.refa)}
+                        className={cart.swip}
                         src={el}
                         style={{ listStyleType: 'none' }}
                         alt={`Slide ${1}`}
@@ -119,14 +120,11 @@ function Cart({
           )}
           {/*для фото */}
         </div>
-        <div
-          className={classNames(cart.char, {
-            pad: fost,
-          })}>
+        <div className={classNames(cart.char, fost === true ? cart.pad : null)}>
           {/* нащвание размер цена и тд */}
           <NavLink to={lastLocation} className={cart.none} onClick={setIdForProduct}>
-            <h2 className={cart.h2}>{name}</h2>
-            <h2 className={cart.price}>
+            <h2 className={fost ? cart.swH2 : cart.h2}>{name}</h2>
+            <h2 className={fost ? cart.swPrice : cart.price}>
               {price} р <span className={cart.oldPrice}>{oldPrice}</span>
             </h2>
             <h2 className={cart.size}>Размер: {size}</h2>
@@ -137,8 +135,8 @@ function Cart({
 
               let style = {
                 background: el,
-                border: ind ? '2px solid' + el : null,
-                marginTop: ind ? '-3px' : null,
+                border: ind ? '1px solid' + el : null,
+                marginTop: ind ? '9px' : null,
               };
               return (
                 <div className={cart.colorItem}>

@@ -8,6 +8,7 @@ import mess from './../../assets/img/message.png';
 import telegram from './../../assets/img/telegram.png';
 import whats from './../../assets/img/whats.png';
 import inst from './../../assets/img/inst.png';
+import classNames from 'classnames';
 const Footer = () => {
   let [forTel, setForTel] = useState(false);
 
@@ -36,12 +37,12 @@ const Footer = () => {
         </div> */}
           <div className={foot.flex}>
             <div className={foot.blockS} onClick={() => setForTel((el) => !el)}>
-              <h4>Контакты</h4>
-              <p>
+              <h4 className={foot.h2}>Контакты</h4>
+              <p className={foot.pe}>
                 {' '}
                 <img src={ring} alt="nice" className={foot.icon} /> +996 500 123 456
               </p>
-              <p>
+              <p className={foot.pe}>
                 {' '}
                 <img src={ring} alt="nice" className={foot.icon} /> +996 500 123 456
               </p>
@@ -71,7 +72,7 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className={foot.block}>
+          <div className={classNames(foot.med)}>
             <h4>Мы в социальных сетях:</h4>
             <a href="https://www.instagram.com/zeon.ithub/" className={foot.none}>
               <p>

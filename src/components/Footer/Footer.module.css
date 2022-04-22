@@ -20,6 +20,13 @@
     text-align: left;
     font-weight: 100;
 }
+.med{
+    margin-top: 50px;
+    
+    line-height: .7;
+    text-align: left;
+    font-weight: 100;
+}
 .blockS{
     margin-top: 50px;
     margin-right: 25px;
@@ -80,3 +87,61 @@
     flex-direction: row;
     margin-right: 250px;
 }
+
+@media (max-width:1366px){
+    .forLogo{
+        margin: auto 0;
+       
+            width: 243px;
+            height: 105px;
+            margin-left: -60px;
+    }
+    .item{
+        width: 1168px;
+        border: 1px solid red;
+       
+        margin: 0 auto;
+    }
+    .logo{
+        width: 243px;
+        height: 105px;
+        background-origin: 1px solid rgb(0, 2, 128);
+        padding-right: 0px;
+    }
+    .block{
+        margin-right: 148px;
+    }
+    .blockS{
+        margin-top: 50px;
+        margin-right: 25px;
+    
+    width: 164px;
+    height: 114px;
+    
+}
+    .flex{
+        margin-right: 150px;
+    }
+    .med{
+        border: 1px solid red;
+      width: 194px;
+    }
+}
+/*margin-top: 50px;
+margin-right: 250px;
+line-height: .7;
+text-align: left;
+font-weight: 100;*/
+/*.block{
+    margin-top: 50px;
+    
+    line-height: .7;
+    text-align: left;
+    font-weight: 100;
+}*/
+/*.logo{
+        width: 243px;
+        height: 105px;
+       
+        padding-right: 120px;
+    }*/

@@ -11,7 +11,7 @@ function Similar({ not, pro, stat }) {
     .filter((el, index) => index === random[3]);
   let news = product.filter((el) => el.status === 'new').filter((el, index) => index === random[0]);
   let hit = product
-    .filter((el) => el.status === 'hit')
+    .filter((el) => el.status === 'hits')
     .filter((el, index) => index === random[1] || index === random[4] || index === random[2]);
   //   let plyazh = product.filter((el) => el.status === 'plyazh').filter((el, index) => index === f[2]);
 

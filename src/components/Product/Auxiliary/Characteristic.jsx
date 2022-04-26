@@ -12,6 +12,7 @@ import prod from './../Product.module.css';
 
 import { useLocation, useNavigate } from 'react-router-dom';
 import Color from './Color';
+import classNames from 'classnames';
 
 function Characteristic({
   fullObj,
@@ -84,7 +85,7 @@ function Characteristic({
           <p className={prod.text}>{desc}</p>
         </div>
         <div className={prod.line}>
-          <div className={prod.item}>
+          <div className={classNames(prod.item, prod.marg)}>
             <h3 className={prod.h3}>Размерный ряд:</h3>
             <p className={prod.itemP}>{size}</p>
           </div>
@@ -92,11 +93,11 @@ function Characteristic({
             <h3 className={prod.h3}>Количество в линейке:</h3>
             <p className={prod.itemP}>{lineNum}</p>
           </div>
-          <div className={prod.item}>
+          <div className={classNames(prod.item, prod.marg)}>
             <h3 className={prod.h3}>Состав ткани:</h3>
             <p className={prod.itemP}>{structure}</p>
           </div>
-          <div className={prod.item}>
+          <div className={classNames(prod.item, prod.left)}>
             <h3 className={prod.h3}>Материал:</h3>
             <p className={prod.itemP}>{structure}</p>
           </div>
@@ -134,7 +135,7 @@ function Characteristic({
             <img
               src={
                 heart === true
-                  ? 'https://i.ibb.co/9ygwc5g/active-Hearts.png'
+                  ? 'https://i.ibb.co/6FW30g4/Vector-23.png'
                   : 'https://i.ibb.co/QfhJLwZ/hearts.png'
               }
               alt="ce"

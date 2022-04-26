@@ -1,5 +1,5 @@
 import React from 'react';
-import sear from './Search.module.css';
+import sear from '../Mini/Mini.module.css';
 function PagionationSearch({ num, active, froze }) {
   return (
     <div onClick={froze} className={active === true ? sear.numbers : sear.number}>

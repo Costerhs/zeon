@@ -26,3 +26,12 @@
     margin-top: 50px;
 }
 
+@media (max-width:1366px){
+    .hed{
+        margin-top: 32px;
+
+    }
+    .boss,.cont{
+        width: 1168px;
+    }
+}

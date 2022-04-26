@@ -8,14 +8,16 @@ let intialize = {
     collection: 'Коллекции',
     news: 'Новости',
     help: 'Помщщь',
-    hit: 'хиты',
+    hits: 'хиты',
     desc: 'О нас',
     neon: 'Неоновые платья',
     new: 'Новые платья',
     product: 'Детальная страница товара',
     elect: 'Избранное',
     cart: 'Корзина',
+    search: 'Поиск',
   },
+  cols: ['Вечернее платье', 'Белое платье', 'Неоновое платье'],
 };
 const headerReducer = (state = intialize, action) => {
   switch (action.type) {

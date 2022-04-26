@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
@@ -5,6 +6,13 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import Galochka from '../components/Mini/Galochka';
 import { addUser, toggleForm } from '../redux/reducers/cartReducer';
 function Form() {
+  let [sat, setSat] = useState('https://i.ibb.co/rHQk9Tq/twemoji-flag-for-flag-kyrgyzstan.png');
+  let [check, setCheck] = useState(false)
+  let si = {
+    1: 'https://i.ibb.co/rHQk9Tq/twemoji-flag-for-flag-kyrgyzstan.png',
+    2: 'https://i.ibb.co/g6ngk7J/Vector-18.png',
+    3: 'https://i.ibb.co/M9sZQz3/Vector-19.png'
+  }
   let navi = useNavigate();
   let [fetch, setFetch] = useState(false);
   const dispatch = useDispatch();
@@ -84,13 +92,22 @@ function Form() {
               placeholder="ivan@mail.com"
             />
           </div>
-          <div className="item">
-            <p className="p" style={errors?.tel && style}>
+          <div className={classNames("item", "numItems")}>
+            <p className="ps" style={errors?.tel && style}>
               Ваш номер
             </p>{' '}
+            <div className='tesr'>
+              <select form="data" style={{ backgroundImage: `url(${sat})` }} className="sele" onClick={(event) => { setSat(els => els = si[event.target.value]) }}>
+
+                <option value='1'>+996</option>
+                <option value='2'>+7</option>
+                <option value='3'>+32</option>
+
+              </select>
+            </div>
             <input
               style={errors?.tel && border}
-              className="inp"
+              className={classNames("inp", "numinp")}
               type="number"
               {...register('tel', {
                 required: 'Поле обязательна к заполнению',
@@ -131,7 +148,7 @@ function Form() {
             />
           </div>
           <div className="checkbox">
-            <input type="checkbox" className="checks" />
+            <input type="checkbox" value={check} onClick={() => setCheck(el => !el)} className="checks" />
             <p className="ofera">
               {' '}
               Согласен с условиями{' '}
@@ -144,7 +161,7 @@ function Form() {
             {' '}
             <input
               type="submit"
-              disabled={!isValid}
+              disabled={isValid === false || check === false}
               onClick={order}
               className="submit"
               value={'Заказать'}

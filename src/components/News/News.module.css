@@ -32,14 +32,22 @@
 @media (max-width:1366px){
     .boss{
         width: 1168px;
+        margin: 0 auto;
     }
     .item{
         height: 258px;
-        
+        width: 1168px;
+        margin-left: 0px;
+        margin-top: 12px;
+
+        font-size: 14px;
     }
     .imag{
         width: 226px;
         margin: 16px;
+    }
+    .char{
+        margin-top: 13px;
     }
 }
 

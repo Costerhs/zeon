@@ -23,7 +23,7 @@ const Footer = () => {
           <div className={foot.block}>
             <h4>Компания</h4>
             <NavLink to={'/desc'} className={foot.none}>
-              <p>О нас</p>
+              <p className={foot.marg}>О нас</p>
             </NavLink>
             <NavLink to={'/news'} className={foot.none}>
               <p>Новости</p>
@@ -74,21 +74,21 @@ const Footer = () => {
 
           <div className={classNames(foot.med)}>
             <h4>Мы в социальных сетях:</h4>
-            <a href="https://www.instagram.com/zeon.ithub/" className={foot.none}>
+            <a href="https://www.instagram.com/zeon.ithub/" className={foot.nones}>
               <p>
                 {' '}
                 <img src={inst} alt="nice" className={foot.tel} />
                 Instagram
               </p>
             </a>
-            <a href="https://web.telegram.org/z/" className={foot.none}>
+            <a href="https://web.telegram.org/z/" className={foot.nones}>
               <p>
                 {' '}
                 <img src={telegram} alt="nice" className={foot.tel} />
                 Telegram
               </p>
             </a>
-            <a href="https://www.whatsapp.com/?lang=ru" className={foot.none}>
+            <a href="https://www.whatsapp.com/?lang=ru" className={foot.nones}>
               <p>
                 {' '}
                 <img src={whats} alt="nice" className={foot.tel} />

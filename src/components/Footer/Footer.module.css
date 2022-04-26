@@ -89,6 +89,9 @@
 }
 
 @media (max-width:1366px){
+    .boss{
+        height: 245px;
+    }
     .forLogo{
         margin: auto 0;
        
@@ -98,18 +101,19 @@
     }
     .item{
         width: 1168px;
-        border: 1px solid red;
+       
        
         margin: 0 auto;
     }
     .logo{
         width: 243px;
         height: 105px;
-        background-origin: 1px solid rgb(0, 2, 128);
+        
         padding-right: 0px;
     }
     .block{
         margin-right: 148px;
+     
     }
     .blockS{
         margin-top: 50px;
@@ -123,8 +127,41 @@
         margin-right: 150px;
     }
     .med{
-        border: 1px solid red;
-      width: 194px;
+       
+      width: 210px;
+      margin-bottom: 20px;
+
+    }
+    .info{
+        
+    margin: auto 0;
+    margin-left: 95px;
+    padding-bottom: 4px;
+    color: 
+    rgba(185, 185, 185, 1);
+    }
+    .none{
+        line-height: 15px;
+    }
+    .marg{
+        margin-top: 20px;
+    }
+    .tel{
+
+    }
+    .nones{
+            text-decoration: none;
+            color: white;  
+    }
+    .blockHid{
+        position: absolute;
+        margin-top: 55px;
+        margin-left: -20px;
+        line-height: .1;
+        text-align: left;
+        font-weight: 100;
+        border: 0px solid gray;
+        border-radius: 10px;
     }
 }
 /*margin-top: 50px;

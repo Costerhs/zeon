@@ -24,7 +24,9 @@ function Collection() {
 
   return (
     <div className={coll.boss}>
-      <h1>Коллекции {match != null ? '/ ' + match.params.statusId.toUpperCase() : null}</h1>
+      <h1 className={coll.hed}>
+        Коллекции {match != null ? '/ ' + match.params.statusId.toUpperCase() : null}
+      </h1>
       <div className={coll.cont}>
         {match != null ? (
           actualStatus.slice(0, pagi * 12).map((el) => {

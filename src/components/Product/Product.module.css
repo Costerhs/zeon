@@ -14,7 +14,6 @@
     /* border: 1px solid black; */
 }
 .cont_images_bigImg{
-
     flex-wrap: wrap;
 }
 .bigImg_item{
@@ -170,3 +169,106 @@
     text-decoration: line-through;
     color: gray;
 }
+@media (max-width:1366px){
+    .boss{
+        width: 1168px;
+    }
+    .cont_images{
+        width: 624px;
+        text-align: left;
+    }
+    .cont_images_bidImg{
+        flex-wrap: wrap;
+    }
+    .bigImg_item{
+        width: 290px;
+        margin: 4px ;
+        margin-bottom: 0px;
+    }
+    .smallImg_item{
+        width: 142px;
+        height: 240px;
+        margin-right: 1px;
+    }
+ 
+    /* /////////////////////////// */
+    .forSquare{
+    
+
+        width: 520px;
+        height: 434px;
+        
+        margin-top: 11px;
+    }
+    .square{
+        margin-left: 24px;
+    }
+    .h{
+        font-size: 24px;
+    }
+    .articul{
+        font-size: 14px;
+    }
+    .price{
+        font-size: 24px;
+    }
+    .desc{
+        font-size: 16px;
+    }
+    .text{
+        font-size: 14px;
+    }
+    .description{
+        width:  auto;   
+    }
+    .item{
+        font-size: 14px;
+        margin-right: 5px;
+        display: flex;
+    }
+    .itemP{
+        margin-left: 5px;
+        margin-top: 18px;
+    
+        font-size: 14px;
+    }
+    .marg{
+       
+        margin-right:62px;
+    }
+    .left{
+        margin-left: -13px;
+    }
+    .addCart{
+        background: #1D1D1B;;
+        color: white;
+    
+        width: 428px;
+        height:44px;
+    
+        font-size: 14px;
+    
+        
+    }
+    .btnImg{
+        position: absolute;
+        margin-left: -25px;
+        margin-top: 1px;
+        width: 15px;
+    }
+    .toggleElect{
+        height: 44px;
+        width: 44px;
+    
+        color: white;
+    
+        border: 0px;
+    
+        background: #1D1D1B;;
+    
+        margin-left: 10px;
+        
+    }
+    
+}
+/* 428 44 */

@@ -21,3 +21,23 @@
     text-decoration: none;
     color: black;
 }
+
+.number{
+    background: white;
+    width: 44px;height: 44px;
+}
+
+@media (max-width:1366px){
+    .boss{
+        width: 1168px;
+        margin: 0 auto;
+        text-align: left;
+    }
+    .wrap{
+        width: 1168px;
+        
+    }
+    .zagol{
+        margin-left: -0px;
+    }
+}

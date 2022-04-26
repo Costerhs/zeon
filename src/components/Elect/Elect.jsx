@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import Cart from '../Cart/Cart';
 import Similar from '../Similar/Similar';
 import elc from './Elect.module.css';
 function Elect() {
+  let [exist, setExist] = useState(false);
   let obj = useSelector((state) => state.cart.product);
   let hearts =
     obj.some((el) => el.heart === true) === true ? (

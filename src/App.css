@@ -32,10 +32,10 @@ margin-bottom: 2px;
   
 }
 .fon{
-  position: absolute;
+  position: fixed;
   z-index: 1;
 background-color: rgb(95, 89, 89);
-width: 1900px;
+width: 100%;
 height: 100%;
 opacity: 0.5;
 }
@@ -266,8 +266,8 @@ transition: transform .4s;
   text-align: right;
 
   position: fixed;
-  right: 50px;
-  top: 86%; 
+  right: 140px;
+  top: 80%; 
   z-index: 100;
 }
 .uper{
@@ -417,3 +417,60 @@ margin-left: 38px;
   left: 0px;
   right: 0px;
 } 
+
+
+@media (max-width:1366px){
+  .formes_cont{
+    position: fixed;
+    z-index: 10;
+    /* left: 730px;
+    top: 100px; */
+    top: 100px;
+    left: 0px;
+    right: 0px;
+  }
+  .strel{
+    position: relative;
+    top: -152px;
+    left: 610px;
+    transition: transform .4s;
+    }
+}
+
+
+
+
+
+.selectCount {
+  border: 1px solid red;
+}
+
+.sele {
+  position: absolute;
+  /* bottom: 412px; */
+  background: url("https://i.ibb.co/rHQk9Tq/twemoji-flag-for-flag-kyrgyzstan.png") no-repeat;
+  padding-left: 25px;
+  /*margin-bottom: 20px; */
+  margin-bottom: 10px;
+  border: 0px;
+
+
+}
+
+.tesr {
+  margin-bottom: -16px;
+  margin-left: 5px;
+}
+
+.ps {
+  font-size: 13px;
+  margin-bottom: 20px;
+}
+
+.numinp{
+  padding-left: 80px;
+}
+
+.numinp{
+  width: 316px;
+}

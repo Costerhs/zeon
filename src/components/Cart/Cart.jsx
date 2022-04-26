@@ -66,7 +66,7 @@ function Cart({
     <div>
       {/* скидка */}
       {oldPrice != null ? (
-        <div className={cart.three}>
+        <div className={classNames(cart.three, similar === true && cart.sThree)}>
           <img src={image[0].three} alt="nice" className={cart.imgThree} />
           <p className={cart.procent}>{percent}%</p>
         </div>
@@ -81,12 +81,16 @@ function Cart({
           <img
             src={heart === false ? image[0].heart : image[0].activeHeart}
             alt="heart"
-            className={fost === true ? cart.heartHover : cart.heart}
+            className={classNames(
+              fost === true ? cart.heartHover : cart.heart,
+              similar === true && fost === true && cart.sHeart,
+              similar === true && fost !== true && cart.simHeart,
+            )}
             onClick={activeHeart}
           />
           {/*для фото */}
           {fost === true ? (
-            <div>
+            <div className={similar === true && cart.swpp}>
               <Swiper
                 modules={[Pagination, Autoplay, Scrollbar]}
                 spaceBetween={0}
@@ -94,7 +98,7 @@ function Cart({
                   delay: 2000,
                   disableOnInteraction: false,
                 }}
-                className={cart.swips}
+                className={similar === true ? cart.sSwips : cart.swips}
                 id="main"
                 tag="section"
                 wrapperTag="ul"
@@ -104,7 +108,7 @@ function Cart({
                   slides.push(
                     <SwiperSlide key={`slide-${index}`} tag="li">
                       <img
-                        className={cart.swip}
+                        className={similar === true ? cart.simWip : cart.swip}
                         src={el}
                         style={{ listStyleType: 'none' }}
                         alt={`Slide ${1}`}
@@ -116,11 +120,21 @@ function Cart({
               </Swiper>
             </div>
           ) : (
-            <img src={img} alt="nice" className={classNames(cart.img, cart.refa)} />
+            <img
+              src={img}
+              alt="nice"
+              className={classNames(cart.img, cart.refa, similar === true && cart.sImg)}
+            />
           )}
           {/*для фото */}
         </div>
-        <div className={classNames(cart.char, fost === true ? cart.pad : null)}>
+        <div
+          className={classNames(
+            similar === true && cart.sChar,
+            cart.char,
+            fost === true ? cart.pad : null,
+            similar === true && fost === false && cart.forSim,
+          )}>
           {/* нащвание размер цена и тд */}
           <NavLink to={lastLocation} className={cart.none} onClick={setIdForProduct}>
             <h2 className={fost ? cart.swH2 : cart.h2}>{name}</h2>

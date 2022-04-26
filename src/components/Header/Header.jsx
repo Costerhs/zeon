@@ -1,15 +1,18 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import hed from './Header.module.css';
-
+import Select from 'react-select';
 import { useDispatch, useSelector } from 'react-redux';
-import { setResultProd } from '../../redux/reducers/cartReducer';
+import { setResult, setResultProd } from '../../redux/reducers/cartReducer';
 
 import heart from './img/heart.png';
 import heartRed from './img/heartRed.png';
 import lupa from './img/lupa.png';
+import classNames from 'classnames';
 
 const Header = () => {
+  let [forTel, setForTel] = useState(false);
+  let [searches, setSearches] = useState(false);
   let loca = useLocation();
   const navi = useNavigate();
   let active = useSelector((el) => el.cart.activeRedH);
@@ -17,7 +20,7 @@ const Header = () => {
   let activeOrPassive = useSelector((state) => state.cart.activeBasketImg);
   let logo = useSelector((state) => state.cart.images[0]?.headers.logo);
   let numbers = useSelector((state) => state.cart.images[0]?.headers.tel);
-
+  let cols = useSelector(state => state.head.cols);
   let obj = useSelector((state) => state.head.history);
   let res = loca.pathname === '/' ? null : loca.pathname.split('/');
   let result = [];
@@ -31,6 +34,7 @@ const Header = () => {
       }
     }
   }
+
 
   const navis = (dat) => {
     let kol = res;
@@ -47,14 +51,18 @@ const Header = () => {
   let dispatch = useDispatch();
 
   let set = new Set();
-  const setData = () => {};
+  const setData = () => { };
   let serk = useRef();
-  hint.map((el) => set.add(el.name));
-
+  hint.map((el, index) => set.add(el.name));
+  // let options = set.forEach((el, index, set) => {
+  //   return console.log(sets)
+  //   // { value: index, label: el }
+  // })
+  // console.log(options)
   //для тел
   let teleph = useRef(null);
 
-  let [forTel, setForTel] = useState(false);
+
   const handleClick = (e) => {
     const path = e.path || (e.composedPath && e.composedPath());
     if (!path.includes(teleph.current)) {
@@ -70,9 +78,20 @@ const Header = () => {
     if (event.keyCode === 13) {
       dispatch(setResultProd(serk.current.value));
       serk.current.value = '';
+      setSearches(false)
       return navigate('/search');
     }
   };
+  const setForResultHid = (event) => {
+
+    dispatch(setResultProd(event));
+    serk.current.value = '';
+    setSearches(false)
+    return navigate('/search');
+
+
+
+  }
   return (
     <div className={hed.cent}>
       {' '}
@@ -120,14 +139,15 @@ const Header = () => {
             </NavLink>
           </div>
           <div className={hed.inp}>
-            <input
-              type="search"
-              ref={serk}
-              className={hed.input}
-              placeholder="Поиск"
-              onKeyDown={setForResult}
-            />
+
+            <input type="search" ref={serk} className={hed.input} placeholder="Поиск" onClick={() => setSearches(true)} onKeyDown={setForResult} />
             <img src={lupa} alt="nice" className={hed.lup} />
+            <div className={classNames(hed.over, searches && hed.back)}>
+
+              {cols.map(el => {
+                return <div onClick={setForResultHid.bind(this, el)} className={hed.over_item}><p>{el}</p></div>
+              })}
+            </div>
           </div>
           <div className={hed.plus}>
             <div className={hed.elect}>
@@ -139,15 +159,7 @@ const Header = () => {
             {/*//////////////////////////////////////////////////////////////////// */}
             <div className={hed.cart} onClick={setData}>
               <NavLink className={hed.none} to={'/cart'}>
-                <img
-                  src={
-                    activeOrPassive
-                      ? 'https://i.ibb.co/Qr4MSYq/shopping-Red.png'
-                      : 'https://i.ibb.co/XF2gwwG/shopping-bag-1-1.png'
-                  }
-                  alt="nice"
-                  className={hed.shop}
-                />
+                <img src={activeOrPassive ? 'https://i.ibb.co/Qr4MSYq/shopping-Red.png' : 'https://i.ibb.co/XF2gwwG/shopping-bag-1-1.png'} alt="nice" className={hed.shop} />
                 <p className={hed.cart_p}>Корзина</p>
               </NavLink>
             </div>
@@ -169,3 +181,7 @@ const Header = () => {
 };
 
 export default Header;
+/* <div className={hed.inp}>
+            <input type="search" ref={serk} className={hed.input} placeholder="Поиск" onKeyDown={setForResult} />
+            <img src={lupa} alt="nice" className={hed.lup} />
+          </div>*/

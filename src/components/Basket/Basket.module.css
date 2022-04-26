@@ -38,7 +38,6 @@
 }
 .contP{
     height: 18px;
-    
 }
 .p{
     margin-top: -2px;
@@ -158,3 +157,87 @@
     color: gray;
     text-decoration:line-through;
 }
+
+@media (max-width:1366px){
+    .boss{
+        
+        width: 1168px;
+    }
+    .item{
+        height: 166px;
+        width: 768px;
+        margin-bottom: 8px ;
+
+    }
+    .h{
+        color: #393939;;
+        font-size: 14px;
+    }
+    .img{
+        margin: 12px;
+    }
+    .h2{
+        font-size: 13px;
+    }
+    .contP{
+        font-size: 13px;
+    }
+    .contP,.contCircle{
+        margin-top: -7px;
+    }
+    .price{
+        font-size: 18px;
+        margin-top: 6px;
+    }
+    .contBtn{
+        display:  flex;
+    
+        width: 100px;
+        height: 32px;
+    }
+    .x{
+        position: absolute;
+        margin-left: 737px;
+        margin-top: 8px;
+    }
+    .itog{
+        width: 384px;
+        height: 311px;
+        margin-left: 16px;
+        font-size: 14px;
+    }
+    .hedsss{
+        
+       padding-bottom: 10px;
+    }
+    .desc:first-child{
+        margin-top: 16px;
+    }
+    .desc{
+        margin-bottom: 12px;
+    }
+    .contEnd{
+        width: 384px;
+    }
+    .end{
+        width: 336px;
+        height: 44px;
+        font-size: 16px;
+        font-family: 'Montserrat';
+    }
+ 
+}
+/* .contEnd{
+    width: 440px;
+}
+.end{
+    background-color: red;
+    border: 0px;
+
+    width: 440px;
+    height: 55px;
+
+    color: white;
+
+    font-size: 19px;
+} */

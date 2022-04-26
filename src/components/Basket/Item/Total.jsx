@@ -13,7 +13,10 @@ function Total({ sumPrice, allProductCount, oldPrice, line }) {
   return (
     <div className={bas.itog}>
       <div className={bas.contDesc}>
-        <h4>Сумма заказа</h4>
+        <div className={bas.hedsss}>
+          {' '}
+          <h4>Сумма заказа</h4>
+        </div>
         <div className={bas.desc}>
           <p className={bas.left}>Количество линеек:</p>
           <p className={bas.right}>{line} шт</p>

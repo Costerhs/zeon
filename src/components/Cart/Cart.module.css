@@ -1,56 +1,70 @@
 /* 286
 437 */
-.boss{
-/* width: 100%;
+.boss {
+    /* width: 100%;
 height: 100%; */
     width: 370px;
     height: 730px;
     /* margin: 2px; */
     text-align: left;
-    
-    
+
+
 }
-.size,.price,.h2{
-text-align: left;
+
+.size,
+.price,
+.h2 {
+    text-align: left;
 }
-.bossSim{
+
+.bossSim {
     width: 100%;
     height: 100%;
 }
 
-.img{
+.img {
     width: 365px;
     margin-bottom: -14px;
     position: relative;
     z-index: 0;
 
 }
-.boss{
+
+.boss {
     transition: transform 400ms ease-out;
 }
-.boss:hover{
+
+.boss:hover {
     transform: scale(1.02);
 }
-.pad{
+
+.pad {
     height: 157px;
     padding-top: 2px;
 }
+
 /*описание*/
-.h2,.price,.size{
+.h2,
+.price,
+.size {
     margin-left: 10px;
     font-weight: normal;
 }
-.char{
-  background-color: white;
-  width: 365px;
+
+.char {
+    background-color: white;
+    width: 365px;
 }
-.h2{
+
+.h2 {
     font-family: 'Montserrat';
     font-style: normal;
-    color: #393939;;
+    color: #393939;
+    ;
     padding-top: 7px;
 }
-.swH2{
+
+.swH2 {
     font-weight: normal;
     font-family: 'Montserrat';
     font-style: normal;
@@ -58,98 +72,112 @@ text-align: left;
     margin-top: 3px;
     margin-left: 10px;
 }
-.price{
-font-weight: 600;
+
+.price {
+    font-weight: 600;
 }
-.swPrice{
+
+.swPrice {
     margin-top: -10px;
     margin-left: 10px;
     font-weight: 600;
 }
-.heart{
+
+.heart {
     position: relative;
     left: 320px;
     top: 40px;
     z-index: 2;
 }
-.heartHover{
+
+.heartHover {
     position: relative;
     left: 320px;
     top: 53px;
     z-index: 2;
 }
+
 /* position: relative;
 left: 320px;
 top: 40px;
 z-index: 2; */
 
-.none{
+.none {
     text-decoration: none;
     color: black;
 }
-.three{
+
+.three {
     position: absolute;
     margin-top: 27px;
     z-index: 2;
 }
 
-.imgThree{
-width: 70px;
-}
-.procent{
-    font-size: 20px;
-    color:white;
-    transform: rotate(-40deg);
-    margin-top: -73px;
+.imgThree {
+    width: 51px;
 }
 
-.oldPrice{
-    text-decoration:line-through;
+.procent {
+    font-size: 12px;
+    color: white;
+    transform: rotate(-40deg);
+    margin-top: -53px;
+}
+
+.oldPrice {
+    text-decoration: line-through;
     color: gray;
 }
-.price,.oldPrice,.size{
-    margin-top:-10px ;
+
+.price,
+.oldPrice,
+.size {
+    margin-top: -10px;
 }
-.colorGroup{
-    display:  flex;
+
+.colorGroup {
+    display: flex;
     margin-top: -10px;
     margin-left: 10px;
 }
-.colorItem{
+
+.colorItem {
     height: 40px;
 }
 
-.opac{
+.opac {
     width: 20px;
     height: 20px;
 
     margin-right: 10px;
 
-   
+
     border-radius: 100%;
 
     /* background-color: red; */
-    
+
 }
-.color{
+
+.color {
     width: 15px;
 
     margin-right: 10px;
     margin-bottom: 10px;
 }
-.coloru{
+
+.coloru {
     width: 14px;
 
     margin-right: 10px;
     margin-bottom: 10px;
 }
 
-.colorActive{
+.colorActive {
     width: 20px;
     margin-right: 10px;
     margin-bottom: 10px;
 
-    
+
 
     border: 1px solid gray;
     border-radius: 100px;
@@ -157,126 +185,282 @@ width: 70px;
 
 }
 
-.forPassiv{
+.forPassiv {
     margin: 2px;
 }
-.forHover{
+
+.forHover {
     margin-top: -15px;
     margin-bottom: 2px;
 }
 
-@media (max-width:1366px){
-    .boss{
+@media (max-width:1366px) {
+    .boss {
         width: 226px;
-    height: 420px;
-   
- 
+        height: 420px;
+
+
     }
-    .bossSim{
+
+    .bossSim {
         width: 288px;
-    height: 536px;
-    margin-bottom: -8px;
-    /* margin-right: 8px; */
+        height: 536px;
+        margin-bottom: -8px;
+        /* margin-right: 8px; */
     }
-    .img{
+
+    .img {
         width: 286px;
-       
- 
+
+
     }
-    .refa{
+
+    .refa {
         margin-top: -27px;
     }
-    .three{
+
+    .three {
         margin-top: 1px;
     }
-    .char{
+
+    .char {
         width: 286px;
         height: 99px;
     }
-    .h2{
+
+    .h2 {
         font-size: 14px;
         padding-top: 13px;
         margin-bottom: 16px;
     }
-    .price{
+
+    .price {
         font-size: 16px;
     }
-    .size{
+
+    .size {
         font-size: 13px;
     }
-    .opac{
+
+    .opac {
         margin-top: 10px;
         margin-right: 16px;
         width: 8px;
         height: 8px;
     }
-    .heart{
+
+    .heart {
         left: 250px;
         top: 10px;
     }
-    .heartHover{
+
+    .heartHover {
         left: 250px;
         top: 10px;
     }
-    .pad{
+
+    .pad {
         height: 83px;
         padding-top: 2px;
     }
-     .swips{
-       
+
+    .swips {
+
         margin-top: -43px;
         width: 286px;
-    } 
-    .forHover{
+    }
+
+    .forHover {
         margin-top: 2px;
         margin-bottom: 2px;
-    
+
     }
-    .swH2{
+
+    .swH2 {
         font-size: 14px;
         margin-top: -2px;
     }
-    .swPrice{
+
+    .swPrice {
         font-size: 16px;
         margin-top: -5px;
-    margin-left: 10px;
+        margin-left: 10px;
     }
 
-    .sSwips{
+    .sSwips {
         width: 226px;
         height: 332px;
         margin-top: -26px;
-        
+
     }
-    .swpp{
+
+    .swpp {
         width: 226px;
         height: 332px;
     }
-    .simWip{
+
+    .simWip {
         margin-top: -20px;
     }
-    .sChar{
+
+    .sChar {
         height: 88px;
         width: 226px;
         margin-top: 10px;
     }
-    .sImg{
+
+    .sImg {
         width: 226px;
         height: 328px;
         margin-top: 1px;
         margin-left: -24px;
     }
-    .sThree{
+
+    .sThree {
         margin-left: 2px;
     }
-    .sHeart{
+
+    .sHeart {
         left: 190px;
     }
-    .simHeart{
+
+    .simHeart {
         left: 190px;
         top: -280px;
     }
-    .forSim{
+
+    .forSim {
+        height: 102px;
+        width: 226px;
+        margin-top: 10px;
+    }
+}
+
+@media (max-width:320px) {
+    .boss {
+        width: 226px;
+        height: 420px;
+
+
+    }
+
+    .bossSim {
+        width: 262px;
+        height: 482px;
+        margin-bottom: 88px;
+
+        /* margin-right: 8px; */
+    }
+
+    .img {
+        width: 262px;
+
+
+    }
+
+    .refa {
+        margin-top: -27px;
+    }
+
+    .three {
+        margin-top: 1px;
+    }
+
+    .char {
+        width: 262px;
+        height: 110px;
+    }
+
+    .opac {
+        margin-top: 10px;
+        margin-right: 16px;
+        width: 8px;
+        height: 8px;
+    }
+
+    .heart {
+        left: 220px;
+        top: 10px;
+    }
+
+    .heartHover {
+        left: 250px;
+        top: 10px;
+    }
+
+    .pad {
+        height: 83px;
+        padding-top: 2px;
+    }
+
+    .swips {
+
+        margin-top: -26px;
+        width: 262px;
+        border: 1px solid red;
+    }
+
+
+    .forHover {
+        margin-top: 2px;
+        margin-bottom: 2px;
+
+    }
+
+    .swH2 {
+        font-size: 14px;
+        margin-top: -2px;
+    }
+
+    .swPrice {
+        font-size: 16px;
+        margin-top: -5px;
+        margin-left: 10px;
+    }
+
+    .sSwips {
+        width: 226px;
+        height: 332px;
+        margin-top: -26px;
+
+    }
+
+    .swpp {
+        width: 226px;
+        height: 332px;
+    }
+
+    .simWip {
+        margin-top: -20px;
+    }
+
+    .sChar {
+        height: 88px;
+        width: 226px;
+        margin-top: 10px;
+    }
+
+    .sImg {
+        width: 226px;
+        height: 328px;
+        margin-top: 1px;
+        margin-left: -24px;
+    }
+
+    .sThree {
+        margin-left: 2px;
+    }
+
+    .sHeart {
+        left: 190px;
+    }
+
+    .simHeart {
+        left: 190px;
+        top: -280px;
+    }
+
+    .forSim {
         height: 102px;
         width: 226px;
         margin-top: 10px;

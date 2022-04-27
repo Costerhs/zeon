@@ -4,6 +4,8 @@ import { setBasketData } from '../../redux/reducers/cartReducer';
 import bas from './Basket.module.css';
 import BasItem from './Item/BasItem';
 import Total from './Item/Total';
+import Similar from './../Similar/Similar'
+
 function Basket() {
   let dispatch = useDispatch();
 
@@ -25,13 +27,23 @@ function Basket() {
         {allProduct.map((el) => {
           return <BasItem key={el.id} el={el.elem} actId={el.id} totalCount={el.totalCount} />;
         })}
+        {allProduct.length === 0 && <> <div className={bas.ifNot}>
+          <h1 className={bas.korTExt}>Корзина</h1>
+          <p className={bas.korT}>У вас пока нет товаров в корзине</p>
+        </div>
+          <div className={bas.simis}>
+            <Similar search={true} />
+          </div>
+        </>}
       </div>
-      <Total
-        line={allProduct.length}
-        sumPrice={sumPrice}
-        oldPrice={sumOldPrice}
-        allProductCount={fullCount}
-      />
+      {allProduct.length !== 0 &&
+        <Total
+          line={allProduct.length}
+          sumPrice={sumPrice}
+          oldPrice={sumOldPrice}
+          allProductCount={fullCount}
+        />
+      }
     </div>
   );
 }

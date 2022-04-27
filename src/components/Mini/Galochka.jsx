@@ -1,9 +1,10 @@
+import classNames from 'classnames';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { toggleForm } from '../../redux/reducers/cartReducer';
 
-function Galochka() {
+function Galochka({ tois }) {
   let navi = useNavigate();
   const dispatch = useDispatch();
   let toggle = () => {
@@ -11,7 +12,7 @@ function Galochka() {
     return navi('/main');
   };
   return (
-    <div className="galochka">
+    <div className={classNames("galochka", tois === true && 'forTellls')}>
       <div className="cont_icon">
         {' '}
         <img className="icon" src="https://i.ibb.co/JnsL98C/Vector-16.png" />

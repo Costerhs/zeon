@@ -22,6 +22,10 @@ function Form() {
     return navi('/main');
   };
 
+  let toggles = () => {
+    dispatch(toggleForm(0));
+
+  };
   const order = () => {
     const values = getValues();
 
@@ -49,6 +53,7 @@ function Form() {
       {fetch == false ? (
         <form className="form" onSubmit={handleSubmit(onSubmit)}>
           <h1 className="h1">Оформление заказа</h1>
+          <div className='ixis'><img onClick={toggles} className='ixis_img' src='https://i.ibb.co/g6ngk7J/Vector-18.png' /></div>
           <div className="item">
             <p className="p" style={errors?.name && style}>
               Ваше имя
@@ -89,7 +94,7 @@ function Form() {
               {...register('email', {
                 required: 'Поле обязательна к заполнению',
               })}
-              placeholder="ivan@mail.com"
+              placeholder="example@mail.com"
             />
           </div>
           <div className={classNames("item", "numItems")}>
@@ -116,12 +121,12 @@ function Form() {
                   message: 'Должно быть больше 9 цифр',
                 },
               })}
-              placeholder="700101010"
+              placeholder="Введите номер телефона"
             />
           </div>
           <div className="item">
             <p className="p" style={errors?.country && style}>
-              Место проживания
+              Страна
             </p>{' '}
             <input
               style={errors?.country && border}
@@ -130,7 +135,7 @@ function Form() {
               {...register('country', {
                 required: 'Поле обязательна к заполнению',
               })}
-              placeholder="Россия"
+              placeholder="Введите страну"
             />
           </div>
           <div className="item">
@@ -144,7 +149,7 @@ function Form() {
               })}
               className="inp"
               type="text"
-              placeholder="Город"
+              placeholder="Введите город"
             />
           </div>
           <div className="checkbox">

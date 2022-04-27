@@ -1,18 +1,39 @@
-.boss{
+.boss {
     width: 1700px;
 
-       
-     margin:  0 auto;
 
-    display:  flex;
+    margin: 0 auto;
+
+    display: flex;
     font-size: 20px;
 }
 
-.items{
+.items {
     width: 1200px;
 
 }
-.item{
+
+.ifNot {
+
+    text-align: left;
+}
+
+.korTExt {
+
+    color: #393939;
+    font-size: 24px;
+}
+
+.korT {
+    color: #393939;
+    font-size: 16px;
+}
+
+.simis {
+    margin-top: 48px;
+}
+
+.item {
     height: 220px;
 
     width: 1200px;
@@ -26,32 +47,43 @@
 
     background-color: white;
 }
-.img{
+
+.img {
     margin: 10px;
 }
-.h{
+
+.h {
     margin-top: 12px;
-    
+
 }
-.h2,.h,.p{
-  color:#7C7C7C; ;
+
+.h2,
+.h,
+.p {
+    color: #7C7C7C;
+    ;
 }
-.contP{
+
+.contP {
     height: 18px;
 }
-.p{
+
+.p {
     margin-top: -2px;
     margin-right: 5px;
 }
-.colores{
+
+.colores {
     display: flex;
 }
-.contCircle{
- 
+
+.contCircle {
+
     width: 14px;
     height: 14px;
 }
-.circle{
+
+.circle {
 
 
     width: 10px;
@@ -62,46 +94,52 @@
     margin-top: 2px;
     margin-left: 2px;
 }
-.price{
+
+.price {
     font-size: 20px;
 }
 
-.contBtn{
-    display:  flex;
+.contBtn {
+    display: flex;
 
     width: 100px;
     height: 30px;
 }
-.btn{
+
+.btn {
     width: 30px;
     height: 30px;
 
-    background-color: #F8F8F8 ;
+    background-color: #F8F8F8;
 
     border-radius: 8px;
-    border: 1px solid  #EFEFEF;
+    border: 1px solid #EFEFEF;
 }
-.count{
+
+.count {
     margin: 4px auto;
 
     font-size: 18px;
 }
-.x{
+
+.x {
     width: 20px;
     height: 20px;
 
     position: absolute;
     margin-left: 1170px;
     margin-top: 10px;
-    
+
 }
-.xImg{
+
+.xImg {
     margin: 2px 2px;
 }
-.itog{
+
+.itog {
     background-color: white;
     margin-left: 20px;
-    margin-top:  18px;
+    margin-top: 18px;
 
     text-align: left;
 
@@ -109,11 +147,11 @@
     width: 480px;
 }
 
-.contDesc{
+.contDesc {
     margin-left: 20px;
 }
 
-.desc{
+.desc {
     display: flex;
     justify-content: space-between;
 
@@ -123,25 +161,32 @@
     height: 30px;
     margin-bottom: 20px;
 }
-.left,.right{
+
+.left,
+.right {
     margin-top: 0px;
 
 }
-.left{
-    color:  #979797;;
+
+.left {
+    color: #979797;
+    ;
 }
-.right{
+
+.right {
     margin-right: 20px;
 }
 
-.dotted{
+.dotted {
     border-top: 3px dashed rgba(191, 191, 191, 1);
     margin-bottom: 40px;
 }
-.contEnd{
+
+.contEnd {
     width: 440px;
 }
-.end{
+
+.end {
     background-color: red;
     border: 0px;
 
@@ -153,80 +198,98 @@
     font-size: 19px;
 }
 
-.oldPrice{
+.oldPrice {
     color: gray;
-    text-decoration:line-through;
+    text-decoration: line-through;
 }
 
-@media (max-width:1366px){
-    .boss{
-        
+@media (max-width:1366px) {
+    .boss {
+
         width: 1168px;
     }
-    .item{
+
+    .item {
         height: 166px;
         width: 768px;
-        margin-bottom: 8px ;
+        margin-bottom: 8px;
 
     }
-    .h{
-        color: #393939;;
+
+    .h {
+        color: #393939;
+        ;
         font-size: 14px;
     }
-    .img{
+
+    .img {
         margin: 12px;
     }
-    .h2{
+
+    .h2 {
         font-size: 13px;
     }
-    .contP{
+
+    .contP {
         font-size: 13px;
     }
-    .contP,.contCircle{
+
+    .contP,
+    .contCircle {
         margin-top: -7px;
     }
-    .price{
+
+    .price {
         font-size: 18px;
         margin-top: 6px;
     }
-    .contBtn{
-        display:  flex;
-    
+
+    .contBtn {
+        display: flex;
+
         width: 100px;
         height: 32px;
     }
-    .x{
+
+    .x {
         position: absolute;
         margin-left: 737px;
         margin-top: 8px;
     }
-    .itog{
+
+    .itog {
         width: 384px;
         height: 311px;
         margin-left: 16px;
         font-size: 14px;
     }
-    .hedsss{
-        
-       padding-bottom: 10px;
+
+    .hedsss {
+
+        padding-bottom: 10px;
     }
-    .desc:first-child{
+
+    .desc:first-child {
         margin-top: 16px;
     }
-    .desc{
+
+    .desc {
         margin-bottom: 12px;
     }
-    .contEnd{
+
+    .contEnd {
         width: 384px;
     }
-    .end{
+
+    .end {
         width: 336px;
         height: 44px;
         font-size: 16px;
         font-family: 'Montserrat';
     }
- 
+
 }
+
 /* .contEnd{
     width: 440px;
 }

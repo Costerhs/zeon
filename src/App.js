@@ -20,11 +20,12 @@ import Form from './Form.jsx/Form';
 import PublicOfer from './components/PublicOfer/PublicOfer';
 import Windower from './components/Windower/Windower';
 import Telephones from './components/Mini/Telephones';
+import AdaptiveHead from './components/Header/AdaptiveHead';
 
 const App = () => {
   let flag = useSelector((state) => state.cart.formes);
   let dispatch = useDispatch();
-
+  const mediaQuery = window.matchMedia('(max-width: 320px)');
   useEffect(() => {
     dispatch(setCart());
     dispatch(setRandom());
@@ -32,8 +33,8 @@ const App = () => {
   return (
     <>
       <div className="boss">
-        <Header />
-
+     
+    {mediaQuery.matches === true ? <AdaptiveHead /> : <Header />}
         <Routes>
           <Route path="/cart" element={<Basket />} />
           <Route path=":as/:as/:as/cart" element={<Basket />} />

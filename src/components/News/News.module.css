@@ -1,14 +1,18 @@
-.boss{
+.boss {
     text-align: left;
-    
+
     width: 1600px;
 }
-.newT{
-    margin-left: 20px;
+
+.newT {
+    margin-left: 24px;
+    color: #393939;
+    margin-top: 5px;
 }
-.item{
+
+.item {
     background-color: white;
-    display:  flex;
+    display: flex;
 
     padding: 10px;
 
@@ -16,25 +20,30 @@
     margin-left: 80px;
 }
 
-.char{
+.char {
     margin-left: 20px;
 }
-.h{
-    font-size: 20px;
+
+.h {
+    color: #393939;
+    ;
+    font-size: 16px;
     font-weight: 700;
 }
 
-.text{
-    margin-top: 20px;
+.text {
+    color: #5B5B5B;
+    margin-top: 14px;
     line-height: 1.5;
 }
 
-@media (max-width:1366px){
-    .boss{
+@media (max-width:1366px) {
+    .boss {
         width: 1168px;
         margin: 0 auto;
     }
-    .item{
+
+    .item {
         height: 258px;
         width: 1168px;
         margin-left: 0px;
@@ -42,21 +51,94 @@
 
         font-size: 14px;
     }
-    .imag{
+
+    .imag {
         width: 226px;
         margin: 16px;
     }
-    .char{
+
+    .char {
         margin-top: 13px;
     }
 }
 
-/* .item{
-    background-color: white;
-    display:  flex;
+@media (max-width:320px) {
+    .boss {
+        width: 288px;
+        margin-left: 16px;
+        margin-top: 24px;
+        display: flex;
+        flex-direction: column;
+    }
 
-    padding: 10px;
+    .newT {
+        margin-left: -1px;
+        font-size: 18px;
+    }
 
-    margin-top: 20px;
-    margin-left: 80px;
-}*/
+    .item {
+        flex-direction: column;
+        width: 288px;
+        height: 419px;
+
+        padding: 0px;
+        margin-top: 0px;
+        margin-bottom: 8px;
+        margin-left: 0px;
+        transition: height 2s;
+
+    }
+
+    .imag {
+        width: 264px;
+        height: 226px;
+        margin: 12px 14px;
+    }
+
+    .char {
+        margin-top: 1px;
+        margin-left: 15px;
+        width: 256px;
+        margin: 0 auto;
+        height: 115px;
+        overflow: hidden;
+    }
+
+    .h {
+        font-size: 16px;
+        font-weight: 700;
+    }
+
+    .text {
+        font-size: 14px;
+        margin-top: 6px;
+        line-height: 165%;
+    }
+
+    .cont_btn {
+        width: 264px;
+        height: 32px;
+        border: 1px solid gray;
+        margin: 0 auto;
+        margin-top: 6px;
+    }
+
+
+    .btn {
+        width: 264px;
+        height: 32px;
+        background-color: white;
+        border: 0px;
+
+    }
+
+    .full {
+        height: 559px;
+        transition: height 2s;
+    }
+
+    .fl {
+        height: 850px;
+        transition: height 2s;
+    }
+}

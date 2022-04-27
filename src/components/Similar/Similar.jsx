@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Cart from './../Cart/Cart';
 import sim from './Similar.module.css';
 
-function Similar({ not, pro, stat }) {
+function Similar({ not, pro, stat, search }) {
   let product = useSelector((state) => state.cart.product);
   let random = useSelector((state) => state.cart.random);
   let neon = product
@@ -16,10 +16,11 @@ function Similar({ not, pro, stat }) {
   //   let plyazh = product.filter((el) => el.status === 'plyazh').filter((el, index) => index === f[2]);
 
   let orr = pro ? product.filter((el) => el.status === stat).slice(0, 5) : [news, hit, neon];
-
+  //
   return (
     <div className={sim.boss}>
-      <h1>{not === true ? 'Новинки' : 'Похожие товары:'}</h1>
+      {search === true ? <h1 className={sim.inter}>Возможно вас заинтересует</h1> : <h1>{not === true ? 'Новинки' : 'Похожие товары:'}</h1>}
+
       <div className={sim.cont}>
         {orr
           .flatMap((el) => el)

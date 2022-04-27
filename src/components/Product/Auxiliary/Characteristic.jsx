@@ -30,6 +30,7 @@ function Characteristic({
   structure,
   oldPrice,
 }) {
+  const [heartes, setHeartes] = useState(heart);
   let dispatch = useDispatch();
   let loation = useLocation();
   let bask = useSelector((state) => state.cart.basFetch);
@@ -48,6 +49,7 @@ function Characteristic({
   const toggleHeart = () => {
     let r = heart === true ? false : true;
     dispatch(fetchHearts(id, r));
+    setHeartes(el => el = !el)
   };
   const addToProduct = () => {
     dispatch(addProduct(id));
@@ -93,7 +95,7 @@ function Characteristic({
             <h3 className={prod.h3}>Количество в линейке:</h3>
             <p className={prod.itemP}>{lineNum}</p>
           </div>
-          <div className={classNames(prod.item, prod.marg)}>
+          <div className={classNames(prod.item, prod.marg, prod.margs)}>
             <h3 className={prod.h3}>Состав ткани:</h3>
             <p className={prod.itemP}>{structure}</p>
           </div>
@@ -134,7 +136,7 @@ function Characteristic({
             {' '}
             <img
               src={
-                heart === true
+                heartes === true
                   ? 'https://i.ibb.co/6FW30g4/Vector-23.png'
                   : 'https://i.ibb.co/QfhJLwZ/hearts.png'
               }

@@ -9,43 +9,18 @@ import heart from './img/heart.png';
 import heartRed from './img/heartRed.png';
 import lupa from './img/lupa.png';
 import classNames from 'classnames';
+import Bread from '../Mini/Bread';
 
 const Header = () => {
   let [forTel, setForTel] = useState(false);
   let [searches, setSearches] = useState(false);
-  let loca = useLocation();
-  const navi = useNavigate();
+
   let active = useSelector((el) => el.cart.activeRedH);
   let hint = useSelector((state) => state.cart.product);
   let activeOrPassive = useSelector((state) => state.cart.activeBasketImg);
   let logo = useSelector((state) => state.cart.images[0]?.headers.logo);
   let numbers = useSelector((state) => state.cart.images[0]?.headers.tel);
   let cols = useSelector(state => state.head.cols);
-  let obj = useSelector((state) => state.head.history);
-  let res = loca.pathname === '/' ? null : loca.pathname.split('/');
-  let result = [];
-
-  if (Array.isArray(res)) {
-    for (let elem of res) {
-      for (let key in obj) {
-        if (elem === key) {
-          result.push({ name: obj[elem], navigate: key });
-        }
-      }
-    }
-  }
-
-
-  const navis = (dat) => {
-    let kol = res;
-    let numIn = res.indexOf(dat) + 1;
-    let all = res.length - numIn;
-    for (let i = 0; i < all; i++) {
-      kol.pop();
-    }
-    return navi(kol.join('/'));
-  };
-
   /////////////////////////////////////
   let navigate = useNavigate();
   let dispatch = useDispatch();
@@ -167,13 +142,7 @@ const Header = () => {
         </div>
         <hr size="1" />
         <div className={hed.cot}>
-          {result.map((el) => {
-            return (
-              <div onClick={navis.bind(this, el.navigate)} className={hed.bread}>
-                {el.name} <span className={hed.spn}>/</span>
-              </div>
-            );
-          })}
+          <Bread />
         </div>
       </div>
     </div>

@@ -1,3 +1,4 @@
+import axios from 'axios';
 import produce from 'immer';
 
 const TOGGLE_ACTUAL_ID = 'TOGGLE_ACTUAL_ID';
@@ -22,4 +23,14 @@ const productReducer = (state = intialize, action) => {
 
 export const toggleId = (data) => ({ type: TOGGLE_ACTUAL_ID, data });
 export const fetchActualHeart = () => ({ type: TOGGLE_ACTUAL });
+
+
+export const postTell = (data) => (dispatch) =>{
+  
+    axios.post('https://6257e3c10c918296a48cf691.mockapi.io/qwe',{ data:data })
+}
+
+
+
+
 export default productReducer;

@@ -1,9 +1,9 @@
-.boss{
+.boss {
     text-align: left;
-    
-    }
 
-.wrap{
+}
+
+.wrap {
     width: 1500px;
     display: flex;
     flex-wrap: wrap;
@@ -13,31 +13,44 @@
     margin: 0 auto;
 }
 
-.zagol{
+.zagol {
     margin-left: 180px;
 }
 
-.none{
+.none {
     text-decoration: none;
     color: black;
 }
 
-.number{
+.number {
     background: white;
-    width: 44px;height: 44px;
+    width: 44px;
+    height: 44px;
 }
 
-@media (max-width:1366px){
-    .boss{
+@media (max-width:1366px) {
+    .boss {
         width: 1168px;
         margin: 0 auto;
         text-align: left;
     }
-    .wrap{
+
+    .wrap {
         width: 1168px;
-        
+
     }
-    .zagol{
+
+    .zagol {
         margin-left: -0px;
     }
+}
+
+.resultText {
+    color: #393939;
+    font-size: 24px;
+}
+
+.nothing {
+    color: #393939;
+    font-size: 14px;
 }

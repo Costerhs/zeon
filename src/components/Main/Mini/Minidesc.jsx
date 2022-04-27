@@ -6,8 +6,8 @@ function Minidesc({ img, desc, head }) {
       <div className={main.item_img}>
         <img src={img} alt="nice" />
       </div>
-      <h2>{head}</h2>
-      <p>{desc} </p>
+      <h2 className={main.desc_hed}>{head}</h2>
+      <p className={main.desc_t}>{desc} </p>
     </div>
   );
 }

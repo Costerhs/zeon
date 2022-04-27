@@ -1,5 +1,4 @@
-
-.boss{
+.boss {
     width: auto;
     height: 235px;
     background-color: rgba(29, 29, 27, 1);
@@ -10,71 +9,79 @@
 }
 
 
-.item{
+.item {
     display: flex;
 }
-.block{
+
+.block {
     margin-top: 50px;
     margin-right: 250px;
     line-height: .7;
     text-align: left;
     font-weight: 100;
 }
-.med{
+
+.med {
     margin-top: 50px;
-    
+
     line-height: .7;
     text-align: left;
     font-weight: 100;
 }
-.blockS{
+
+.blockS {
     margin-top: 50px;
     margin-right: 25px;
     line-height: .7;
     text-align: left;
     font-weight: 100;
 }
-.forLogo{
+
+.forLogo {
     margin: auto 0;
-        padding-right: 200px;
-    
+    padding-right: 200px;
+
 }
-.logo{
+
+.logo {
     width: 243px;
     height: 105px;
     padding-left: 60px;
     padding-right: 120px;
 }
-.none{
+
+.none {
     text-decoration: none;
     color: white;
 }
 
-.icon{
-   position: relative;
-   top: 3px;
+.icon {
+    position: relative;
+    top: 3px;
 }
 
-.tel{
-   margin-right: 4px;
-    
+.tel {
+    margin-right: 4px;
+
 }
-.info{
+
+.info {
     text-align: left;
     margin: auto 0;
     margin-left: 25px;
     padding-bottom: 10px;
-    color: 
-    rgba(185, 185, 185, 1);
+    color:
+        rgba(185, 185, 185, 1);
 }
-.adre{
+
+.adre {
     text-decoration: none;
     color: white;
 }
 
-.blockHid{
+.blockHid {
     margin-top: 50px;
-   
+
     line-height: .1;
     text-align: left;
     font-weight: 100;
@@ -82,78 +89,89 @@
     border-radius: 10px;
 }
 
-.flex{
+.flex {
     display: flex;
     flex-direction: row;
     margin-right: 250px;
 }
 
-@media (max-width:1366px){
-    .boss{
+@media (max-width:1366px) {
+    .boss {
         height: 245px;
     }
-    .forLogo{
+
+    .forLogo {
         margin: auto 0;
-       
-            width: 243px;
-            height: 105px;
-            margin-left: -60px;
-    }
-    .item{
-        width: 1168px;
-       
-       
-        margin: 0 auto;
-    }
-    .logo{
+
         width: 243px;
         height: 105px;
-        
+        margin-left: -60px;
+    }
+
+    .item {
+        width: 1168px;
+
+
+        margin: 0 auto;
+    }
+
+    .logo {
+        width: 243px;
+        height: 105px;
+
         padding-right: 0px;
     }
-    .block{
+
+    .block {
         margin-right: 148px;
-     
+
     }
-    .blockS{
+
+    .blockS {
         margin-top: 50px;
         margin-right: 25px;
-    
-    width: 164px;
-    height: 114px;
-    
-}
-    .flex{
+
+        width: 164px;
+        height: 114px;
+
+    }
+
+    .flex {
         margin-right: 150px;
     }
-    .med{
-       
-      width: 210px;
-      margin-bottom: 20px;
+
+    .med {
+
+        width: 210px;
+        margin-bottom: 20px;
 
     }
-    .info{
-        
-    margin: auto 0;
-    margin-left: 95px;
-    padding-bottom: 4px;
-    color: 
-    rgba(185, 185, 185, 1);
+
+    .info {
+
+        margin: auto 0;
+        margin-left: 95px;
+        padding-bottom: 4px;
+        color:
+            rgba(185, 185, 185, 1);
     }
-    .none{
+
+    .none {
         line-height: 15px;
     }
-    .marg{
+
+    .marg {
         margin-top: 20px;
     }
-    .tel{
 
+    .tel {}
+
+    .nones {
+        text-decoration: none;
+        color: white;
     }
-    .nones{
-            text-decoration: none;
-            color: white;  
-    }
-    .blockHid{
+
+    .blockHid {
         position: absolute;
         margin-top: 55px;
         margin-left: -20px;
@@ -164,21 +182,53 @@
         border-radius: 10px;
     }
 }
-/*margin-top: 50px;
-margin-right: 250px;
-line-height: .7;
-text-align: left;
-font-weight: 100;*/
-/*.block{
-    margin-top: 50px;
-    
-    line-height: .7;
-    text-align: left;
-    font-weight: 100;
-}*/
-/*.logo{
-        width: 243px;
-        height: 105px;
-       
-        padding-right: 120px;
-    }*/
+
+@media (max-width:320px) {
+    .boss {
+        height: auto;
+    }
+
+    .item {
+        flex-direction: column;
+        margin-left: 20px;
+    }
+
+    .forLogo {
+        margin-top: 24px;
+        margin-left: -65px;
+    }
+
+    .block {
+
+        margin-top: 26px;
+        margin-right: 250px;
+        line-height: .7;
+        text-align: left;
+        font-weight: 100;
+    }
+
+
+
+    .blockS {
+
+        margin-top: 1px;
+    }
+
+    .med {
+        margin-top: 24px;
+    }
+
+    .info {
+        border-top: 1px solid gray;
+        width: 280px;
+        margin-left: 20px;
+
+        padding-top: 10px;
+        padding-bottom: 20px;
+    }
+
+    .blockHid {
+        font-size: 12px;
+        margin-top: 15px;
+    }
+}

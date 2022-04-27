@@ -39,9 +39,9 @@ function Main() {
       {/*  /////////////*/}
       <div className={main.end}>
         <div className={main.mid}>
-          <h1>Наши преимущества</h1>
+          <p>Наши преимущества</p>
         </div>
-        <div className={main.flexes}>
+        <div className={main.flexeses}>
           <Minidesc
             desc={'Мы проконсультируем и индивидуально подойдем к Вашему заказу'}
             head={'Профессиональная консультация'}

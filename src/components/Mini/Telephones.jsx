@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import { toggleForm } from '../../redux/reducers/cartReducer';
 import Galochka from './Galochka';
+import { postTell } from '../../redux/reducers/productReducer';
 function Telephones() {
   let dispatch = useDispatch();
   let [fetch, setFetch] = useState(false);
@@ -16,7 +17,9 @@ function Telephones() {
     handleSubmit,
     formState: { errors, isValid },
   } = useForm({ mode: 'onChange' });
-  const onSubmit = (data) => {};
+  const onSubmit = (data) => {
+    dispatch(postTell(data))
+  };
   return (
     <>
       {fetch === false ? (
@@ -63,7 +66,7 @@ function Telephones() {
           </div>
         </div>
       ) : (
-        <Galochka />
+        <Galochka tois={true} />
       )}
     </>
   );

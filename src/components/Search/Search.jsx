@@ -23,14 +23,16 @@ function Search() {
         {res.length === 0 ? (
           <div>
             <div>
-              <h1>По вашему запросу ничего не найдено</h1>
+              <h1 className={sear.resultText}>Результаты поиска по запросу :{resultText}</h1>
+              <p className={sear.nothing}>По вашему запросу ничего не найдено</p>
             </div>
             <div>
-              <Similar />
+              <Similar search />
             </div>
           </div>
-        ) : (
+        ) : (<>
           <h1 className={sear.her}>Результаты поиска по запросу: {resultText}</h1>
+        </>
         )}
       </div>
       <div className={sear.wrap}>
@@ -52,14 +54,15 @@ function Search() {
           );
         })}
       </div>
-      <Pagination
-        forze={forze}
-        pagi={pagi}
-        setPagi={setPagi}
-        pagin={pagin}
-        setTouch={setTouch}
-        touch={touch}
-      />
+      {res.length === 0 ? null :
+        <Pagination
+          forze={forze}
+          pagi={pagi}
+          setPagi={setPagi}
+          pagin={pagin}
+          setTouch={setTouch}
+          touch={touch}
+        />}
     </div>
   );
 }

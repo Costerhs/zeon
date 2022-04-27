@@ -1,5 +1,5 @@
 import cart from './Cart.module.css';
-import React from 'react';
+import React, { useState } from 'react';
 
 import { NavLink, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
@@ -30,6 +30,7 @@ function Cart({
   id,
   oldPrice,
 }) {
+  const [heartes, setHeartes] = useState(heart);
   let colorArr = useSelector((state) => state.cart.colores);
   let image = useSelector((state) => state.cart.images);
   let location = useLocation();
@@ -39,6 +40,7 @@ function Cart({
   //для активации сердечка
   const activeHeart = () => {
     let r = heart === true ? false : true;
+    setHeartes(el => el = !el)
     if (result != null) {
       dispatch(fetchHearts(id, r, result));
     } else {
@@ -79,7 +81,7 @@ function Cart({
         {/* фото и сердечко */}
         <div className={classNames(cart.img, cart.blockImg)}>
           <img
-            src={heart === false ? image[0].heart : image[0].activeHeart}
+            src={heartes === false ? image[0].heart : image[0].activeHeart}
             alt="heart"
             className={classNames(
               fost === true ? cart.heartHover : cart.heart,
@@ -149,8 +151,8 @@ function Cart({
 
               let style = {
                 background: el,
-                border: ind ? '1px solid' + el : null,
-                marginTop: ind ? '9px' : null,
+                // border: ind ? '1px solid' + el : null,
+                // marginTop: ind ? '9px' : null,
               };
               return (
                 <div className={cart.colorItem}>
@@ -166,4 +168,5 @@ function Cart({
 }
 
 export default Cart;
+/*<div className={classNames(cart.opac)} style={style}></div> */
 /* to={location.pathname === '/' ? '/product' : location.pathname + '/product'}*/

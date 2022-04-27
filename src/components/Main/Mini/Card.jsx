@@ -8,7 +8,7 @@ function Card({ img, status }) {
         <div className={main.imgRes} style={{ backgroundImage: `url(${img})` }}>
           {/* <img src={img} alt="nice" className={main.imges} /> */}
         </div>
-        <p>{status.toUpperCase()}</p>
+        <p className={main.statText}>{status}</p>
         <div className={main.btn_cont}>
           <NavLink
             onClick={() => {

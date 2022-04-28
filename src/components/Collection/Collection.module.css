@@ -1,37 +1,40 @@
-.boss{
+.boss {
 
     width: 1700px;
     text-align: left;
     margin: 0 auto;
-    }
+}
 
-.cont{
+.cont {
     width: 1600px;
-    
+
     margin: 0 auto;
-    display:  flex;
+    display: flex;
     flex-wrap: wrap;
 
     margin-bottom: 100px;
 }
-.flexes{
+
+.flexes {
     display: flex;
-    margin:  0 auto;
-   
+    margin: 0 auto;
+
 }
 
-.pagin{
- 
+.pagin {
+
     margin-left: 1100px;
     margin-top: 50px;
 }
 
-@media (max-width:1366px){
-    .hed{
+@media (max-width:1366px) {
+    .hed {
         margin-top: 32px;
-
+        font-size: 24px;
     }
-    .boss,.cont{
+
+    .boss,
+    .cont {
         width: 1168px;
     }
 }

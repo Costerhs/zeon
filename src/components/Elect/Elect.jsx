@@ -4,10 +4,15 @@ import Cart from '../Cart/Cart';
 import Similar from '../Similar/Similar';
 import elc from './Elect.module.css';
 function Elect() {
-  let [exist, setExist] = useState(false);
   let obj = useSelector((state) => state.cart.product);
+  let res = obj.some((el) => el.heart === true) === true;
+  console.log(res)
+  // let [exist, setExist] = useState(res);
+  // console.log(exist)
+
+
   let hearts =
-    obj.some((el) => el.heart === true) === true ? (
+    res ? (
       obj
         .filter((el) => el.heart === true)
         .map((el) => {
@@ -28,17 +33,17 @@ function Elect() {
         })
     ) : (
       <>
-        <h1>Пока в избранном ничего нет</h1>
-        <Similar />
+
+        <Similar search />
       </>
     );
-
+  let text = res === true ? `Товаров в избранном:${hearts.length}` : 'У вас пока нет избранных товаров'
   return (
     <div className={elc.boss}>
       <div className={elc.desc}>
         {' '}
-        <h1>Избранное</h1>
-        <p className={elc.count}>Товаров в избранном:{hearts.length} </p>
+        <h1 className={elc.el_text}>Избранное</h1>
+        <p className={elc.count}>{text} </p>
       </div>
       <div className={elc.wrap}>{hearts}</div>
       {/* <div className={elc.sim}>

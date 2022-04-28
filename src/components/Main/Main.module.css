@@ -35,7 +35,7 @@
     height: 32px;
     background-color: black;
     color: white;
-    margin-top: 30px;
+    margin-top: 10px;
     border: 0px;
     font-size: 13px;
 }
@@ -98,7 +98,7 @@
     color: white;
 
     font-size: 20px;
-
+    z-index: 2;
     background: url(https://i.ibb.co/R2FJjRz/right-White.png);
     background-repeat: no-repeat;
     background-size: 15px;
@@ -132,6 +132,18 @@
     display: flex;
 }
 
+.statText {
+    font-size: 15px;
+}
+
+.shadow {
+    background: rgb(2, 0, 36);
+    background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(255, 255, 255, 0.16290266106442575) 48%, rgba(0, 0, 0, 1) 100%);
+    opacity: 0.3;
+    position: absolute;
+    width: 21%;
+    height: 37%;
+}
 
 .end_item {
     background-color: white;

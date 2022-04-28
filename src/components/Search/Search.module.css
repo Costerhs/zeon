@@ -38,6 +38,7 @@
     .wrap {
         width: 1168px;
 
+
     }
 
     .zagol {
@@ -45,12 +46,13 @@
     }
 }
 
-.resultText {
+.resultText,
+.her {
     color: #393939;
     font-size: 24px;
 }
 
 .nothing {
     color: #393939;
-    font-size: 14px;
+    font-size: 16px;
 }

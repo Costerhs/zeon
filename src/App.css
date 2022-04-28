@@ -5,6 +5,7 @@
   margin: 0 auto;
   /* width: 1900px; */
   background-color: rgb(241, 245, 245);
+  /* background-color: rgb(21, 207, 207); */
   font-family:
     Montserrat;
 
@@ -548,4 +549,8 @@
 
 .numinp {
   width: 316px;
+}
+
+.elpes {
+  margin-top: 1px;
 }

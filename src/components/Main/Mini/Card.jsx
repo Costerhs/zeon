@@ -4,6 +4,7 @@ import main from '../Main.module.css';
 function Card({ img, status }) {
   return (
     <div className={main.collection_container}>
+      <div className={main.shadow}></div>
       <div className={main.collection_item}>
         <div className={main.imgRes} style={{ backgroundImage: `url(${img})` }}>
           {/* <img src={img} alt="nice" className={main.imges} /> */}

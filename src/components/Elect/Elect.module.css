@@ -3,7 +3,7 @@
     flex-wrap: wrap;
 } */
 
-.wrap{
+.wrap {
     width: 1500px;
     display: flex;
     flex-wrap: wrap;
@@ -13,27 +13,39 @@
     margin: 0 auto;
 }
 
-.sim{
+.sim {
     margin-left: 190px;
     margin-top: 50px;
 }
 
-.desc{
+.desc {
     text-align: left;
     margin-left: 200px;
 }
 
-@media (max-width:1366px){
-    .boss{
+.el_text {
+    font-size: 24px;
+    color: #393939;
+
+}
+
+.count {
+    color: #979797;
+    font-size: 14px;
+}
+
+@media (max-width:1366px) {
+    .boss {
         width: 1168px;
         margin: 0 auto;
     }
-    .wrap{
+
+    .wrap {
         width: 1168px;
-    
+
     }
-    
-    .desc{
-    margin-left: 0px;
+
+    .desc {
+        margin-left: 0px;
     }
 }

@@ -105,7 +105,7 @@ const Header = () => {
             </div>
           </div>
         </div>
-        <hr size="1" />
+        <div className={hed.gray}></div>
         <div className={hed.down}>
           <div className={hed.logo}>
             <NavLink to={'/'}>
@@ -140,7 +140,7 @@ const Header = () => {
             </div>
           </div>
         </div>
-        <hr size="1" />
+        <div className={hed.gray}></div>
         <div className={hed.cot}>
           <Bread />
         </div>

@@ -116,6 +116,7 @@
     font-size: 20px;
 
     margin-left: 30px;
+
 }
 
 .spn {
@@ -134,6 +135,10 @@
 .bread:last-child {
     color: gray;
 
+}
+
+.gray {
+    border: 1px solid #EEEEEE;
 }
 
 @media (max-width:1368px) {

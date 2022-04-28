@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import Cart from '../Cart/Cart';
 import sear from './Search.module.css';
@@ -12,9 +12,13 @@ function Search() {
   let pagin = Math.round(useSelector((state) => state.cart.paginationCount) / 12 + 0.4);
 
   let [pagi, setPagi] = useState(1);
+  useEffect(() => {
+    setPagi(1);
+  }, [res])
   let [touch, setTouch] = useState(4);
   let forze = (num) => {
     setPagi((el) => (el = num));
+    window.scroll(0, 0)
   };
   return (
     <div className={sear.boss}>
@@ -36,7 +40,7 @@ function Search() {
         )}
       </div>
       <div className={sear.wrap}>
-        {res.slice(0, 12 * pagi).map((el) => {
+        {res.slice((12 * pagi) - 12, 12 * pagi).map((el) => {
           return (
             <Cart
               result={resultText}

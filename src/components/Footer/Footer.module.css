@@ -98,6 +98,7 @@
 @media (max-width:1366px) {
     .boss {
         height: 245px;
+        font-size: 14px;
     }
 
     .forLogo {
@@ -132,7 +133,7 @@
         margin-right: 25px;
 
         width: 164px;
-        height: 114px;
+        height: 124px;
 
     }
 
@@ -180,6 +181,10 @@
         font-weight: 100;
         border: 0px solid gray;
         border-radius: 10px;
+    }
+
+    .adre {
+        margin-top: 12px;
     }
 }
 

@@ -9,11 +9,11 @@ const Description = () => {
     <div className={des.boss}>
       <div className={des.imgs}>
         <div className={des.twoImg}>
-          <img src={img[0].description[1]} alt="nice" className={des.img} />
-          <img src={img[0].description[2]} alt="nice" className={des.img} />
+          <img src={img[0]?.description[1]} alt="nice" className={des.img} />
+          <img src={img[0]?.description[2]} alt="nice" className={des.img} />
         </div>
         <div className={des.face}>
-          <img src={img[0].description[0]} alt="nice" />
+          <img src={img[0]?.description[0]} alt="nice" className={des.las} />
         </div>
       </div>
       <div className={des.text}>

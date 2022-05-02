@@ -27,16 +27,16 @@ function Total({ sumPrice, allProductCount, oldPrice, line }) {
         </div>
         <div className={bas.desc}>
           <p className={bas.left}>Стоимость:</p>
-          <p className={bas.right}>{oldPrice} рублей</p>
+          <p className={bas.right}>{(oldPrice).toLocaleString('ru')} рублей</p>
         </div>
         <div className={bas.desc}>
           <p className={bas.left}>Скидка:</p>
-          <p className={bas.right}>{oldPrice - sumPrice} рублей</p>
+          <p className={bas.right}>{(oldPrice - sumPrice).toLocaleString('ru')} рублей</p>
         </div>
         <div className={bas.dotted}></div>
         <div className={bas.desc}>
           <p className={bas.left}>Итого к оплате:</p>
-          <p className={bas.right}>{sumPrice}рублей</p>
+          <p className={bas.right}>{(sumPrice).toLocaleString('ru')}рублей</p>
         </div>
         <div className={bas.contEnd} onClick={navigateCheck}>
           <button className={bas.end}>Оформить заказ</button>

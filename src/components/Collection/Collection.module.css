@@ -38,3 +38,34 @@
         width: 1168px;
     }
 }
+
+@media (max-width:320px) {
+    .boss {
+        width: 288px;
+
+    }
+
+    .hed {
+        font-size: 18px;
+    }
+
+    .flexes {
+        flex-direction: column;
+    }
+
+    .cont {
+        width: 288px;
+    }
+
+    .forLast:last-child {
+
+        margin-bottom: -160px;
+    }
+
+    .pagin {
+
+        margin-left: 200px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+}

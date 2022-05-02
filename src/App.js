@@ -30,11 +30,14 @@ const App = () => {
     dispatch(setCart());
     dispatch(setRandom());
   }, []);
+  useEffect(()=>{
+    console.log(mediaQuery.matches)
+  },[mediaQuery.matches])
   return (
     <>
       <div className="boss">
      
-    {mediaQuery.matches === true ? <AdaptiveHead /> : <Header />}
+ <AdaptiveHead />  <Header />
         <Routes>
           <Route path="/cart" element={<Basket />} />
           <Route path=":as/:as/:as/cart" element={<Basket />} />
@@ -55,7 +58,7 @@ const App = () => {
           <Route path="/main" element={<Main />} />
           <Route path="/public" element={<PublicOfer />} />
         </Routes>
-        <Footer />
+     <div className='footer'>   <Footer /></div>
         {flag === 1 ? (
           <>
             {' '}

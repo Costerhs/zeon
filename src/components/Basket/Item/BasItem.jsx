@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { minussProduct, plusProduct, removeProduct } from '../../../redux/reducers/cartReducer';
@@ -38,8 +39,8 @@ function BasItem({ el, actId, totalCount }) {
           {el.price} р {el.oldPrice && <span className={bas.oldPrice}>{el.oldPrice}</span>}
         </h1>
         <div className={bas.contBtn}>
-          <button className={bas.btn} onClick={minuss}>
-            -
+          <button className={classNames(bas.btn, bas.minusEs)} onClick={minuss}>
+
           </button>
           <p className={bas.count}>{totalCount}</p>
           <button className={bas.btn} onClick={plusing}>

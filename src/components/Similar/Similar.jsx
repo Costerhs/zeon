@@ -19,7 +19,7 @@ function Similar({ not, pro, stat, search }) {
   //
   return (
     <div className={sim.boss}>
-      {search === true ? <h1 className={sim.inter}>Возможно вас заинтересует</h1> : <h1>{not === true ? 'Новинки' : 'Похожие товары:'}</h1>}
+      {search === true ? <h1 className={sim.inter}>Возможно вас заинтересует</h1> : <h1 className={sim.news}>{not === true ? 'Новинки' : 'Похожие товары:'}</h1>}
 
       <div className={sim.cont}>
         {orr

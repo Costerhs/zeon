@@ -13,7 +13,7 @@ function Swipers() {
 
   for (let i = 0; i < 7; i++) {
     slides.push(
-      <SwiperSlide key={`slide-${i}`} tag="li">
+      <SwiperSlide key={`slide-${i}`} tag="li" className={main.swipSlide}>
         <a href='https://www.youtube.com/'>
           <div>
             <div className={main.lor}>

@@ -10,6 +10,10 @@
     margin-top: 5px;
 }
 
+.cont_btn {
+    display: none;
+}
+
 .item {
     background-color: white;
     display: flex;
@@ -67,6 +71,7 @@
         width: 288px;
         margin-left: 16px;
         margin-top: 24px;
+        /* margin-bottom: -80px; */
         display: flex;
         flex-direction: column;
     }
@@ -118,7 +123,7 @@
     .cont_btn {
         width: 264px;
         height: 32px;
-        border: 1px solid gray;
+
         margin: 0 auto;
         margin-top: 6px;
     }
@@ -128,7 +133,8 @@
         width: 264px;
         height: 32px;
         background-color: white;
-        border: 0px;
+        border: 1px solid rgba(237, 237, 237, 1);
+        /* border-color: */
 
     }
 
@@ -140,5 +146,9 @@
     .fl {
         height: 850px;
         transition: height 2s;
+    }
+
+    .cont_btn {
+        display: inherit;
     }
 }

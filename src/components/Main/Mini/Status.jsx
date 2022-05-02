@@ -7,9 +7,9 @@ function Status({ num, stat, headtext }) {
 
   return (
     <div className={main.hit_container}>
-      <h1 className={main.mid}>{headtext}</h1>
+
       <div className={main.hit_cart}>
-        {stat.slice(0, count).map((el) => {
+        {stat.map((el) => {
           return (
             <Cart
               data={el}
@@ -26,15 +26,7 @@ function Status({ num, stat, headtext }) {
           );
         })}
       </div>
-      <div className={main.mid}>
-        <button
-          onClick={() => {
-            setCount((el) => (el += num));
-          }}
-          className={classNames(main.btn)}>
-          Еще
-        </button>
-      </div>
+
     </div>
   );
 }

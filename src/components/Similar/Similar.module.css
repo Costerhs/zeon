@@ -16,4 +16,35 @@
     font-size: 24px;
 }
 
+.news {
+    font-size: 24px;
+}
+
 /*  */
+
+@media (max-width:320px) {
+    .boss {
+        width: 320px;
+    }
+
+    .inter {
+        font-size: 16px;
+    }
+
+    .cont {
+        overflow: scroll;
+        flex-wrap: nowrap;
+        margin-bottom: 20px;
+        height: 440px;
+        width: 320px;
+
+    }
+
+    .cont::-webkit-scrollbar {
+        display: none;
+    }
+
+    .news {
+        text-align: center;
+    }
+}

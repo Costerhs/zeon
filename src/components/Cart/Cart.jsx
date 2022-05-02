@@ -10,7 +10,7 @@ import { toggleId } from '../../redux/reducers/productReducer';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-import './style.css';
+import './stule.css';
 import 'swiper/css/scrollbar';
 import { SwiperSlide, Swiper } from 'swiper/react';
 import { Autoplay, Pagination, Scrollbar } from 'swiper';
@@ -67,12 +67,7 @@ function Cart({
   return (
     <div>
       {/* скидка */}
-      {oldPrice != null ? (
-        <div className={classNames(cart.three, similar === true && cart.sThree)}>
-          <img src={image[0].three} alt="nice" className={cart.imgThree} />
-          <p className={cart.procent}>{percent}%</p>
-        </div>
-      ) : null}{' '}
+
       <div
         className={classNames(
           similar ? cart.boss : cart.bossSim,
@@ -80,6 +75,12 @@ function Cart({
         )}>
         {/* фото и сердечко */}
         <div className={classNames(cart.img, cart.blockImg)}>
+          {oldPrice != null ? (
+            <div className={classNames(cart.three, similar === true && cart.sThree)}>
+              <img src={image[0].three} alt="nice" className={cart.imgThree} />
+              <p className={cart.procent}>{percent}%</p>
+            </div>
+          ) : null}{' '}
           <img
             src={heartes === false ? image[0].heart : image[0].activeHeart}
             alt="heart"
@@ -105,12 +106,13 @@ function Cart({
                 tag="section"
                 wrapperTag="ul"
                 scrollbar={{ hide: false, draggable: true }}
-                style={{ listStyleType: 'none' }}>
+              // style={{ listStyleType: 'none' }}
+              >
                 {img.map((el, index) => {
                   slides.push(
                     <SwiperSlide key={`slide-${index}`} tag="li">
                       <img
-                        className={similar === true ? cart.simWip : cart.swip}
+                        className={classNames(similar === true ? cart.simWip : cart.swip, 'fotochka')}
                         src={el}
                         style={{ listStyleType: 'none' }}
                         alt={`Slide ${1}`}

@@ -36,16 +36,28 @@ const Header = () => {
   // console.log(options)
   //для тел
   let teleph = useRef(null);
-
+  let fones = useRef(null);
 
   const handleClick = (e) => {
     const path = e.path || (e.composedPath && e.composedPath());
     if (!path.includes(teleph.current)) {
       setForTel((el) => (el = false));
     }
+
+  };
+  const clickSearchFon = (e) => {
+    const path = e.path || (e.composedPath && e.composedPath());
+    if (!path.includes(fones.current)) {
+      setSearches((el) => (el = false));
+    }
+    if (path.includes(serk.current)) {
+      setSearches((el) => (el = true));
+    }
+
   };
   useEffect(() => {
     document.body.addEventListener('click', handleClick);
+    document.body.addEventListener('click', clickSearchFon);
   }, []);
   //для поиска\
 
@@ -107,7 +119,7 @@ const Header = () => {
         </div>
         <div className={hed.gray}></div>
         <div className={hed.down}>
-          <div className={hed.logo}>
+          <div className={hed.logob}>
             <NavLink to={'/'}>
               <img src={logo} alt="nice" />
               {/*///////////// */}
@@ -120,7 +132,7 @@ const Header = () => {
             <div className={classNames(hed.over, searches && hed.back)}>
 
               {cols.map(el => {
-                return <div onClick={setForResultHid.bind(this, el)} className={hed.over_item}><p>{el}</p></div>
+                return <div ref={fones} onClick={setForResultHid.bind(this, el)} className={hed.over_item}><p>{el}</p></div>
               })}
             </div>
           </div>

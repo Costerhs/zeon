@@ -131,11 +131,17 @@
     color: #1D1D1B;
     border: 1px solid #1D1D1B;;
 } */
+/* .btnContainer {
+    border: 1px solid red;
+} */
+
 .btnImg {
     position: absolute;
-    margin-left: -30px;
+    margin-left: -90px;
+    margin-top: 1px;
     width: 22px;
 }
+
 
 .btnp {
 
@@ -305,11 +311,17 @@
 
     }
 
+
+
     .btnImg {
-        position: absolute;
-        margin-left: -25px;
-        margin-top: 1px;
-        width: 17px;
+
+
+
+        /* margin-bottom: -10px; */
+        margin-left: -90px;
+        margin-top: -2px;
+        width: 20px;
+
     }
 
     .toggleElect {
@@ -339,3 +351,100 @@
 }
 
 /* 428 44 */
+
+@media (max-width:320px) {
+    .boss {
+        margin-top: 30px;
+        width: 288px;
+    }
+
+    .cont {
+        flex-direction: column;
+    }
+
+    .cont_images {
+        margin: 0 auto;
+        flex-direction: row;
+
+        width: 288px;
+        height: 394px;
+        flex-wrap: nowrap;
+        overflow: scroll;
+    }
+
+
+    .cont_images_bidImg {
+        display: none;
+    }
+
+    .bigImg_item,
+    .smallImg_item {
+
+        display: none;
+    }
+
+    .adaptive {
+        display: flex;
+    }
+
+    .adImg,
+    .Img_item {
+        width: 262px;
+        height: 394px;
+        margin-right: 8px;
+    }
+
+    .forSquare {
+
+
+        width: 288px;
+        height: 532px;
+
+        text-align: left;
+
+        margin-left: 0px;
+        margin-top: 18px;
+
+
+        background-color: white;
+
+    }
+
+    .h,
+    .price {
+        font-size: 18px;
+    }
+
+    .pAr,
+    .desc {
+        font-size: 14px;
+    }
+
+    .text {
+        font-size: 13px;
+    }
+
+    .left {
+        margin-left: 0px;
+    }
+
+    .item:first-child {
+        margin-bottom: -14px;
+    }
+
+    .addCart {
+        margin-top: 12px;
+    }
+
+    .toggleElect {
+        width: 44px;
+        height: 44px;
+        margin-top: 12px;
+    }
+
+    .square {
+        margin-left: 12px;
+    }
+}
+
+/*262 394*/

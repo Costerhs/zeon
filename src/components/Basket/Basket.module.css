@@ -86,13 +86,13 @@
 .circle {
 
 
-    width: 10px;
-    height: 10px;
+    width: 8px;
+    height: 8px;
 
     border-radius: 100%;
 
-    margin-top: 2px;
-    margin-left: 2px;
+    margin-top: 3px;
+    margin-left: 3px;
 }
 
 .price {
@@ -109,6 +109,7 @@
 .btn {
     width: 30px;
     height: 30px;
+    font-size: 25px;
 
     background-color: #F8F8F8;
 
@@ -178,8 +179,12 @@
 }
 
 .dotted {
-    border-top: 3px dashed rgba(191, 191, 191, 1);
-    margin-bottom: 40px;
+    width: 336px;
+    height: 1px;
+    margin-bottom: 24px;
+    /* border-top: 3px dashed rgba(191, 191, 191, 1);
+    margin-bottom: 40px; */
+    background: url(https://i.ibb.co/dgwcM52/Line-37.png);
 }
 
 .contEnd {
@@ -201,6 +206,10 @@
 .oldPrice {
     color: gray;
     text-decoration: line-through;
+}
+
+.minusEs {
+    background: url(https://i.ibb.co/Mchgxcv/XMLID-1428.png) 8px 15px no-repeat;
 }
 
 @media (max-width:1366px) {
@@ -290,17 +299,75 @@
 
 }
 
-/* .contEnd{
-    width: 440px;
+
+@media (max-width:320px) {
+    .boss {
+        width: 288px;
+
+        flex-direction: column;
+        margin-top: 20px;
+    }
+
+    .item {
+        width: 288px;
+        height: 196px;
+
+    }
+
+    .h {
+        font-size: 14px;
+    }
+
+    .h2 {
+        font-size: 13px;
+    }
+
+    .p {
+        font-size: 12px;
+    }
+
+    .price {
+        font-size: 16px;
+        margin-bottom: 52px;
+    }
+
+    .img {
+        /* width: 96px;
+        height: 172px; */
+        margin-left: 0px;
+    }
+
+    .x {
+        width: 10px;
+        height: 10px;
+
+
+        margin-left: 260px;
+        margin-top: 10px;
+    }
+
+    .contBtn {
+        margin-top: -6px;
+        justify-content: space-between;
+        width: 120px;
+    }
+
+    .btn {
+        width: 32px;
+        height: 32px;
+        font-size: 30px;
+    }
+
+
+    .contCircle {
+        margin-top: -10px;
+    }
+
+    .itog {
+        display: none;
+    }
+
+    .adTotals {
+        margin-left: -16px;
+    }
 }
-.end{
-    background-color: red;
-    border: 0px;
-
-    width: 440px;
-    height: 55px;
-
-    color: white;
-
-    font-size: 19px;
-} */

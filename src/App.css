@@ -11,6 +11,10 @@
 
 }
 
+.swiper-scrollbar-drag {
+  background-color: white;
+}
+
 .ixis {
   position: absolute;
   margin-top: -36px;
@@ -369,14 +373,17 @@
   width: 436px;
   height: auto;
   background-color: white;
-  border: 1px solid black;
+  border: 1px solid rgba(31, 31, 31, 0.08);
 
   margin: 0 auto;
 }
 
 .item_h1 {
+  width: 360px;
   font-size: 20px;
   margin-bottom: 6px;
+
+  margin-left: 12px;
 }
 
 .tel_itemes {
@@ -388,12 +395,15 @@
 .tel_p {
   font-size: 18px;
   margin-top: 6px;
+
+  width: 360px;
+  margin-left: 19px;
 }
 
-.tel_p:last-child {
+/* .tel_p:last-child {
   margin-right: 143px;
   margin-top: -18px;
-}
+} */
 
 .raspol {
   margin-top: 0px;
@@ -421,10 +431,14 @@
 .tel_inp {
   height: 100%;
   width: 100%;
-
-
+  border: 1px solid rgba(31, 31, 31, 0.08);
+  outline: none;
 
   padding-left: 43px;
+}
+
+.tel_inp::placeholder {
+  color: #BEBEBE;
 }
 
 .people {
@@ -495,6 +509,11 @@
 
 
 @media (max-width:1366px) {
+  .boss {
+    /* width: 1366px; */
+
+  }
+
   .formes_cont {
     position: fixed;
     z-index: 10;
@@ -511,11 +530,19 @@
     left: 610px;
     transition: transform .4s;
   }
+
+  .submit {
+    width: 406px;
+    margin-left: 0px;
+  }
 }
 
 
 
-
+.pagiNone {
+  display: none;
+  border: 1px solid red;
+}
 
 .selectCount {
   border: 1px solid red;
@@ -554,3 +581,122 @@
 .elpes {
   margin-top: 1px;
 }
+
+.total {
+  display: none;
+}
+
+@media (max-width:320px) {
+  .footer {
+    height: 700px;
+
+  }
+
+  .total {
+    text-align: left;
+    /* position: fixed;
+    bottom: 0px; */
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+    width: 320px;
+    margin-left: -10px;
+    /* height: 288px; */
+    background-color: white;
+
+    margin: 0 auto;
+  }
+
+  .first {
+    display: flex;
+    flex-direction: column;
+    margin-left: 16px;
+    width: 288px;
+    height: 0px;
+    display: none;
+
+  }
+
+  .endes {
+    margin-top: 8px;
+    font-weight: 600;
+    margin-bottom: 0px;
+  }
+
+  .double {
+    height: 25px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0px;
+  }
+
+  .gray {
+    color: #979797;
+  }
+
+  .lines {
+    width: 288px;
+    height: 1px;
+    margin-top: 34px;
+
+    background: url(https://i.ibb.co/dgwcM52/Line-37.png);
+  }
+
+  .none {
+    width: 288px;
+  }
+
+  .last {
+    display: flex;
+    flex-direction: column;
+    margin-left: 16px;
+    width: 288px;
+  }
+
+  .btes {
+    font-family: 'Montserrat';
+
+    font-size: 13px;
+    margin-top: 16px;
+
+    width: 288px;
+    height: 32px;
+
+    background-color: white;
+    border: 1px solid #EDEDED;
+  }
+
+  .yeah {
+
+    display: block;
+    height: 113px;
+
+  }
+
+  .ofor {
+    width: 288px;
+    margin-top: 16px;
+    margin-bottom: 18px;
+  }
+
+  .btnOfor {
+    background-color: red;
+    border: 0px;
+    width: 288px;
+    height: 44px;
+
+    color: white;
+
+    font-size: 14px;
+  }
+}
+
+
+
+
+
+
+
+
+
+/*totals       //////////////////////////////////////////                      */

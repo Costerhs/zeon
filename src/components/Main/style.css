@@ -3,27 +3,30 @@
     height: 100%
 }
 
-.swiper-slide img {
+.swipSlide img {
     display: block;
     width: 100%;
-    height: 100%
+    height: 100%;
 }
 
 .swiper-wrapper {
     padding-inline-start: 0;
 }
 
-.swiper-container {}
+.swiper-scrollbar-drag {
+    background-color: white;
+}
+
 
 .swiper-pagination-bullet-active {
     background-color: black;
 }
 
 @media (max-width:320px) {
-    .swiper-slide img {
+    /* .swiper-slide img {
         width: 150%;
         margin-left: -80px;
-    }
+    } */
 }
 
 .swiper-pagination {

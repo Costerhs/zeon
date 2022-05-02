@@ -6,24 +6,54 @@ import main from './Main.module.css';
 import Status from './Mini/Status';
 import Card from './Mini/Card';
 import Minidesc from './Mini/Minidesc';
+import classNames from 'classnames';
 
 function Main() {
+  const [countNews, setCountNews] = useState(4);
+  const [countHits, setCountHits] = useState(8);
   const pros = useSelector((state) => state.cart.product);
-  const hit = pros.filter((el) => el.status === 'hits');
-  const news = pros.filter((el) => el.status === 'new');
+  const hit = pros.filter((el) => el.status === 'hits').slice(0, countHits);
+  const news = pros.filter((el) => el.status === 'new').slice(0, countNews);
   const neon = pros.filter((el) => el.status === 'neon');
   let arr = [hit.slice(0, 1), hit.slice(2, 3), news.slice(0, 1), neon.slice(0, 1)];
+  const colls = useSelector(state => state.cart.images[0]?.colls);
 
   return (
     <div className={main.bosses}>
       <Swipers />
-      <div className={main.testing}>
-        {' '}
-        <Status stat={hit} num={8} headtext={'Хит продаж'} />
-      </div>
-      <div className={main.testing}>
-        {' '}
-        <Status stat={news} num={4} headtext={'Новинки'} />
+      <div>
+        <div>
+          <h1 className={main.mid}>Хит продаж</h1>
+          <div className={main.testing}>
+            {' '}
+            <Status stat={hit} num={countHits} />
+          </div>
+          <div className={main.btn_conten}>
+            <button
+              onClick={() => {
+                setCountHits((el) => (el += 8));
+              }}
+              className={classNames(main.btn)}>
+              Еще
+            </button>
+          </div>
+        </div>
+        <div>
+          <h1 className={main.mid}>Новинки</h1>
+          <div className={main.testing}>
+            {' '}
+            <Status stat={news} num={countNews} />
+          </div>
+          <div className={main.btn_conten}>
+            <button
+              onClick={() => {
+                setCountNews((el) => (el += 4));
+              }}
+              className={classNames(main.btn)}>
+              Еще
+            </button>
+          </div>
+        </div>
       </div>
       {/* //////// */}
       <div className={main.collection}>
@@ -31,8 +61,8 @@ function Main() {
         <div className={main.flexes}>
           {arr
             .flatMap((el) => el)
-            .map((el) => {
-              return <Card status={el.status} key={el.id} name={el.name} img={el.image} />;
+            .map((el, index) => {
+              return <Card status={el.status} key={el.id} name={el.name} img={colls[index]} />;
             })}
         </div>
       </div>
@@ -69,31 +99,11 @@ function Main() {
 }
 
 export default Main;
-/* <div className={main.hit_container}>
-        <h1>Хит продаж</h1>
-        <div className={main.hit_cart}>
-          {hit.slice(0, count).map((el) => {
-            return (
-              <Cart
-                data={el}
-                heart={el.heart}
-                key={el.id + el.color}
-                id={el.id}
-                name={el.name}
-                price={el.price}
-                size={el.size}
-                img={el.image}
-                oldPrice={el.oldPrice}
-                color={el.color}
-              />
-            );
-          })}
-        </div>
-        <button
-          onClick={() => {
-            setCount((el) => (el += 8));
-          }}
-          className={main.btn}>
-          Еще
-        </button>
-      </div>*/
+/*<div className={main.testing}>
+{' '}
+<Status stat={hit} num={8} headtext={'Хит продаж'} />
+</div>
+<div className={main.testing}>
+{' '}
+<Status stat={news} num={4} headtext={'Новинки'} />
+</div>*/

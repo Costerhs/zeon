@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useMatch } from 'react-router-dom';
 
@@ -10,6 +10,8 @@ import coll from './Collection.module.css';
 function Collection() {
   let match = useMatch('/collection/:statusId');
   let pros = useSelector((state) => state.cart.product);
+  const colls = useSelector(state => state.cart.images[0]?.colls);
+
   let actualStatus = match != null ? pros.filter((el) => el.status === match.params.statusId) : [1];
 
   const hit = pros.filter((el) => el.status === 'hits');
@@ -21,15 +23,17 @@ function Collection() {
   let forze = (num) => {
     setPagi((el) => (el = num));
   };
-
+  useEffect(() => {
+    setPagi(1);
+  }, [match])
   return (
     <div className={coll.boss}>
       <h1 className={coll.hed}>
-        Коллекции {match != null ? '/ ' + match.params.statusId.toUpperCase() : null}
+        Коллекции {match != null ? ' ' + match.params.statusId.toUpperCase() : null}
       </h1>
       <div className={coll.cont}>
         {match != null ? (
-          actualStatus.slice(0, pagi * 12).map((el) => {
+          actualStatus.slice((pagi * 12) - 12, pagi * 12).map((el) => {
             return (
               <Cart
                 isColl
@@ -51,20 +55,14 @@ function Collection() {
           <div className={coll.flexes}>
             {arr
               .flatMap((el) => el)
-              .map((el) => {
-                return <Card status={el.status} key={el.id} name={el.name} img={el.image} />;
+              .map((el, index) => {
+                return <div className={coll.forLast}> <Card status={el.status} key={el.id} name={el.name} img={colls[index]} /> </div>;
               })}
           </div>
         )}
         {match != null && (
           <div className={coll.pagin}>
-            <Pagination
-              setTouch={setTouch}
-              pagi={pagi}
-              setPagi={setPagi}
-              touch={touch}
-              forze={forze}
-              pagin={Math.round(actualStatus.length / 12 + 0.4)}
+            <Pagination setTouch={setTouch} pagi={pagi} setPagi={setPagi} touch={touch} forze={forze} pagin={Math.round(actualStatus.length / 12 + 0.4)}
             />
           </div>
         )}

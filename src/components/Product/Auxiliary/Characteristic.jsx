@@ -109,11 +109,13 @@ function Characteristic({
           {bask === false ? (
             <button className={prod.addCart} onClick={addToProduct}>
               {' '}
-              <img
-                src="https://i.ibb.co/s9RCJpG/cart-White.png"
-                alt="nice"
-                className={prod.btnImg}
-              />
+              <div className={prod.btnContaineres}>
+                <img
+                  src="https://i.ibb.co/s9RCJpG/cart-White.png"
+                  alt="nice"
+                  className={prod.btnImg}
+                />
+              </div>
               <span className={prod.btnp}> Добавить в корзину</span>
             </button>
           ) : (
@@ -123,11 +125,13 @@ function Characteristic({
                 navigate(loation.pathname + '/cart');
               }}>
               {' '}
-              <img
-                src="https://i.ibb.co/s9RCJpG/cart-White.png"
-                alt="nice"
-                className={prod.btnImg}
-              />
+              <div className={prod.btnContainer}>
+                <img
+                  src="https://i.ibb.co/s9RCJpG/cart-White.png"
+                  alt="nice"
+                  className={prod.btnImg}
+                />
+              </div>
               <span className={prod.btnp}> Перейти в корзину</span>
             </button>
           )}

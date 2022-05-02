@@ -31,6 +31,18 @@ function Images({ img, status }) {
             }
           })}
       </div>
+      <div className={prod.adaptive}>
+        <img src={img} alt='nive' className={prod.adImg} />
+        {product
+          .filter((el, index) => {
+            return el.status === status && el.image != img;
+          })
+          .map((el, index) => {
+            if (index <= 6) {
+              return <img key={index} src={el.image} alt="nice" className={prod.Img_item} />;
+            }
+          })}
+      </div>
     </div>
   );
 }

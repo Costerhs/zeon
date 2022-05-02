@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import Cart from '../Cart/Cart';
@@ -45,7 +46,7 @@ function Elect() {
         <h1 className={elc.el_text}>Избранное</h1>
         <p className={elc.count}>{text} </p>
       </div>
-      <div className={elc.wrap}>{hearts}</div>
+      <div className={classNames(elc.wrap, res && elc.mobile)}>{hearts}</div>
       {/* <div className={elc.sim}>
         <Similar />
       </div> */}

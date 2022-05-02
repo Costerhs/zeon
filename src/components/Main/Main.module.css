@@ -4,10 +4,6 @@
 
 }
 
-
-
-
-
 .boss_slides {
     width: 1700px;
     margin: 0 auto;
@@ -141,8 +137,8 @@
     background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(255, 255, 255, 0.16290266106442575) 48%, rgba(0, 0, 0, 1) 100%);
     opacity: 0.3;
     position: absolute;
-    width: 21%;
-    height: 37%;
+    width: 20.97%;
+    height: 39.3%;
 }
 
 .end_item {
@@ -205,6 +201,7 @@
 
     .boss_slides {
         width: 1168px;
+
     }
 
     .hit_container {
@@ -233,6 +230,12 @@
 
     .cl_btn {
         height: 44px;
+    }
+
+    .imgSwipe {
+
+        width: 110%;
+        margin-left: -80px;
     }
 }
 
@@ -301,6 +304,7 @@
     .boss_slides {
         width: 320px;
         margin: 0 auto;
+        margin-bottom: 40px;
 
     }
 
@@ -348,6 +352,7 @@
         margin-top: -140px;
         margin-left: 200px;
     }
+
 
 
     .sale {
@@ -407,5 +412,89 @@
         width: 62px;
         /* height: 46px; */
 
+    }
+
+    .imgSwipe {
+
+        margin-top: 20px;
+        width: 150%;
+        margin-left: -80px;
+
+        height: 100%;
+    }
+
+    /* .swipSlide img {
+        margin-top: 20px;
+        width: 150%;
+        margin-left: -80px;
+
+        height: 100%;
+    } */
+
+    .shadow {
+        position: fixed;
+        height: 7%;
+        width: 22.7%;
+    }
+
+    .testing {
+        overflow-y: scroll;
+        width: 320px;
+        margin-top: -30px;
+        margin-left: 16px;
+        height: auto;
+    }
+
+    .testing::-webkit-scrollbar {
+        display: none;
+    }
+
+    .hit_cart {
+        flex-wrap: nowrap;
+
+    }
+
+
+
+    .mid {
+        margin-top: 30px;
+
+    }
+
+
+
+    .btn {}
+
+    .btn_conten {
+        margin-top: -20px;
+    }
+
+    .flexes {
+        width: 320px;
+        overflow: scroll;
+    }
+
+    .flexes::-webkit-scrollbar {
+        display: none;
+    }
+
+    .collection {
+        margin-top: 20px;
+        margin-left: 16px;
+    }
+
+    .statText {
+        font-size: 18px;
+    }
+
+    .cl_btn {
+        font-size: 14px;
+    }
+
+    .collection_item p {
+
+        margin-top: -48px;
+        color: rgb(255, 255, 255);
+        font-size: 18px;
     }
 }

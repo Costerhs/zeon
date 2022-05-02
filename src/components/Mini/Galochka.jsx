@@ -2,13 +2,14 @@ import classNames from 'classnames';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { toggleForm } from '../../redux/reducers/cartReducer';
+import { setCart, toggleForm } from '../../redux/reducers/cartReducer';
 
 function Galochka({ tois }) {
   let navi = useNavigate();
   const dispatch = useDispatch();
   let toggle = () => {
     dispatch(toggleForm(0));
+    dispatch(setCart())
     return navi('/main');
   };
   return (

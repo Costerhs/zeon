@@ -133,7 +133,8 @@
         margin-right: 25px;
 
         width: 164px;
-        height: 124px;
+        height: 144px;
+
 
     }
 
@@ -165,11 +166,26 @@
         margin-top: 20px;
     }
 
-    .tel {}
+    .tel {
+        position: absolute;
+        /* border: 1px solid red; */
+        margin-top: 1px;
+        margin-left: -20px;
+    }
 
     .nones {
+        margin-left: 20px;
         text-decoration: none;
         color: white;
+        display: flex;
+    }
+
+    .tels {
+        margin-top: 6px;
+    }
+
+    .med {
+        /* border: 1px solid red; */
     }
 
     .blockHid {
@@ -184,13 +200,20 @@
     }
 
     .adre {
-        margin-top: 12px;
+        padding-top: 22px;
+    }
+
+    .second {
+        margin-bottom: 18px;
+
     }
 }
 
 @media (max-width:320px) {
     .boss {
-        height: auto;
+        height: 700px;
+
+        margin-top: -1px;
     }
 
     .item {

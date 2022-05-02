@@ -16,10 +16,11 @@ function Telephones() {
     register,
     handleSubmit,
     formState: { errors, isValid },
-  } = useForm({ mode: 'onChange' });
+  } = useForm({ mode: 'all' });
   const onSubmit = (data) => {
     dispatch(postTell(data))
   };
+  const border = { border: '1px solid red' };
   return (
     <>
       {fetch === false ? (
@@ -28,13 +29,14 @@ function Telephones() {
           <div className="raspol">
             <div className="tel_itemes">
               <h1 className="item_h1">Если у Вас остались вопросы</h1>
-              <p className="tel_p">Оставьте заявку и мы обязательно </p>
-              <p className="tel_p">Вам Перезвоним </p>
+              <p className="tel_p">Оставьте заявку и мы обязательно Вам Перезвоним </p>
+              {/* <p className="tel_p"></p> */}
             </div>
             <form onSubmit={handleSubmit(onSubmit)} className="tel_form">
               <div className="tel_cont">
                 {/* <img src="https://i.ibb.co/167fmYg/Group-1251.png" className="img_inp" /> */}
                 <input
+                  style={errors?.name && border}
                   className={classNames('tel_inp', 'people')}
                   type="name"
                   {...register('name', {
@@ -45,6 +47,7 @@ function Telephones() {
               </div>
               <div className="tel_cont">
                 <input
+                  style={errors?.number && border}
                   placeholder="Номер телефона"
                   className={classNames('tel_inp', 'ring')}
                   type="number"

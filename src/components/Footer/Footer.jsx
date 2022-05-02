@@ -42,9 +42,9 @@ const Footer = () => {
                 {' '}
                 <img src={ring} alt="nice" className={foot.icon} /> +996 500 123 456
               </p>
-              <p className={foot.pe}>
+              <p className={classNames(foot.pe, foot.second)}>
                 {' '}
-                <img src={ring} alt="nice" className={foot.icon} /> +996 500 123 456
+                <img src={ring} alt="nice" className={classNames(foot.icon)} /> +996 500 123 456
               </p>
               <a href="mailto:mail@gmail.com" className={foot.adre}>
                 {' '}
@@ -75,23 +75,26 @@ const Footer = () => {
           <div className={classNames(foot.med)}>
             <h4>Мы в социальных сетях:</h4>
             <a href="https://www.instagram.com/zeon.ithub/" className={foot.nones}>
-              <p>
-                {' '}
-                <img src={inst} alt="nice" className={foot.tel} />
+
+              {' '}
+              <img src={inst} alt="nice" className={foot.tel} />
+              <p className={foot.tels}>
                 Instagram
               </p>
             </a>
             <a href="https://web.telegram.org/z/" className={foot.nones}>
-              <p>
-                {' '}
-                <img src={telegram} alt="nice" className={foot.tel} />
+
+              {' '}
+              <img src={telegram} alt="nice" className={foot.tel} />
+              <p className={foot.tels}>
                 Telegram
               </p>
             </a>
             <a href="https://www.whatsapp.com/?lang=ru" className={foot.nones}>
-              <p>
-                {' '}
-                <img src={whats} alt="nice" className={foot.tel} />
+
+              {' '}
+              <img src={whats} alt="nice" className={foot.tel} />
+              <p className={foot.tels}>
                 Whatsapp
               </p>
             </a>

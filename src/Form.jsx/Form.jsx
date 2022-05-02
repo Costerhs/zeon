@@ -17,6 +17,7 @@ function Form() {
   let [fetch, setFetch] = useState(false);
   const dispatch = useDispatch();
   let bask = useSelector((state) => state.cart.basket);
+  let basId = useSelector(state => state.cart.basketId)
   let toggle = () => {
     dispatch(toggleForm(0));
     return navi('/main');
@@ -29,7 +30,7 @@ function Form() {
   const order = () => {
     const values = getValues();
 
-    dispatch(addUser(values, bask));
+    dispatch(addUser(values, bask, basId));
     setFetch(true);
   };
 
@@ -39,7 +40,7 @@ function Form() {
     handleSubmit,
     formState: { errors, isValid },
     reset,
-  } = useForm({ mode: 'onChange' });
+  } = useForm({ mode: 'all' });
 
   const onSubmit = (data) => {
     console.log('yes');
@@ -85,7 +86,7 @@ function Form() {
           <div className="item">
             <p className="p" style={errors?.email && style}>
               {' '}
-              Ваша почта
+              Электронная почта
             </p>{' '}
             <input
               style={errors?.email && border}
@@ -99,7 +100,7 @@ function Form() {
           </div>
           <div className={classNames("item", "numItems")}>
             <p className="ps" style={errors?.tel && style}>
-              Ваш номер
+              Ваш номер телефона
             </p>{' '}
             <div className='tesr'>
               <select form="data" style={{ backgroundImage: `url(${sat})` }} className="sele" onClick={(event) => { setSat(els => els = si[event.target.value]) }}>

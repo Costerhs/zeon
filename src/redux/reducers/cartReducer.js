@@ -20,6 +20,7 @@ const TOGGLE_BASKET = 'TOGGLE_BASKET';
 const TOGGLE_IMG_BAS = 'TOGGLE_IMG_BAS';
 const ADD_USER = 'ADD_USER';
 const SET_PAGINATION_COUNT = 'SET_PAGINATION_COUNT';
+const BASKET_ID = 'BASKET_ID'
 
 let intialize = {
   formes: 0,
@@ -36,15 +37,24 @@ let intialize = {
   images: [],
   basFetch: false,
   activeBasketImg: false,
+  basketId:[],
   colores: ['#73A39D', '#84CC4C', '#B5A8A1', '#AB844A', '#6977F0', '#e9e8e8', '#141414', '#FF0000'],
 };
 
 const cartReducer = (state = intialize, action) => {
   switch (action.type) {
+    case BASKET_ID:
+      return {...state,
+      basketId:action.obj}
     case SET_PRODUCT:
       return { ...state, product: action.data };
     case SET_BASKET:
-      return { ...state, basket: action.data };
+      let arr = action.data;
+      let ser =[];
+      for(let el of arr){
+        ser.push(el.id)
+      }
+      return { ...state, basket: action.data,basketId:ser };
     case FETCH_HEART:
       return produce(state, (draft) => {
         let b = draft.product.some((el) => el.heart === true);
@@ -107,6 +117,7 @@ const cartReducer = (state = intialize, action) => {
   }
 };
 
+export const setIdCart = (obj) => ({type:BASKET_ID,obj})
 export const setPagi = (num) => ({ type: SET_PAGINATION_COUNT, num });
 export const activeBasImg = () => ({ type: TOGGLE_IMG_BAS });
 export const toggleBasketStat = (stat) => ({ type: TOGGLE_BASKET, stat });
@@ -189,8 +200,15 @@ export const changeColor = (id, newColor) => async (dispatch) => {
   dispatch(setCart());
 };
 
-export const addUser = (values, bask) => (dispatch) => {
-  axios.post('https://6254f77f89f28cf72b633678.mockapi.io/actual', { iser: values, data: bask });
+// export const deleteBasket
+
+export const addUser = (values, bask,arr) => async(dispatch) => {
+ await axios.post('https://6254f77f89f28cf72b633678.mockapi.io/actual', { iser: values, data: bask });
+ for(let el of arr){
+  axios.delete('https://6254f77f89f28cf72b633678.mockapi.io/shopping/'+el);
+ }
+  
+ 
 };
 // export const toggleActual = (trueId) => async (dispatch) => {
 //   await productApi.setActualID(trueId);

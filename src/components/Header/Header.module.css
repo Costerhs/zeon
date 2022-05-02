@@ -147,6 +147,16 @@
         height: 213px;
     }
 
+    .down {
+        margin-top: 9px;
+        margin-bottom: 9px;
+    }
+
+    .logob {
+
+        margin-right: 34px;
+    }
+
     .tel {
         margin-left: 680px;
     }
@@ -222,10 +232,24 @@
 /*telllllllllllllllll*/
 
 .adaptHead {
-
+    position: absolute;
+    z-index: -2;
     width: 320px;
     height: 64px;
 
+}
+
+@media (max-width:320px) {
+    .adaptHead {
+        position: inherit;
+        z-index: 2;
+    }
+
+    .boss {
+        position: absolute;
+        z-index: -2;
+        display: none;
+    }
 }
 
 .adCent {

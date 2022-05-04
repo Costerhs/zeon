@@ -4,14 +4,20 @@
 
 }
 
+.swiper-slide {
+    /* height: 310px !important; */
+}
+
 ul {
     list-style-type: none;
+    /* height: 200px !important; */
 }
 
 
 
 .swiper-container {
     width: 500px;
+
 }
 
 .swiper-wrapper {
@@ -29,7 +35,7 @@ ul {
     z-index: 20;
     top: 445px;
     opacity: 1;
-
+    background: none !important;
 }
 
 .swiper-scrollbar-drag {

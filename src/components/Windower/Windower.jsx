@@ -1,9 +1,14 @@
+import classNames from 'classnames';
 import React from 'react';
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { useLocation } from 'react-router-dom';
 import { toggleForm } from '../../redux/reducers/cartReducer';
 
 function Windower() {
+  const ars = useSelector(el => el.cart.windower);
+  let locas = useLocation();
+
   const [chat, setChat] = useState(false);
   const scrollw = () => {
     window.scroll(0, 0);
@@ -13,11 +18,11 @@ function Windower() {
     dispatch(toggleForm(2));
   };
   return (
-    <div className="plav">
-      <div className="uper" onClick={scrollw}>
+    <div className={classNames("plav", (locas.pathname.match('help') || locas.pathname.match('product')) && 'netu')}>
+      {ars.some(el => locas.pathname.match(el)) ? null : <div className="uper" onClick={scrollw}>
         <img src="https://i.ibb.co/M9sZQz3/Vector-19.pngs" />
-      </div>
-      <div className="chat">
+      </div>}
+      <div className={classNames("chat", locas.pathname.match('cart') && 'chatNone', locas.pathname.match('public') && 'chatNone')}>
         {' '}
         {chat === false ? (
           <img

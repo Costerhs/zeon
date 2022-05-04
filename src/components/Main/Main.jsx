@@ -29,13 +29,13 @@ function Main() {
             <Status stat={hit} num={countHits} />
           </div>
           <div className={main.btn_conten}>
-            <button
+            {countHits <= hit.length ? <button
               onClick={() => {
                 setCountHits((el) => (el += 8));
               }}
               className={classNames(main.btn)}>
               Еще
-            </button>
+            </button> : null}
           </div>
         </div>
         <div>
@@ -45,13 +45,13 @@ function Main() {
             <Status stat={news} num={countNews} />
           </div>
           <div className={main.btn_conten}>
-            <button
+            {countNews <= news ? <button
               onClick={() => {
                 setCountNews((el) => (el += 4));
               }}
               className={classNames(main.btn)}>
               Еще
-            </button>
+            </button> : null}
           </div>
         </div>
       </div>

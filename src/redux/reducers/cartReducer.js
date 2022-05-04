@@ -21,8 +21,10 @@ const TOGGLE_IMG_BAS = 'TOGGLE_IMG_BAS';
 const ADD_USER = 'ADD_USER';
 const SET_PAGINATION_COUNT = 'SET_PAGINATION_COUNT';
 const BASKET_ID = 'BASKET_ID'
+const SET_RESULT_DATA = 'SET_RESULT_DATA';
 
 let intialize = {
+  windower: ['desc','public','collection','news','search'],
   formes: 0,
   totalPrice: null,
   product: [],
@@ -87,7 +89,7 @@ const cartReducer = (state = intialize, action) => {
     case SET_RESULT:
       return {
         ...state,
-        result: action.prod,
+       
         concurrence: action.text,
       };
 
@@ -112,6 +114,10 @@ const cartReducer = (state = intialize, action) => {
 
     case SET_PAGINATION_COUNT:
       return { ...state, paginationCount: action.num };
+
+      case SET_RESULT_DATA:
+        return {...state, result: action.prod,
+        }
     default:
       return state;
   }
@@ -126,7 +132,8 @@ export const setImg = (data) => ({ type: SET_IMAGE, data });
 export const setPro = (data) => ({ type: SET_PRODUCT, data });
 export const setRandom = () => ({ type: SET_RANDOM });
 export const addProducts = (obj) => ({ type: ADD_PRODUCT, obj });
-export const setResult = (prod, text) => ({ type: SET_RESULT, prod, text });
+export const setResult = (text) => ({ type: SET_RESULT,  text });
+export const setResultData = (prod) => ({ type: SET_RESULT_DATA,  prod });
 export const fetchHeart = () => ({ type: FETCH_HEART });
 export const removeProducts = (id) => ({ type: REMOVE_PRODUCT, id });
 export const setBasket = (data) => ({ type: SET_BASKET, data });
@@ -145,7 +152,9 @@ export const setProduct = () => async (dispatch) => {
   dispatch(fetchHeart());
 };
 export const setBasketData = () => async (dispatch) => {
-  let data = await cartReaction.getBasket();
+  let data =[]
+  await cartReaction.getBasket().then((el)=> data = el ).catch((error) => data = []);
+  
   dispatch(setBasket(data));
   dispatch(activeBasImg());
 };
@@ -160,11 +169,13 @@ export const setCart = () => async (dispatch) => {
   dispatch(fetchHeart());
 };
 export const setResultProd = (text) => async (dispatch) => {
+  dispatch(setResult(text));
+
   let data = await axios
     .get('https://6254f77f89f28cf72b633678.mockapi.io/product?search=' + text)
     .then((el) => el.data);
   dispatch(setPagi(data.length));
-  dispatch(setResult(data, text));
+  dispatch(setResultData(data))
 };
 //dispatch(setResult(el.data))
 export const addProduct = (id) => async (dispatch) => {
@@ -207,7 +218,7 @@ export const addUser = (values, bask,arr) => async(dispatch) => {
  for(let el of arr){
   axios.delete('https://6254f77f89f28cf72b633678.mockapi.io/shopping/'+el);
  }
-  
+   dispatch(setCart())
  
 };
 // export const toggleActual = (trueId) => async (dispatch) => {

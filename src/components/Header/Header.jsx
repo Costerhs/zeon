@@ -12,14 +12,12 @@ import classNames from 'classnames';
 import Bread from '../Mini/Bread';
 
 const Header = () => {
-  let [forTel, setForTel] = useState(false);
   let [searches, setSearches] = useState(false);
-
+  let location = useLocation();
   let active = useSelector((el) => el.cart.activeRedH);
   let hint = useSelector((state) => state.cart.product);
   let activeOrPassive = useSelector((state) => state.cart.activeBasketImg);
   let logo = useSelector((state) => state.cart.images[0]?.headers.logo);
-  let numbers = useSelector((state) => state.cart.images[0]?.headers.tel);
   let cols = useSelector(state => state.head.cols);
   /////////////////////////////////////
   let navigate = useNavigate();
@@ -29,22 +27,10 @@ const Header = () => {
   const setData = () => { };
   let serk = useRef();
   hint.map((el, index) => set.add(el.name));
-  // let options = set.forEach((el, index, set) => {
-  //   return console.log(sets)
-  //   // { value: index, label: el }
-  // })
-  // console.log(options)
-  //для тел
-  let teleph = useRef(null);
+
   let fones = useRef(null);
 
-  const handleClick = (e) => {
-    const path = e.path || (e.composedPath && e.composedPath());
-    if (!path.includes(teleph.current)) {
-      setForTel((el) => (el = false));
-    }
 
-  };
   const clickSearchFon = (e) => {
     const path = e.path || (e.composedPath && e.composedPath());
     if (!path.includes(fones.current)) {
@@ -56,33 +42,34 @@ const Header = () => {
 
   };
   useEffect(() => {
-    document.body.addEventListener('click', handleClick);
+
     document.body.addEventListener('click', clickSearchFon);
   }, []);
   //для поиска\
 
   const setForResult = (event) => {
-    if (event.keyCode === 13) {
-      dispatch(setResultProd(serk.current.value));
-      serk.current.value = '';
-      setSearches(false)
-      return navigate('/search');
-    }
+    // if (event.keyCode === 13) {
+    dispatch(setResultProd(serk.current.value));
+    // serk.current.value = '';
+    setSearches(false)
+    return navigate('/search');
+    // }
   };
   const setForResultHid = (event) => {
 
     dispatch(setResultProd(event));
-    serk.current.value = '';
+    // serk.current.value = '';
     setSearches(false)
     return navigate('/search');
 
 
 
   }
+
   return (
     <div className={hed.cent}>
       {' '}
-      <div className={hed.boss}>
+      <div className={classNames(hed.boss, location.pathname === '/' && hed.mins)}>
         <div className={hed.up}>
           <div className={hed.navi}>
             <div className={hed.navi__item}>
@@ -101,19 +88,13 @@ const Header = () => {
               </NavLink>
             </div>
           </div>
-          <div className={hed.tel} onClick={() => setForTel(true)} ref={teleph}>
-            {forTel && (
-              <div className={hed.hid}>
-                <p>Телефоны</p>
-                {numbers.map((el) => {
-                  return <p>{el}</p>;
-                })}
-              </div>
-            )}
+          <div className={hed.tel} >
+
             <p>Тел:</p>
             <div>
               {' '}
-              <p>+996 000 00 00 00</p>
+              <p>
+                <a href="tel:+997700002201" className={hed.ssylka} >+996 700 00 00 00 </a></p>
             </div>
           </div>
         </div>
@@ -127,7 +108,7 @@ const Header = () => {
           </div>
           <div className={hed.inp}>
 
-            <input type="search" ref={serk} className={hed.input} placeholder="Поиск" onClick={() => setSearches(true)} onKeyDown={setForResult} />
+            <input type="search" ref={serk} className={hed.input} placeholder="Поиск" onClick={() => setSearches(true)} onChange={setForResult} />
             <img src={lupa} alt="nice" className={hed.lup} />
             <div className={classNames(hed.over, searches && hed.back)}>
 

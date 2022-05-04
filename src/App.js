@@ -25,14 +25,12 @@ import AdaptiveHead from './components/Header/AdaptiveHead';
 const App = () => {
   let flag = useSelector((state) => state.cart.formes);
   let dispatch = useDispatch();
-  const mediaQuery = window.matchMedia('(max-width: 320px)');
+ 
   useEffect(() => {
     dispatch(setCart());
     dispatch(setRandom());
   }, []);
-  useEffect(()=>{
-    console.log(mediaQuery.matches)
-  },[mediaQuery.matches])
+ 
   return (
     <>
       <div className="boss">

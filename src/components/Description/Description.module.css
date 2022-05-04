@@ -63,8 +63,9 @@
         width: 288px;
         flex-direction: column;
         margin: 0 auto;
-        border: 1px solid red;
+
         margin-top: 20px;
+        margin-bottom: 440px;
     }
 
     .imgs {

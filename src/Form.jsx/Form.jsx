@@ -91,7 +91,7 @@ function Form() {
             <input
               style={errors?.email && border}
               className="inp"
-              type="email"
+              type={"email"}
               {...register('email', {
                 required: 'Поле обязательна к заполнению',
               })}

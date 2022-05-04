@@ -149,7 +149,7 @@
 }
 
 .end_item p {
-    font-size: 20px;
+    font-size: 14px;
 
 }
 
@@ -311,6 +311,8 @@
     .bosses {
         width: 320px;
     }
+
+
 
     .lor {
         position: absolute;

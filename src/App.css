@@ -587,6 +587,11 @@
 }
 
 @media (max-width:320px) {
+  .boss {
+    width: 320px;
+    height: auto;
+  }
+
   .footer {
     height: 700px;
 
@@ -689,14 +694,220 @@
 
     font-size: 14px;
   }
+
+  /*help*/
+  .img {
+    width: 288px;
+    height: 288px;
+  }
+
+  .helsp,
+  .cont {
+    width: 288px;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .cont {
+    flex-direction: column;
+
+  }
+
+  .text {
+    margin-left: 0px;
+  }
+
+  .elpes {
+    font-size: 18px;
+  }
+
+  .hes {
+    font-size: 13px;
+  }
+
+  .pes {
+    font-size: 12px;
+  }
+
+  .items {
+    width: 288px;
+
+  }
+
+  .strel {
+    left: 260px;
+    top: -230px
+  }
+
+  .items {
+    height: 40px;
+  }
+
+  .chan {
+    height: 240px;
+  }
+
+  .form {
+    width: 288px;
+  }
+
+  .formes_cont {
+    position: fixed;
+    z-index: 10;
+    /* left: 730px;
+    top: 100px; */
+    top: 100px;
+    left: -890px;
+    right: 0px;
+  }
+
+  .inp {
+    width: 244px;
+    font-size: 12px;
+    height: 41px;
+  }
+
+  .numinp {
+    width: 174px;
+  }
+
+  .p,
+  .ofera {
+    font-size: 12px;
+  }
+
+  .ixis {
+    position: absolute;
+    margin-top: -36px;
+    margin-left: 260px;
+    width: 14px;
+    height: 14px;
+
+  }
+
+  .h1 {
+    font-size: 16px;
+  }
+
+  .submit {
+    width: 264px;
+    height: 44px;
+  }
+
+  .galochka {
+    width: 288px;
+    height: 246px;
+  }
+
+  .icon_h1 {
+    font-size: 18px;
+  }
+
+  .icon_p {
+    font-size: 12px;
+    width: 256px;
+  }
+
+  .icon_btn {
+    font-size: 14px;
+    width: 256px;
+    height: 44px;
+  }
+
+  .plav {
+    /*po*/
+    right: 1960px;
+    top: 20%;
+  }
+
+  .tele_cont {
+    position: fixed;
+    z-index: 10;
+
+    top: 300px;
+    left: -930px;
+    right: 0px;
+  }
+
+  .container_tel {
+    width: 288px;
+    height: 274px;
+    text-align: left;
+  }
+
+  .item_h1 {
+    font-size: 14px;
+  }
+
+  .tel_p,
+  .tel_inp {
+    font-size: 12px;
+  }
+
+  .tel_p {
+    width: 256px;
+  }
+
+  .item_h1 {
+    margin-left: 20px;
+  }
+
+  .tel_cont {
+    width: 256px;
+    height: 44px;
+  }
+
+  .submit_tel {
+    font-size: 14px;
+    width: 256px;
+    height: 44px;
+
+
+  }
+
+  .raspol {
+    margin-top: 0px;
+    margin-left: -20px;
+    width: 288px;
+    height: 256px;
+  }
+
+  .tel_inp {
+    width: 210px;
+    height: 44px;
+  }
+
+  .ring {
+    width: 210px;
+    height: 44px;
+  }
+
+  .minuss {
+    margin-left: 264px;
+    width: 11px;
+    height: 11px;
+  }
+
+  .tel_itemes {
+    color: #393939;
+    margin: 0 auto;
+    width: 256px;
+    height: 60px;
+    margin-left: 20px;
+  }
 }
 
 
 
+.netu {
+  display: none;
+}
 
 
-
-
+.chatNone {
+  display: none;
+}
 
 
 /*totals       //////////////////////////////////////////                      */

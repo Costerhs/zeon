@@ -18,17 +18,19 @@ const Footer = () => {
       <div className={foot.boss}>
         <div className={foot.item}>
           <div className={foot.forLogo}>
-            <img src={logob} alt="" className={foot.logo} />
+            <NavLink to={'/'} className={foot.none} onClick={() => { window.scroll(0, 0) }}>
+              <img src={logob} alt="" className={foot.logo} />
+            </NavLink>
           </div>
           <div className={foot.block}>
             <h4>Компания</h4>
-            <NavLink to={'/desc'} className={foot.none}>
+            <NavLink to={'/desc'} className={foot.none} onClick={() => { window.scroll(0, 0) }}>
               <p className={foot.marg}>О нас</p>
             </NavLink>
-            <NavLink to={'/news'} className={foot.none}>
+            <NavLink to={'/news'} className={foot.none} onClick={() => { window.scroll(0, 0) }}>
               <p>Новости</p>
             </NavLink>
-            <NavLink to={'/help'} className={foot.none}>
+            <NavLink to={'/help'} className={foot.none} onClick={() => { window.scroll(0, 0) }}>
               <p>Помощь</p>
             </NavLink>
           </div>
@@ -40,11 +42,15 @@ const Footer = () => {
               <h4 className={foot.h2}>Контакты</h4>
               <p className={foot.pe}>
                 {' '}
-                <img src={ring} alt="nice" className={foot.icon} /> +996 500 123 456
+                <img src={ring} alt="nice" className={foot.icon} />
+                <a href="tel:+997700002201" className={foot.ssylka} >+996 500 123 456</a>
               </p>
               <p className={classNames(foot.pe, foot.second)}>
                 {' '}
-                <img src={ring} alt="nice" className={classNames(foot.icon)} /> +996 500 123 456
+                <img src={ring} alt="nice" className={classNames(foot.icon)} />
+                <a href="tel:+997700002201" className={foot.ssylka} >
+                  +996 500 123 456
+                </a>
               </p>
               <a href="mailto:mail@gmail.com" className={foot.adre}>
                 {' '}
@@ -52,23 +58,7 @@ const Footer = () => {
               </a>{' '}
             </div>
             <div>
-              {forTel && (
-                <div className={foot.blockHid}>
-                  <h4>Доп. контакты</h4>
-                  <p>
-                    {' '}
-                    <img src={ring} alt="nice" className={foot.icon} /> +996 500 123 456
-                  </p>
-                  <p>
-                    {' '}
-                    <img src={ring} alt="nice" className={foot.icon} /> +996 500 123 456
-                  </p>
-                  <p>
-                    {' '}
-                    <img src={ring} alt="nice" className={foot.icon} /> +996 500 123 456
-                  </p>
-                </div>
-              )}
+
             </div>
           </div>
 

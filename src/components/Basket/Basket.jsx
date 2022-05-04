@@ -22,6 +22,7 @@ function Basket() {
   let sumOldPrice = allProduct
     .map((el) => (el.elem.oldPrice !== null ? el.elem.oldPrice : el.elem.price) * el.totalCount)
     .reduce((el, sum) => el + sum, 0);
+  let nakonecto = null;
   // useEffect(() => {
   //   console.log('ids')
   //   dispatch(setIdCart(basketIds))
@@ -32,6 +33,7 @@ function Basket() {
       <div className={bas.items}>
         {allProduct.map((el) => {
           // basketIds.push(el.id)
+          nakonecto += el.totalCount
           return <BasItem key={el.id} el={el.elem} actId={el.id} totalCount={el.totalCount} />;
         })}
         {allProduct.length === 0 && <> <div className={bas.ifNot}>
@@ -45,14 +47,15 @@ function Basket() {
       </div>
       {allProduct.length !== 0 &&
         <Total
-          line={allProduct.length}
+          // line={allProduct.length}
+          line={nakonecto}
           sumPrice={sumPrice}
           oldPrice={sumOldPrice}
           allProductCount={fullCount}
         />
       }
       <div className={bas.adTotals}>
-        <AdaptiveTotal />
+        <AdaptiveTotal line={nakonecto} sumPrice={sumPrice} allProductCount={fullCount} />
       </div>
     </div>
   );

@@ -82,6 +82,10 @@
 
 }
 
+.adaptive {
+    display: none;
+}
+
 .text {
     color: #6A6A6A;
     line-height: 170%;
@@ -372,6 +376,9 @@
         overflow: scroll;
     }
 
+    .cont_images::-webkit-scrollbar {
+        display: none;
+    }
 
     .cont_images_bidImg {
         display: none;
@@ -448,3 +455,6 @@
 }
 
 /*262 394*/
+.cerd {
+    margin-top: 4px;
+}

@@ -18,6 +18,16 @@
 
 }
 
+.input {
+    outline: none;
+
+}
+
+.ssylka {
+    text-decoration: none;
+    color: black;
+}
+
 .up,
 .navi,
 .tel,
@@ -239,18 +249,7 @@
 
 }
 
-@media (max-width:320px) {
-    .adaptHead {
-        position: inherit;
-        z-index: 2;
-    }
 
-    .boss {
-        position: absolute;
-        z-index: -2;
-        display: none;
-    }
-}
 
 .adCent {
     display: flex;
@@ -304,7 +303,7 @@
 
 .containers {
     display: flex;
-    position: absolute;
+    position: fixed;
     z-index: 10;
 
     width: 320px;
@@ -329,7 +328,7 @@
 .menu {
     background-color: white;
     width: 250px;
-    height: 640px;
+    height: auto;
 }
 
 .fons {
@@ -417,4 +416,183 @@
 
 .mrg {
     margin-top: 5px;
+}
+
+@media (max-width:320px) {
+    .adaptHead {
+        position: inherit;
+        z-index: 2;
+    }
+
+    .boss {
+        position: absolute;
+        z-index: -2;
+        display: none;
+    }
+
+
+    .cent {
+        margin-bottom: 20px;
+    }
+
+    .breads {
+        overflow: scroll;
+        width: 320px;
+        height: 34px;
+        margin-left: 17px;
+        margin-top: -10px;
+        font-size: 12px;
+        display: flex;
+        flex-wrap: nowrap;
+
+    }
+
+    .breads::-webkit-scrollbar {
+        display: none;
+    }
+
+    .bread {
+        display: flex;
+    }
+
+    .inp {}
+
+    .input {
+        width: 288px;
+        height: 44px;
+        background-color: rgb(240, 237, 237);
+        border: 0px;
+        font-size: 16px;
+    }
+
+    .over {
+        width: 288px;
+        margin-left: 20px;
+        border: 1px solid #FFFFFF;
+        ;
+        /* width: 701px;
+
+        background: white;
+        border: 1px solid gray;
+
+        position: absolute;
+        z-index: -1;
+
+        margin-top: -43px;
+        margin-left: -30px;
+
+        text-align: left; */
+    }
+
+    .back {}
+
+    .lup {}
+
+    .over_item {
+        border-bottom: 1px solid #EEEEEE;
+    }
+}
+
+/* 
+.input {
+    position: relative;
+    font-size: 14px;
+    z-index: 4;
+}
+
+.lup {
+    position: relative;
+    z-index: 4;
+}
+
+.over {
+
+    width: 701px;
+
+    background: white;
+    border: 1px solid gray;
+
+    position: absolute;
+    z-index: -1;
+
+    margin-top: -43px;
+    margin-left: -30px;
+
+    text-align: left;
+}
+
+.over_item {
+    height: 44px;
+    padding-left: 20px;
+
+    border-bottom: 1px solid gray;
+}
+
+.over_item:first-child {
+    margin-top: 50px;
+}
+
+.over_item p {
+    margin-top: 20px;
+}
+
+.back {
+    z-index: 3;
+}
+*/
+
+.svyaz {
+    text-align: left;
+    margin-left: 18px;
+    margin-top: 320px;
+    display: flex;
+    flex-direction: column;
+    font-size: 15px;
+}
+
+.colis {
+    display: flex;
+    margin-top: -20px;
+}
+
+.sv_p {
+    font-weight: 900;
+}
+
+.jab {
+    overflow: hidden;
+    height: 30px;
+
+}
+
+.trs {
+    height: 120px;
+
+}
+
+.poisk {
+    position: fixed;
+    width: 320px;
+    margin-top: 10px;
+    z-index: 30;
+    border: 1px solid red;
+}
+
+.poisk_inp {
+    height: 44px;
+    width: 288px;
+}
+
+
+.activeLup {
+    width: 14px;
+    height: 14px;
+    background: url(https://i.ibb.co/g6ngk7J/Vector-18.png) -3px -3px no-repeat;
+
+    margin: 12.5px;
+
+}
+
+.mins {
+    height: 150px;
 }

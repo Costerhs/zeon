@@ -261,10 +261,10 @@ z-index: 2; */
     }
 
     .pad {
-        margin-top: -18px;
+        margin-top: -22px;
         height: 83px;
 
-        /* padding-top: 2px; */
+        /* padding-top: 12px; */
 
     }
 
@@ -305,6 +305,7 @@ z-index: 2; */
 
     .simWip {
         margin-top: -20px;
+        height: 350px;
     }
 
     .sChar {
@@ -373,7 +374,7 @@ z-index: 2; */
 
     .img {
         width: 286px;
-        height: 437px;
+        /* height: 437px; */
 
     }
 
@@ -386,7 +387,7 @@ z-index: 2; */
     }
 
     .char {
-        margin-top: -25px;
+        margin-top: 5px;
         width: 286px;
         height: 110px;
     }
@@ -417,10 +418,11 @@ z-index: 2; */
     }
 
     .pad {
-
+        margin-top: -22px;
         height: 100px;
-        margin-top: -2px;
-        padding-top: 10px;
+        /* margin-bottom: 16px; */
+        /* padding-top: 10px;
+        padding-bottom: 5px; */
     }
 
     .swips {
@@ -470,7 +472,9 @@ z-index: 2; */
     .sChar {
         height: 88px;
         width: 226px;
-        margin-top: -103px;
+        /* margin-top: -103px; */
+        margin-top: 12px;
+        padding-bottom: 5px;
     }
 
     .sImg {
@@ -497,9 +501,26 @@ z-index: 2; */
     .forSim {
         height: 102px;
         width: 226px;
-        margin-top: -120px;
+        /* margin-top: -120px; */
+        margin-top: 10px;
 
     }
 
 
+}
+
+.obych {
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    margin-top: -29px;
+}
+
+.itim {
+    width: 286px;
+}
+
+.pades {
+    margin-top: 14px;
+    height: 86px;
 }

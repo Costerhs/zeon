@@ -17,7 +17,7 @@ const NewItem = ({ image, h, text }) => {
 
       </div>
 
-      {full === false ? <div className={newe.cont_btn}><button className={newe.btn} onClick={() => setFull(true)}>Показать полностью</button></div> :
+      {full === false ? <div className={newe.cont_btn}><button className={newe.btn} onClick={() => setFull(true)}>Читать полностью</button></div> :
         <div className={newe.cont_btn}><button className={newe.btn} onClick={() => setFull(false)}>Скрыть</button></div>
       }
     </div>

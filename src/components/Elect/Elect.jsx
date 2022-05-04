@@ -7,7 +7,6 @@ import elc from './Elect.module.css';
 function Elect() {
   let obj = useSelector((state) => state.cart.product);
   let res = obj.some((el) => el.heart === true) === true;
-  console.log(res)
   // let [exist, setExist] = useState(res);
   // console.log(exist)
 
@@ -38,7 +37,7 @@ function Elect() {
         <Similar search />
       </>
     );
-  let text = res === true ? `Товаров в избранном:${hearts.length}` : 'У вас пока нет избранных товаров'
+  let text = res === true ? `Товаров в избранном: ${hearts.length}` : 'У вас пока нет избранных товаров'
   return (
     <div className={elc.boss}>
       <div className={elc.desc}>

@@ -56,3 +56,30 @@
     color: #393939;
     font-size: 16px;
 }
+
+@media (max-width:320px) {
+    .boss {
+        width: 288px;
+        margin: 0 auto;
+        text-align: left;
+        margin-bottom: 20px;
+    }
+
+    .wrap {
+        width: 288px;
+
+
+    }
+
+    .zagol {
+        margin-left: -0px;
+    }
+
+    .resultText {
+        font-size: 16px;
+    }
+
+    .her {
+        font-size: 16px;
+    }
+}

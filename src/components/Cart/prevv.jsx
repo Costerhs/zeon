@@ -1,5 +1,5 @@
 import cart from './Cart.module.css';
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 
 import { NavLink, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
@@ -34,7 +34,7 @@ function Cart({
   let colorArr = useSelector((state) => state.cart.colores);
   let image = useSelector((state) => state.cart.images);
   let location = useLocation();
-  let men = useRef(null);
+  const slides = [];
   let fost = Array.isArray(img);
   let dispatch = useDispatch();
   //для активации сердечка
@@ -63,14 +63,7 @@ function Cart({
   } else {
     lastLocation = location.pathname + '/product';
   }
-  const changeimg = (e) => {
-    console.log(e)
-    let x = e.pageX,
-      y = e.pageY;
 
-    console.log(men);
-    console.log(x - e.target.getBoundingClientRect().left)
-  }
   return (
     <div>
       {/* скидка */}
@@ -100,16 +93,35 @@ function Cart({
           />
           {/*для фото */}
           {fost === true ? (
-            <div ref={men} onMouseMove={changeimg} className={classNames(similar === true && cart.swpp, cart.obych)} >
-              {img.map((el, index) => {
-                return <img
-                  className={classNames(similar === true ? cart.simItim : cart.itim, 'fotochka')}
-                  src={el}
-                  style={{ listStyleType: 'none' }}
-                  alt={`Slide ${1}`}
-                />
-              })}
-
+            <div className={similar === true && cart.swpp}>
+              <Swiper
+                modules={[Pagination, Autoplay, Scrollbar]}
+                spaceBetween={0}
+                autoplay={{
+                  delay: 2000,
+                  disableOnInteraction: false,
+                }}
+                className={similar === true ? cart.sSwips : cart.swips}
+                id="main"
+                tag="section"
+                wrapperTag="ul"
+                scrollbar={{ hide: false, draggable: true }}
+              // style={{ listStyleType: 'none' }}
+              >
+                {img.map((el, index) => {
+                  slides.push(
+                    <SwiperSlide key={`slide-${index}`} tag="li">
+                      <img
+                        className={classNames(similar === true ? cart.simWip : cart.swip, 'fotochka')}
+                        src={el}
+                        style={{ listStyleType: 'none' }}
+                        alt={`Slide ${1}`}
+                      />
+                    </SwiperSlide>,
+                  );
+                })}{' '}
+                {slides}
+              </Swiper>
             </div>
           ) : (
             <img
@@ -124,7 +136,7 @@ function Cart({
           className={classNames(
             similar === true && cart.sChar,
             cart.char,
-            fost === true ? cart.pades : null,
+            fost === true ? cart.pad : null,
             similar === true && fost === false && cart.forSim,
           )}>
           {/* нащвание размер цена и тд */}

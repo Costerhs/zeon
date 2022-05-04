@@ -139,6 +139,7 @@ function Characteristic({
           <button className={prod.toggleElect} onClick={toggleHeart}>
             {' '}
             <img
+              className={prod.cerd}
               src={
                 heartes === true
                   ? 'https://i.ibb.co/6FW30g4/Vector-23.png'

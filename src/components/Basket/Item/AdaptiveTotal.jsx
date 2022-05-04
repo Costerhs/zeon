@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
 import { toggleForm } from '../../../redux/reducers/cartReducer';
 
-function AdaptiveTotal() {
+function AdaptiveTotal({ line, sumPrice, allProductCount }) {
     let dispatch = useDispatch();
     const [ok, setOk] = useState(false)
     const navigateCheck = () => {
@@ -18,18 +18,18 @@ function AdaptiveTotal() {
                 <p className='endes'>Сумма заказа</p>
                 <div className='double'>
                     <p className='gray'>Общее количество</p>
-                    <p className='black'>4 линеек (20 шт.)</p>
+                    <p className='black'>{line} линеек ({allProductCount} шт.)</p>
                 </div>
                 <div className='double'>
                     <p className='gray'>Стоимость</p>
-                    <p className='black'>6823 рублей</p>
+                    <p className='black'>{sumPrice.toLocaleString('ru')} рублей</p>
                 </div>
                 <div className='lines'></div>
             </div>
             <div className='last'>
                 <div className='double'>
                     <p className='gray'>Итого к оплате</p>
-                    <p className='black'>6823 рублей</p>
+                    <p className='black'>{sumPrice.toLocaleString('ru')} рублей</p>
                 </div>
                 <div className='none'>
                     <button className='btes' onClick={() => setOk(el => el = !el)}>

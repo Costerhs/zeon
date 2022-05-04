@@ -28,7 +28,7 @@ function BasItem({ el, actId, totalCount }) {
           </div>
           {/** */}
 
-          <div className={bas.contCircle} style={{ border: '1px solid' + colores }}>
+          <div className={bas.contCircle} /*style={{ border: '1px solid' + colores }}*/ style={{ border: '1px solid #d9cece' }}>
             {' '}
             <div className={bas.circle} style={{ backgroundColor: colores }}></div>
             {/** */}

@@ -51,10 +51,12 @@
 
     .flexes {
         flex-direction: column;
+        margin-bottom: 50px;
     }
 
     .cont {
         width: 288px;
+
     }
 
     .forLast:last-child {

@@ -24,7 +24,8 @@
 
 @media (max-width:320px) {
     .boss {
-        width: 320px;
+        width: 288px;
+        overflow: hidden;
     }
 
     .inter {

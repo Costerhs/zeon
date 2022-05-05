@@ -18,7 +18,7 @@ let intialize = {
     search: 'Поиск',
     public:'Публичная оферта'
   },
-  cols: ['Вечернее платье', 'Белое платье', 'Неоновое платье'],
+  cols: ['Вечернее Платье', 'Белое платье', 'Неоновая одежда'],
 };
 const headerReducer = (state = intialize, action) => {
   switch (action.type) {

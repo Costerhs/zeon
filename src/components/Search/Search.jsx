@@ -11,18 +11,18 @@ function Search() {
   let resultText = useSelector((state) => state.cart.concurrence);
   let pagin = Math.round(useSelector((state) => state.cart.paginationCount) / 12 + 0.4);
   let res = prod.filter(el => el.name.match(resultText) !== null && resultText !== '')
-  console.log(res.length)
+
   let [pagi, setPagi] = useState(1);
 
   useEffect(() => {
     setPagi(1);
-  }, [res])
+  }, [resultText])
   let [touch, setTouch] = useState(4);
   let forze = (num) => {
     setPagi((el) => (el = num));
     window.scroll(0, 0)
   };
-  console.log(pagi + ':' + touch)
+
   return (
     <div className={sear.boss}>
       <div className={sear.zagol}>
@@ -61,12 +61,12 @@ function Search() {
           );
         })}
       </div>
-      {res.length === 0 ? null :
+      {res.length === 0 || res.length < 12 ? null :
         <Pagination
           forze={forze}
           pagi={pagi}
           setPagi={setPagi}
-          pagin={Math.round(res.length / 12 + 0.4)}
+          pagin={pagin}
           setTouch={setTouch}
           touch={touch}
         />}

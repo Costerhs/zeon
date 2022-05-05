@@ -383,4 +383,7 @@
         font-size: 13px;
     }
 
+    .items {
+        width: 288px;
+    }
 }

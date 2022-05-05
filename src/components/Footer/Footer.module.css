@@ -224,11 +224,13 @@
     .item {
         flex-direction: column;
         margin-left: 20px;
+        width: 300px;
     }
 
     .forLogo {
         margin-top: 24px;
         margin-left: -65px;
+        padding-right: 0px;
     }
 
     .block {
@@ -241,10 +243,15 @@
     }
 
 
+    .flex {
+        width: 200px;
+    }
+
 
     .blockS {
 
         margin-top: 1px;
+
     }
 
     .med {

@@ -53,6 +53,12 @@ function Telephones() {
                   type="number"
                   {...register('number', {
                     required: 'Поле обязательна к заполнению',
+                    minLength: {
+                      value: 9
+                    },
+                    maxLength: {
+                      value: 9
+                    }
                   })}
                 />
               </div>

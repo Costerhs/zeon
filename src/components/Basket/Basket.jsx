@@ -45,18 +45,20 @@ function Basket() {
           </div>
         </>}
       </div>
-      {allProduct.length !== 0 &&
-        <Total
-          // line={allProduct.length}
-          line={nakonecto}
-          sumPrice={sumPrice}
-          oldPrice={sumOldPrice}
-          allProductCount={fullCount}
-        />
+      {allProduct.length !== 0 && <>        <Total
+        // line={allProduct.length}
+        line={nakonecto}
+        sumPrice={sumPrice}
+        oldPrice={sumOldPrice}
+        allProductCount={fullCount}
+      />
+        <div className={bas.adTotals}>
+          <AdaptiveTotal line={nakonecto} sumPrice={sumPrice} allProductCount={fullCount} />
+        </div>
+      </>
+
       }
-      <div className={bas.adTotals}>
-        <AdaptiveTotal line={nakonecto} sumPrice={sumPrice} allProductCount={fullCount} />
-      </div>
+
     </div>
   );
 }

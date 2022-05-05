@@ -52,11 +52,10 @@ function Burger({ burgers, setBurgers }) {
                     <p className={hed.sv_p}>Свяжитесь с нами:</p>
                     <div className={hed.colis}>
                         <p className={hed.teles}>Тел: </p>
-                        <div onClick={() => setOk(el => el = !el)} className={classNames(hed.jab, ok && hed.trs)}>
+                        <div className={classNames(hed.jab, ok && hed.trs)}>
+                            <a style={{ color: 'black' }} href="tel:+9967000000"> <p>+996 700 00 00 00</p></a>
 
-                            <p>+996 700 00 00 00</p>
-                            <p>+996 700 00 00 00</p>
-                            <p>+996 700 00 00 00</p>
+
                         </div>
                         <img src='' />
                     </div>
@@ -69,3 +68,4 @@ function Burger({ burgers, setBurgers }) {
 }
 
 export default Burger
+/* onClick={() => setOk(el => el = !el)} */

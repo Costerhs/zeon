@@ -195,11 +195,32 @@ z-index: 2; */
     margin-bottom: 2px;
 }
 
+.indicat {
+    display: flex;
+    position: absolute;
+    width: 286px;
+    height: 3px;
+    bottom: 0;
+
+}
+
+.bullet {
+    height: 3px;
+    margin-top: -1px;
+    border-radius: 50px;
+
+}
+
+.activeBullet {
+    background: rgb(255, 255, 255);
+}
+
 @media (max-width:1366px) {
     .boss {
         width: 226px;
         height: 420px;
         margin-right: 5px;
+
 
     }
 
@@ -208,6 +229,7 @@ z-index: 2; */
         /* height: 536px; */
         margin-bottom: 6px;
         margin-right: 4px;
+
     }
 
     .img {
@@ -514,6 +536,7 @@ z-index: 2; */
     flex-direction: row;
     overflow: hidden;
     margin-top: -29px;
+
 }
 
 .itim {

@@ -94,6 +94,10 @@ function Form() {
               type={"email"}
               {...register('email', {
                 required: 'Поле обязательна к заполнению',
+                pattern: {
+                  value: /.+@.+\..+/i,
+                  message: 'aaaa'
+                }
               })}
               placeholder="example@mail.com"
             />
@@ -121,6 +125,9 @@ function Form() {
                   value: 9,
                   message: 'Должно быть больше 9 цифр',
                 },
+                maxLength: {
+                  value: 9
+                }
               })}
               placeholder="Введите номер телефона"
             />

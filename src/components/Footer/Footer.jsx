@@ -9,9 +9,10 @@ import telegram from './../../assets/img/telegram.png';
 import whats from './../../assets/img/whats.png';
 import inst from './../../assets/img/inst.png';
 import classNames from 'classnames';
+import { useSelector } from 'react-redux';
 const Footer = () => {
   let [forTel, setForTel] = useState(false);
-
+  let tel = useSelector((state) => state.cart.images[0]?.headers.tel);
   return (
     <div>
       {' '}
@@ -43,13 +44,13 @@ const Footer = () => {
               <p className={foot.pe}>
                 {' '}
                 <img src={ring} alt="nice" className={foot.icon} />
-                <a href="tel:+997700002201" className={foot.ssylka} >+996 500 123 456</a>
+                <a href="tel:+997700002201" className={foot.ssylka} >+997 700 00 22 01</a>
               </p>
               <p className={classNames(foot.pe, foot.second)}>
                 {' '}
                 <img src={ring} alt="nice" className={classNames(foot.icon)} />
                 <a href="tel:+997700002201" className={foot.ssylka} >
-                  +996 500 123 456
+                  +997 700 00 22 01
                 </a>
               </p>
               <a href="mailto:mail@gmail.com" className={foot.adre}>

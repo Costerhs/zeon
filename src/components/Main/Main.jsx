@@ -16,7 +16,7 @@ function Main() {
   const news = pros.filter((el) => el.status === 'new').slice(0, countNews);
   const neon = pros.filter((el) => el.status === 'neon');
   let arr = [hit.slice(0, 1), hit.slice(2, 3), news.slice(0, 1), neon.slice(0, 1)];
-  const colls = useSelector(state => state.cart.images[0]?.colls);
+  const colls = useSelector(state => state.cart.images[0]?.colls) || null;
 
   return (
     <div className={main.bosses}>

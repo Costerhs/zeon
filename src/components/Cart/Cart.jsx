@@ -30,6 +30,7 @@ function Cart({
   id,
   oldPrice,
 }) {
+  let [imgCount, setImgCount] = useState(0);
   const [heartes, setHeartes] = useState(heart);
   let colorArr = useSelector((state) => state.cart.colores);
   let image = useSelector((state) => state.cart.images);
@@ -55,21 +56,37 @@ function Cart({
     window.scroll(0, 0);
   };
 
+
+  let wess = {};
+  if (men.current !== null) {
+    wess = { width: men.current.offsetWidth / img.length + 'px' }
+  }
   let lastLocation;
   if (location.pathname === '/') {
     lastLocation = '/product';
   } else if (location.pathname.indexOf('product') >= 0) {
-    lastLocation = location.pathname;
+    // lastLocation = location.pathname;
+    lastLocation = '/product';
+  } else if (location.pathname.indexOf('cart') >= 0) {
+    // lastLocation = location.pathname;
+    lastLocation = '/product';
   } else {
     lastLocation = location.pathname + '/product';
   }
   const changeimg = (e) => {
-    console.log(e)
-    let x = e.pageX,
-      y = e.pageY;
 
-    console.log(men);
-    console.log(x - e.target.getBoundingClientRect().left)
+    let x = e.pageX - e.target.getBoundingClientRect().left;
+    let width = e.target.width / img.length;
+    // let one = width / img.length;
+    let states = x / width;
+    for (let i = 1; i <= img.length; i++) {
+      if (states <= i && states > i - 1) {
+        setImgCount(i - 1)
+      }
+    }
+
+
+    // console.log(x - e.target.getBoundingClientRect().left)
   }
   return (
     <div>
@@ -101,14 +118,25 @@ function Cart({
           {/*для фото */}
           {fost === true ? (
             <div ref={men} onMouseMove={changeimg} className={classNames(similar === true && cart.swpp, cart.obych)} >
-              {img.map((el, index) => {
+              {/* {img.map((el, index) => {
                 return <img
                   className={classNames(similar === true ? cart.simItim : cart.itim, 'fotochka')}
                   src={el}
                   style={{ listStyleType: 'none' }}
                   alt={`Slide ${1}`}
                 />
-              })}
+              })} */}
+              <img
+                className={classNames(similar === true ? cart.simItim : cart.itim, 'fotochka')}
+                src={img[imgCount]}
+                style={{ listStyleType: 'none' }}
+                alt={`Slide ${1}`}
+              />
+              <div className={cart.indicat}>
+                {img.map((el, index) => {
+                  return <div style={wess} className={classNames(cart.bullet, index === imgCount && cart.activeBullet)}></div>
+                })}
+              </div>
 
             </div>
           ) : (

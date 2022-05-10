@@ -95,6 +95,7 @@
 .lup {
     order: -1;
     margin-left: -25px;
+    top: 3px;
 }
 
 .none {
@@ -149,6 +150,14 @@
 
 .gray {
     border: 1px solid #EEEEEE;
+}
+
+.p_inp_over {
+    font-size: 14px;
+}
+
+.input {
+    font-size: 16px;
 }
 
 @media (max-width:1368px) {
@@ -217,7 +226,7 @@
     width: 701px;
 
     background: white;
-    border: 1px solid gray;
+    border: 1px solid rgba(238, 238, 238, 1);
 
     position: absolute;
     z-index: -1;
@@ -232,7 +241,7 @@
     height: 44px;
     padding-left: 20px;
 
-    border-bottom: 1px solid gray;
+    border-bottom: 1px solid rgba(238, 238, 238, 1);
 }
 
 .over_item:first-child {

@@ -156,20 +156,4 @@ function Characteristic({
 }
 
 export default Characteristic;
-/* {cart === false ? (
-            <button className={prod.addCart} onClick={addToProduct}>
-              {' '}
-              <img src="img/cartWhite.png" alt="nice" className={prod.btnImg} />
-              <span className={prod.btnp}> Добавить в корзину</span>
-            </button>
-          ) : (
-            <button
-              className={prod.addCart}
-              onClick={() => {
-                navigate('/cart');
-              }}>
-              {' '}
-              <img src="img/cartWhite.png" alt="nice" className={prod.btnImg} />
-              <span className={prod.btnp}> Перейти в корзину</span>
-            </button>
-          )}*/
+

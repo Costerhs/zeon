@@ -12,32 +12,21 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import './stule.css';
 import 'swiper/css/scrollbar';
-import { SwiperSlide, Swiper } from 'swiper/react';
-import { Autoplay, Pagination, Scrollbar } from 'swiper';
-import { delay, result } from 'lodash';
 
-function Cart({
-  isColl,
-  name,
-  heart,
-  result,
-  data,
-  similar,
-  price,
-  size,
-  color,
-  img,
-  id,
-  oldPrice,
-}) {
+
+function Cart({ name, heart, result, similar, price, size, img, id, oldPrice, }) {
+  let dispatch = useDispatch();
+  let location = useLocation();
+
   let [imgCount, setImgCount] = useState(0);
   const [heartes, setHeartes] = useState(heart);
+
   let colorArr = useSelector((state) => state.cart.colores);
   let image = useSelector((state) => state.cart.images);
-  let location = useLocation();
+
   let men = useRef(null);
   let fost = Array.isArray(img);
-  let dispatch = useDispatch();
+
   //для активации сердечка
   const activeHeart = () => {
     let r = heart === true ? false : true;
@@ -73,25 +62,21 @@ function Cart({
   } else {
     lastLocation = location.pathname + '/product';
   }
-  const changeimg = (e) => {
 
+  const changeimg = (e) => {
     let x = e.pageX - e.target.getBoundingClientRect().left;
     let width = e.target.width / img.length;
-    // let one = width / img.length;
     let states = x / width;
+
     for (let i = 1; i <= img.length; i++) {
       if (states <= i && states > i - 1) {
         setImgCount(i - 1)
       }
     }
-
-
-    // console.log(x - e.target.getBoundingClientRect().left)
   }
   return (
     <div>
       {/* скидка */}
-
       <div
         className={classNames(
           similar ? cart.boss : cart.bossSim,
@@ -105,33 +90,12 @@ function Cart({
               <p className={cart.procent}>{percent}%</p>
             </div>
           ) : null}{' '}
-          <img
-            src={heartes === false ? image[0].heart : image[0].activeHeart}
-            alt="heart"
-            className={classNames(
-              fost === true ? cart.heartHover : cart.heart,
-              similar === true && fost === true && cart.sHeart,
-              similar === true && fost !== true && cart.simHeart,
-            )}
-            onClick={activeHeart}
-          />
+          <img src={heartes === false ? image[0].heart : image[0].activeHeart} alt="heart" className={classNames(fost === true ? cart.heartHover : cart.heart, similar === true && fost === true && cart.sHeart, similar === true && fost !== true && cart.simHeart,)} onClick={activeHeart} />
           {/*для фото */}
           {fost === true ? (
             <div ref={men} onMouseMove={changeimg} className={classNames(similar === true && cart.swpp, cart.obych)} >
-              {/* {img.map((el, index) => {
-                return <img
-                  className={classNames(similar === true ? cart.simItim : cart.itim, 'fotochka')}
-                  src={el}
-                  style={{ listStyleType: 'none' }}
-                  alt={`Slide ${1}`}
-                />
-              })} */}
-              <img
-                className={classNames(similar === true ? cart.simItim : cart.itim, 'fotochka')}
-                src={img[imgCount]}
-                style={{ listStyleType: 'none' }}
-                alt={`Slide ${1}`}
-              />
+
+              <img className={classNames(similar === true ? cart.simItim : cart.itim, 'fotochka')} src={img[imgCount]} style={{ listStyleType: 'none' }} alt={`Slide ${1}`} />
               <div className={cart.indicat}>
                 {img.map((el, index) => {
                   return <div style={wess} className={classNames(cart.bullet, index === imgCount && cart.activeBullet)}></div>
@@ -140,21 +104,11 @@ function Cart({
 
             </div>
           ) : (
-            <img
-              src={img}
-              alt="nice"
-              className={classNames(cart.img, cart.refa, similar === true && cart.sImg)}
-            />
-          )}
+            <img src={img} alt="nice" className={classNames(cart.img, cart.refa, similar === true && cart.sImg)} />)}
           {/*для фото */}
         </div>
         <div
-          className={classNames(
-            similar === true && cart.sChar,
-            cart.char,
-            fost === true ? cart.pades : null,
-            similar === true && fost === false && cart.forSim,
-          )}>
+          className={classNames(similar === true && cart.sChar, cart.char, fost === true ? cart.pades : null, similar === true && fost === false && cart.forSim,)}>
           {/* нащвание размер цена и тд */}
           <NavLink to={lastLocation} className={cart.none} onClick={setIdForProduct}>
             <h2 className={fost ? cart.swH2 : cart.h2}>{name}</h2>
@@ -164,17 +118,10 @@ function Cart({
             <h2 className={cart.size}>Размер: {size}</h2>
           </NavLink>
           <div className={cart.colorGroup}>
-            {colorArr.map((el, index) => {
-              let ind = index + 1 == color;
-
-              let style = {
-                background: el,
-                // border: ind ? '1px solid' + el : null,
-                // marginTop: ind ? '9px' : null,
-              };
+            {colorArr.map((el) => {
               return (
                 <div className={cart.colorItem}>
-                  <div className={classNames(cart.opac)} style={style}></div>
+                  <div className={classNames(cart.opac)} style={{ background: el }}></div>
                 </div>
               );
             })}

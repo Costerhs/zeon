@@ -19,7 +19,8 @@ function Galochka({ tois }) {
         <img className="icon" src="https://i.ibb.co/JnsL98C/Vector-16.png" />
       </div>
       <h1 className="icon_h1"> Спасибо!</h1>
-      <p className="icon_p">Ваша заявка была принята ожидайте,скоро Вам перезвонят</p>
+      <div className='poir'><p className="icon_p">Ваша заявка была принята ожидайте</p>
+        <p className="icon_p">,скоро Вам перезвонят</p></div>
       <div className="btn_cont">
         <button className="icon_btn" onClick={toggle}>
           Продолжить покупку

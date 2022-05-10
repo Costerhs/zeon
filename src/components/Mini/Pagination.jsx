@@ -4,7 +4,7 @@ import mini from './Mini.module.css';
 function Pagination({ forze, setPagi, touch, setTouch, pagi, pagin }) {
   return (
     <div className={mini.pagination}>
-      <div className={mini.uper} onClick={() => { setPagi((el) => (el -= (pagi === 1 ? 0 : 1))); }}></div>
+      <div className={mini.uper} onClick={() => { setPagi((el) => (el -= (pagi === 1 ? 0 : 1))); window.scroll(0, 0) }}></div>
 
       {Array(pagin).fill(0).slice(touch - 4, touch).map((el, index) => {
         return (<PagionationSearch froze={forze.bind(this, index + 1)} active={pagi === index + 1 ? true : false} num={index + 1} />);
@@ -18,7 +18,7 @@ function Pagination({ forze, setPagi, touch, setTouch, pagi, pagin }) {
           <p className={mini.pagi_str}>{pagi}</p>
         </div>
       )}
-      <div className={mini.downer} onClick={() => { setPagi((el) => (el += (pagi === pagin ? 0 : 1))); }}></div>
+      <div className={mini.downer} onClick={() => { setPagi((el) => (el += (pagi === pagin ? 0 : 1))); window.scroll(0, 0) }}></div>
     </div>
   );
 }

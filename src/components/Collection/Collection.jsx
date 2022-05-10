@@ -22,6 +22,7 @@ function Collection() {
   let [touch, setTouch] = useState(4);
   let forze = (num) => {
     setPagi((el) => (el = num));
+    window.scroll(0, 0)
   };
   useEffect(() => {
     setPagi(1);

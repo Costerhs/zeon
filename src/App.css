@@ -145,7 +145,13 @@
   margin-top: -1px;
   width: 20px;
   height: 20px;
+  color: black;
 
+}
+
+.checks:checked {
+  background: black;
+  color: black;
 }
 
 .ofera {
@@ -154,7 +160,8 @@
 }
 
 .ofer_a {
-  color: blue;
+  color: rgb(53, 53, 231);
+  text-decoration: none;
 }
 
 .formes_cont {
@@ -220,12 +227,16 @@
 }
 
 .icon_p {
-  width: 280px;
+  width: 320px;
   margin: 0 auto;
-  margin-top: -19px;
+  margin-top: -1px;
   font-size: 14px;
   color: #393939;
 
+}
+
+.poir {
+  margin-top: -19px;
 }
 
 .icon_btn {
@@ -525,6 +536,10 @@
 
   }
 
+  .inp {
+    border: 1px solid #ece9e9;
+  }
+
   .strel {
     position: relative;
     top: -152px;
@@ -771,6 +786,8 @@
     width: 244px;
     font-size: 12px;
     height: 41px;
+
+    border: 1px solid #FFFFFF;
   }
 
   .numinp {
